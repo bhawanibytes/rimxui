@@ -1,12 +1,19 @@
-// import React from 'react'
-
-import Buttons from "./components/showcase/Buttons";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Dump from "./pages/Dump";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
-    <div className="flex justify-center items-center h-screen text-red-700 bg-slate-600 min-w-[80%] ">
-      <Buttons />
-    </div>
+    <>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dump" element={<Dump />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 };
 
