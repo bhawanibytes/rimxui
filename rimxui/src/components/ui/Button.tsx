@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { mc } from "../../utils/utils";
+import { cn } from "../../lib/utils";
 import { Home } from "lucide-react";
 
 interface ButtonProps {
@@ -49,7 +49,7 @@ const Button: FC<ButtonProps> = ({
   return (
     <button
       {...props}
-      className={mc(
+      className={cn(
         "rounded-sm shadow-md shadow-gray-400 dark:shadow-gray-800 transition-all duration-300",
         variantMap[variant],
         sizeMap[size],
@@ -60,10 +60,10 @@ const Button: FC<ButtonProps> = ({
       )}
     >
       {variant === "WithIcon" && (
-        <Home strokeWidth={1.5} className={mc(iconSizeMap[size])} />
+        <Home strokeWidth={1.5} className={cn(iconSizeMap[size])} />
       )}
       {variant === "Icon" ? (
-        <Home strokeWidth={1.5} className={mc(iconSizeMap[size])} />
+        <Home strokeWidth={1.5} className={cn(iconSizeMap[size])} />
       ) : (
         label
       )}
