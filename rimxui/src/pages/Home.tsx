@@ -1,4 +1,4 @@
-import Countdown from "../components/countdown/Countdown";
+import Countdown from "../components/countdown/countdown";
 
 const Home = () => {
   return (
