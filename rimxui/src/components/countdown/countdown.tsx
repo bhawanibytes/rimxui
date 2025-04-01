@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Lottie from "lottie-react";
-import animationData from "../animation/Animation - 1743497825600.json"; // Your Lottie JSON animation
+import animationData from "../../animation/Animation - 1743497825600.json";
 
 const CountdownTimer = () => {
   const targetDate = new Date("2025-04-20T00:00:00").getTime();
