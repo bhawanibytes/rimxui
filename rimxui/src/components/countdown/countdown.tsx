@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Lottie from "lottie-react";
 import animationData from "../../animation/Animation - 1743497825600.json";
 
-const CountdownTimer = () => {
+const Countdown = () => {
   const targetDate = new Date("2025-04-20T00:00:00").getTime();
 
   const calculateTimeLeft = () => {
@@ -47,6 +47,9 @@ const CountdownTimer = () => {
           objectFit: "cover",
           zIndex: -1,
         }}
+        rendererSettings={{
+          preserveAspectRatio: "xMidYMid slice", // Ensures it fills the container while cropping excess
+        }}
       />
 
       <motion.h1
@@ -64,7 +67,7 @@ const CountdownTimer = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.5 }}
       >
-        Launch Countdown
+        M<span className="text-red-500">i</span>XING YOUR FAV UI
       </motion.h2>
 
       <motion.p
@@ -97,4 +100,4 @@ const CountdownTimer = () => {
   );
 };
 
-export default CountdownTimer;
+export default Countdown;
