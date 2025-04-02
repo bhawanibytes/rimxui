@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
+import Lottie from "lottie-react";
 import { useEffect, useState } from "react";
-
+import animation from "./gradient-animation.json";
 export function CountdownV2() {
   const targetDate = new Date("2025-04-20T00:00:00").getTime();
 
@@ -28,10 +29,21 @@ export function CountdownV2() {
   return (
     <div className="flex items-center justify-center h-screen bg-black relative overflow-hidden text-white">
       {/* Animated Gradient Background */}
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-purple-700 via-blue-500 to-indigo-900 opacity-20"
-        animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+      <Lottie
+        animationData={animation}
+        loop={true}
+        autoplay={true}
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100vh",
+          objectFit: "cover",
+        }}
+        rendererSettings={{
+          preserveAspectRatio: "xMidYMid slice",
+        }}
       />
 
       <div className="text-center p-8 relative z-10">
