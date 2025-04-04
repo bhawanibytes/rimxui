@@ -17,15 +17,15 @@ type BaseListProps = {
 export type ListType = "unordered" | "ordered" | "plain";
 
 export interface UnorderedListProps extends HTMLAttributes<HTMLUListElement> {
-  listType: "unordered";
+  listType?: "unordered";
 }
 
 export interface OrderedListProps extends HTMLAttributes<HTMLOListElement> {
-  listType: "ordered";
+  listType?: "ordered";
 }
 
 export interface PlainListProps extends HTMLAttributes<HTMLDivElement> {
-  listType: "plain";
+  listType?: "plain";
 }
 
 type ListPropsBasedOnType =

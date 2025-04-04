@@ -4,7 +4,7 @@ import {
   LIST_SIZES_STYLES,
   LIST_SPACING_STYLES,
   LIST_VARIANTS_STYLES,
-} from "../../constants";
+} from "@constants";
 import {
   ListProps,
   ListRefType,
@@ -12,8 +12,8 @@ import {
   OrderedListProps,
   PlainListProps,
   UnorderedListProps,
-} from "../../types";
-import { mc } from "../../utils";
+} from "@types";
+import { mc } from "@utils";
 
 const LIST_COMPONENT_MAP: Record<ListType, ElementType> = {
   unordered: forwardRef<HTMLUListElement, UnorderedListProps>(

@@ -1,4 +1,4 @@
-import { ListSizes, ListSpacings, ListVariants } from "../../../types";
+import { ListSizes, ListSpacings, ListVariants } from "@types";
 
 export const LIST_VARIANTS_STYLES: Record<ListVariants, string> = {
   default: "text-gray-800 dark:text-gray-100",

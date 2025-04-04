@@ -1,20 +1,8 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Dump from "./pages/Dump";
-// import Navbar from "./components/Navbar";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ROUTE_COMPONENTS } from "@routes";
 
-const App = () => {
-  return (
-    <>
-      <BrowserRouter>
-        {/* <Navbar /> */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/dump" element={<Dump />} />
-        </Routes>
-      </BrowserRouter>
-    </>
-  );
-};
+const App: React.FC = () => (
+  <RouterProvider router={createBrowserRouter(ROUTE_COMPONENTS)} />
+);
 
 export default App;
