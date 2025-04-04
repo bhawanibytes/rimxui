@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { mc } from "../../utils/utils";
+import { mc } from "@utils";
 import { Home } from "lucide-react";
 
 interface ButtonProps {
