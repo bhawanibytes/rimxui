@@ -6,6 +6,7 @@ import {
   LIST_SPACING_STYLES,
   LIST_VARIANTS_STYLES,
 } from "@constants";
+import { ListContext } from "@contexts";
 import {
   ListProps,
   ListRefType,
@@ -71,10 +72,19 @@ export const List = forwardRef<ListRefType, ListProps>(
 
     const ListComponent = LIST_COMPONENT_MAP[listType];
 
+    const contextValue = {
+      variant,
+      size,
+      spacing,
+      bordered,
+    };
+
     return (
-      <ListComponent ref={ref} className={listComponentStyles} {...restProps}>
-        {children}
-      </ListComponent>
+      <ListContext.Provider value={contextValue}>
+        <ListComponent ref={ref} className={listComponentStyles} {...restProps}>
+          {children}
+        </ListComponent>
+      </ListContext.Provider>
     );
   },
 );

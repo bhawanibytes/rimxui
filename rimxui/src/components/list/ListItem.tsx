@@ -4,9 +4,11 @@ import {
   LISTITEM_DIVIDER_STYLES,
   LISTITEM_GUTTERS_STYLES,
   LISTITEM_HOVER_STYLES,
+  LISTITEM_HOVER_STYLES_DEFAULT,
   LISTITEM_PADDING_STYLES,
   LISTITEM_SELECTED_STYLES,
 } from "@constants";
+import { useListContext } from "@contexts/list";
 import { ListItemProps, ListItemRefType, ListItemType } from "@types";
 import { mc } from "@utils";
 
@@ -42,6 +44,17 @@ export const ListItem = forwardRef<ListItemRefType, ListItemProps>(
     },
     ref,
   ) => {
+    let hoverStyles = LISTITEM_HOVER_STYLES_DEFAULT;
+    const listContext = useListContext();
+
+    // TODO: Remove error from context or handle this after finalizing behavior
+    if (listContext && listContext.variant) {
+      const variantKey =
+        listContext.variant as keyof typeof LISTITEM_HOVER_STYLES;
+      hoverStyles =
+        LISTITEM_HOVER_STYLES[variantKey] || LISTITEM_HOVER_STYLES_DEFAULT;
+    }
+
     const paddingStyles = disablePadding
       ? LISTITEM_PADDING_STYLES.disabled
       : LISTITEM_PADDING_STYLES.enabled;
@@ -64,7 +77,7 @@ export const ListItem = forwardRef<ListItemRefType, ListItemProps>(
       guttersStyles,
       dividerStyles,
       selectedStyles,
-      LISTITEM_HOVER_STYLES,
+      hoverStyles,
       className,
     );
 

@@ -6,6 +6,9 @@ export const LIST_VARIANTS_STYLES: Record<ListVariants, string> = {
   secondary: "text-purple-700 dark:text-purple-300",
   outline:
     "text-gray-800 dark:text-gray-100 border border-gray-200 dark:border-gray-700 rounded-md",
+  dark: "bg-gray-800 text-gray-100 rounded-md shadow-md",
+  darkPrimary: "bg-blue-900 text-blue-100 rounded-md shadow-md",
+  darkSecondary: "bg-purple-900 text-purple-100 rounded-md shadow-md",
 };
 
 export const LIST_SIZES_STYLES: Record<ListSizes, string> = {

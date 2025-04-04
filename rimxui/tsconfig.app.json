@@ -39,7 +39,9 @@
       "@assets/*": ["src/assets/*"],
       "@assets": ["src/assets"],
       "@routes/*": ["src/routes/*"],
-      "@routes": ["src/routes"]
+      "@routes": ["src/routes"],
+      "@contexts/*": ["src/contexts/*"],
+      "@contexts": ["src/contexts"]
     }
   },
   "include": ["src"]

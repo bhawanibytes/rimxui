@@ -1,6 +1,6 @@
 import { RouteObject } from "react-router-dom";
 
-import { Dump, Home, ShowcasePage } from "@pages";
+import { Dump, Home, ShadCNStypeShowcasePage, } from "@pages";
 
 import { ROUTES } from "./routes";
 
@@ -15,6 +15,6 @@ export const ROUTE_COMPONENTS: Array<RouteObject> = [
   },
   {
     path: ROUTES.showcase,
-    element: <ShowcasePage />,
+    element: <ShadCNStypeShowcasePage />,
   },
 ];
