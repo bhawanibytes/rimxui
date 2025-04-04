@@ -2,7 +2,7 @@ import { RouteObject } from "react-router-dom";
 
 import { Dump, Home, ShowcasePage } from "@pages";
 
-import { ROUTES } from "../routes";
+import { ROUTES } from "./routes";
 
 export const ROUTE_COMPONENTS: Array<RouteObject> = [
   {

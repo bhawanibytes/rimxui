@@ -1,6 +1,7 @@
 import { ElementType, forwardRef } from "react";
 
 import {
+  LIST_BORDERED_STYLES,
   LIST_SIZES_STYLES,
   LIST_SPACING_STYLES,
   LIST_VARIANTS_STYLES,
@@ -56,16 +57,15 @@ export const List = forwardRef<ListRefType, ListProps>(
     const listVariantStyles = LIST_VARIANTS_STYLES[variant];
     const listSizeStyles = LIST_SIZES_STYLES[size];
     const listSpacingStyles = LIST_SPACING_STYLES[spacing];
-
-    const listBorderStyles = bordered
-      ? "divide-y divide-gray-200 dark:divide-gray-700"
-      : "";
+    const borderedStyles = bordered
+      ? LIST_BORDERED_STYLES.enabled
+      : LIST_BORDERED_STYLES.disabled;
 
     const listComponentStyles = mc(
       listVariantStyles,
       listSizeStyles,
       listSpacingStyles,
-      listBorderStyles,
+      borderedStyles,
       className,
     );
 

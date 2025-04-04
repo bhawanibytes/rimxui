@@ -1,0 +1,87 @@
+import { ElementType, forwardRef, HTMLAttributes } from "react";
+
+import {
+  LISTITEM_DIVIDER_STYLES,
+  LISTITEM_GUTTERS_STYLES,
+  LISTITEM_HOVER_STYLES,
+  LISTITEM_PADDING_STYLES,
+  LISTITEM_SELECTED_STYLES,
+} from "@constants";
+import { ListItemProps, ListItemRefType, ListItemType } from "@types";
+import { mc } from "@utils";
+
+const LISTITEM_COMPONENT_MAP: Record<ListItemType, ElementType> = {
+  "list-item": forwardRef<HTMLLIElement, HTMLAttributes<HTMLLIElement>>(
+    ({ children, ...props }, ref) => (
+      <li ref={ref} {...props}>
+        {children}
+      </li>
+    ),
+  ),
+  plain: forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+    ({ children, ...props }, ref) => (
+      <div ref={ref} {...props}>
+        {children}
+      </div>
+    ),
+  ),
+};
+
+export const ListItem = forwardRef<ListItemRefType, ListItemProps>(
+  (
+    {
+      children,
+      className,
+      itemType = "list-item",
+      disablePadding = false,
+      disableGutters = false,
+      divider = false,
+      secondaryAction,
+      selected = false,
+      ...props
+    },
+    ref,
+  ) => {
+    const paddingStyles = disablePadding
+      ? LISTITEM_PADDING_STYLES.disabled
+      : LISTITEM_PADDING_STYLES.enabled;
+
+    const guttersStyles = disableGutters
+      ? LISTITEM_GUTTERS_STYLES.disabled
+      : LISTITEM_GUTTERS_STYLES.enabled;
+
+    const dividerStyles = divider
+      ? LISTITEM_DIVIDER_STYLES.enabled
+      : LISTITEM_DIVIDER_STYLES.disabled;
+
+    const selectedStyles = selected
+      ? LISTITEM_SELECTED_STYLES.enabled
+      : LISTITEM_SELECTED_STYLES.disabled;
+
+    const listItemClasses = mc(
+      "flex w-full items-center",
+      paddingStyles,
+      guttersStyles,
+      dividerStyles,
+      selectedStyles,
+      LISTITEM_HOVER_STYLES,
+      className,
+    );
+
+    const ItemComponent = LISTITEM_COMPONENT_MAP[itemType];
+
+    // Filter props to only include valid HTML attributes
+    const filteredProps = Object.fromEntries(
+      Object.entries(props).filter(([key]) => !["itemType"].includes(key)),
+    );
+
+    return (
+      <ItemComponent ref={ref} className={listItemClasses} {...filteredProps}>
+        {children}
+        {secondaryAction && (
+          <div className="ml-auto flex items-center">{secondaryAction}</div>
+        )}
+      </ItemComponent>
+    );
+  },
+);

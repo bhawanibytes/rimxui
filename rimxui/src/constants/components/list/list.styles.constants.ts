@@ -19,3 +19,8 @@ export const LIST_SPACING_STYLES: Record<ListSpacings, string> = {
   medium: "space-y-2",
   large: "space-y-4",
 };
+
+export const LIST_BORDERED_STYLES = {
+  enabled: "divide-y divide-gray-200 dark:divide-gray-700",
+  disabled: "",
+};
