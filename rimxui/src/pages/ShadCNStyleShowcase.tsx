@@ -10,6 +10,9 @@ import { useState } from "react";
  */
 export const ShadCNStypeShowcasePage: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
+  const [componentMode, setComponentMode] = useState<"preview" | "code">(
+    "preview",
+  );
 
   const folders = [
     { id: 1, name: "Inbox", icon: "📥", count: 24 },
@@ -81,7 +84,7 @@ export const ShadCNStypeShowcasePage: React.FC = () => {
                 )}
               </button>
               <a
-                href="https://github.com/your-username/rimxui"
+                href="https://github.com/bhawanibytes/rimxui"
                 target="_blank"
                 rel="noreferrer"
                 className="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
@@ -194,52 +197,68 @@ export const ShadCNStypeShowcasePage: React.FC = () => {
                       Preview
                     </h2>
                     <div className="flex gap-2">
-                      <button className="px-2.5 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-md text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700">
+                      <button
+                        onClick={() => {
+                          setComponentMode("preview");
+                        }}
+                        className="px-2.5 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-md text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700"
+                      >
                         Preview
                       </button>
-                      <button className="px-2.5 py-1.5 rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800">
+                      <button
+                        onClick={() => {
+                          setComponentMode("code");
+                        }}
+                        className="px-2.5 py-1.5 rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
+                      >
                         Code
                       </button>
                     </div>
                   </div>
-                  <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 p-6">
-                    <List variant="outline" listType="plain" bordered>
-                      {folders.map((folder) => (
-                        <ListItem
-                          key={folder.id}
-                          itemType="plain"
-                          className="cursor-pointer"
-                          secondaryAction={
-                            folder.count > 0 ? (
-                              <span className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100 px-2 py-1 rounded-full text-xs">
-                                {folder.count}
+                  {componentMode === "preview" && (
+                    <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 p-6">
+                      <List variant="outline" listType="plain" bordered>
+                        {folders.map((folder) => (
+                          <ListItem
+                            key={folder.id}
+                            itemType="plain"
+                            className="cursor-pointer"
+                            secondaryAction={
+                              folder.count > 0 ? (
+                                <span className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100 px-2 py-1 rounded-full text-xs">
+                                  {folder.count}
+                                </span>
+                              ) : null
+                            }
+                          >
+                            <div className="flex items-center">
+                              <span className="mr-3 text-xl">
+                                {folder.icon}
                               </span>
-                            ) : null
-                          }
-                        >
-                          <div className="flex items-center">
-                            <span className="mr-3 text-xl">{folder.icon}</span>
-                            <span>{folder.name}</span>
-                          </div>
-                        </ListItem>
-                      ))}
-                    </List>
-                  </div>
+                              <span>{folder.name}</span>
+                            </div>
+                          </ListItem>
+                        ))}
+                      </List>
+                    </div>
+                  )}
                 </div>
-
-                <div className="space-y-4">
-                  <h2 className="text-2xl font-bold tracking-tight">Code</h2>
-                  <div className="rounded-xl bg-gray-950 p-6 overflow-auto">
-                    <pre className="text-gray-50 text-sm font-mono">
-                      <code>{`import { List, ListItem } from "@components/list";
+                {componentMode === "code" && (
+                  <div className="space-y-4">
+                    <h2 className="text-2xl font-bold tracking-tight">Code</h2>
+                    <div className="rounded-xl bg-gray-950 p-6 overflow-auto">
+                      <pre className="text-gray-50 text-sm font-mono">
+    {/* TODO: Look into how we can highlight the syntax */}
+                        <code>{`
+import { List, ListItem } from "@components/list";
 
 export default function ListExample() {
   const folders = [
-    { id: 1, name: "Inbox", icon: "📥", count: 24 },
-    { id: 2, name: "Drafts", icon: "📝", count: 5 },
-    { id: 3, name: "Sent", icon: "📤", count: 18 },
+  { id: 1, name: "Inbox", icon: "📥", count: 24 },
+  { id: 2, name: "Drafts", icon: "📝", count: 5 },
+  { id: 3, name: "Sent", icon: "📤", count: 18 },
   ];
-
+                          
   return (
     <List variant="outline" listType="plain" bordered>
       {folders.map((folder) => (
@@ -255,19 +274,20 @@ export default function ListExample() {
               </span>
             ) : null
           }
-        >
-          <div className="flex items-center">
-            <span className="mr-3 text-xl">{folder.icon}</span>
-            <span>{folder.name}</span>
-          </div>
+          >
+            <div className="flex items-center">
+              <span className="mr-3 text-xl">{folder.icon}</span>
+              <span>{folder.name}</span>
+            </div>
         </ListItem>
       ))}
     </List>
   );
 }`}</code>
-                    </pre>
+                      </pre>
+                    </div>
                   </div>
-                </div>
+                )}
 
                 <div className="space-y-6">
                   <h2 className="text-2xl font-bold tracking-tight">
@@ -389,229 +409,6 @@ export default function ListExample() {
                       <ListItem disablePadding>Item Without Padding</ListItem>
                       <ListItem>Regular Item</ListItem>
                     </List>
-                  </div>
-                </div>
-
-                <div className="space-y-6">
-                  <h2 className="text-2xl font-bold tracking-tight">
-                    API Reference
-                  </h2>
-
-                  <h3 className="text-xl font-semibold mt-4">List</h3>
-                  <div className="overflow-x-auto">
-                    <table className="w-full border-collapse text-sm">
-                      <thead>
-                        <tr>
-                          <th className="bg-gray-100 dark:bg-gray-800 px-4 py-2 text-left font-medium text-gray-500 dark:text-gray-400">
-                            Prop
-                          </th>
-                          <th className="bg-gray-100 dark:bg-gray-800 px-4 py-2 text-left font-medium text-gray-500 dark:text-gray-400">
-                            Type
-                          </th>
-                          <th className="bg-gray-100 dark:bg-gray-800 px-4 py-2 text-left font-medium text-gray-500 dark:text-gray-400">
-                            Default
-                          </th>
-                          <th className="bg-gray-100 dark:bg-gray-800 px-4 py-2 text-left font-medium text-gray-500 dark:text-gray-400">
-                            Description
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-gray-200 dark:divide-gray-800">
-                        <tr>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            listType
-                          </td>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            'unordered' | 'ordered' | 'plain'
-                          </td>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            'unordered'
-                          </td>
-                          <td className="px-4 py-2">
-                            The type of list to render
-                          </td>
-                        </tr>
-                        <tr>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            variant
-                          </td>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            'default' | 'primary' | 'secondary' | 'outline' |
-                            'dark' | 'darkPrimary' | 'darkSecondary'
-                          </td>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            'default'
-                          </td>
-                          <td className="px-4 py-2">
-                            The visual variant of the list
-                          </td>
-                        </tr>
-                        <tr>
-                          <td className="px-4 py-2 font-mono text-xs">size</td>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            'sm' | 'md' | 'lg'
-                          </td>
-                          <td className="px-4 py-2 font-mono text-xs">'md'</td>
-                          <td className="px-4 py-2">
-                            The text size of the list items
-                          </td>
-                        </tr>
-                        <tr>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            spacing
-                          </td>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            'small' | 'medium' | 'large'
-                          </td>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            'medium'
-                          </td>
-                          <td className="px-4 py-2">
-                            The spacing between list items
-                          </td>
-                        </tr>
-                        <tr>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            bordered
-                          </td>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            boolean
-                          </td>
-                          <td className="px-4 py-2 font-mono text-xs">false</td>
-                          <td className="px-4 py-2">
-                            Whether to show borders between list items
-                          </td>
-                        </tr>
-                        <tr>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            className
-                          </td>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            string
-                          </td>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            undefined
-                          </td>
-                          <td className="px-4 py-2">
-                            Additional CSS classes to apply
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-
-                  <h3 className="text-xl font-semibold mt-6">ListItem</h3>
-                  <div className="overflow-x-auto">
-                    <table className="w-full border-collapse text-sm">
-                      <thead>
-                        <tr>
-                          <th className="bg-gray-100 dark:bg-gray-800 px-4 py-2 text-left font-medium text-gray-500 dark:text-gray-400">
-                            Prop
-                          </th>
-                          <th className="bg-gray-100 dark:bg-gray-800 px-4 py-2 text-left font-medium text-gray-500 dark:text-gray-400">
-                            Type
-                          </th>
-                          <th className="bg-gray-100 dark:bg-gray-800 px-4 py-2 text-left font-medium text-gray-500 dark:text-gray-400">
-                            Default
-                          </th>
-                          <th className="bg-gray-100 dark:bg-gray-800 px-4 py-2 text-left font-medium text-gray-500 dark:text-gray-400">
-                            Description
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-gray-200 dark:divide-gray-800">
-                        <tr>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            itemType
-                          </td>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            'list-item' | 'plain'
-                          </td>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            'list-item'
-                          </td>
-                          <td className="px-4 py-2">
-                            The type of list item element
-                          </td>
-                        </tr>
-                        <tr>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            disablePadding
-                          </td>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            boolean
-                          </td>
-                          <td className="px-4 py-2 font-mono text-xs">false</td>
-                          <td className="px-4 py-2">
-                            Whether to disable padding
-                          </td>
-                        </tr>
-                        <tr>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            disableGutters
-                          </td>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            boolean
-                          </td>
-                          <td className="px-4 py-2 font-mono text-xs">false</td>
-                          <td className="px-4 py-2">
-                            Whether to disable gutters
-                          </td>
-                        </tr>
-                        <tr>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            divider
-                          </td>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            boolean
-                          </td>
-                          <td className="px-4 py-2 font-mono text-xs">false</td>
-                          <td className="px-4 py-2">
-                            Whether to show a divider below the item
-                          </td>
-                        </tr>
-                        <tr>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            selected
-                          </td>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            boolean
-                          </td>
-                          <td className="px-4 py-2 font-mono text-xs">false</td>
-                          <td className="px-4 py-2">
-                            Whether the item is selected
-                          </td>
-                        </tr>
-                        <tr>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            secondaryAction
-                          </td>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            ReactNode
-                          </td>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            undefined
-                          </td>
-                          <td className="px-4 py-2">
-                            Content to show as a secondary action
-                          </td>
-                        </tr>
-                        <tr>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            className
-                          </td>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            string
-                          </td>
-                          <td className="px-4 py-2 font-mono text-xs">
-                            undefined
-                          </td>
-                          <td className="px-4 py-2">
-                            Additional CSS classes to apply
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
                   </div>
                 </div>
               </div>

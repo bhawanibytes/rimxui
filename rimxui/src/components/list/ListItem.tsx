@@ -83,13 +83,8 @@ export const ListItem = forwardRef<ListItemRefType, ListItemProps>(
 
     const ItemComponent = LISTITEM_COMPONENT_MAP[itemType];
 
-    // Filter props to only include valid HTML attributes
-    const filteredProps = Object.fromEntries(
-      Object.entries(props).filter(([key]) => !["itemType"].includes(key)),
-    );
-
     return (
-      <ItemComponent ref={ref} className={listItemClasses} {...filteredProps}>
+      <ItemComponent ref={ref} className={listItemClasses} {...props}>
         {children}
         {secondaryAction && (
           <div className="ml-auto flex items-center">{secondaryAction}</div>
