@@ -1,3 +1,5 @@
-export const mc = (...classes: (string | undefined)[]) => {
+import { Optional } from "../types";
+
+export const mc = (...classes: Array<Optional<string>>) => {
   return classes.filter(Boolean).join(" ");
 };
