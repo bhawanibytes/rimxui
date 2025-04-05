@@ -99,3 +99,5 @@ export const getRoute = <R extends RouteValues>(
     route as string,
   );
 };
+
+getRoute(ROUTES.user, { id: "123" });
