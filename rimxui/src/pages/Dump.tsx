@@ -1,4 +1,4 @@
-import Buttons from "../components/showcase/Buttons";
+import Buttons from "../components/showcase/ButtonPage";
 
 export const Dump = () => {
   return (
