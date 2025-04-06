@@ -1,6 +1,13 @@
 import { HTMLAttributes } from "react";
 
-export type ListVariants = "default" | "primary" | "secondary" | "outline" | "dark" | "darkPrimary" | "darkSecondary";
+export type ListVariants =
+  | "default"
+  | "primary"
+  | "secondary"
+  | "outline"
+  | "dark"
+  | "darkPrimary"
+  | "darkSecondary";
 
 export type ListSizes = "sm" | "md" | "lg";
 
