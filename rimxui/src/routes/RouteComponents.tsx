@@ -1,6 +1,6 @@
 import { RouteObject } from "react-router-dom";
 
-import { Dump, Home, ShadCNStypeShowcasePage, } from "@pages";
+import { Dump, Home, ShadCNStypeShowcasePage } from "@pages";
 
 import { ROUTES } from "./routes";
 
