@@ -248,7 +248,7 @@ export const ShadCNStypeShowcasePage: React.FC = () => {
                     <h2 className="text-2xl font-bold tracking-tight">Code</h2>
                     <div className="rounded-xl bg-gray-950 p-6 overflow-auto">
                       <pre className="text-gray-50 text-sm font-mono">
-    {/* TODO: Look into how we can highlight the syntax */}
+                        {/* TODO: Look into how we can highlight the syntax */}
                         <code>{`
 import { List, ListItem } from "@components/list";
 

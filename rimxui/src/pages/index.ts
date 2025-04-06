@@ -1,3 +1,3 @@
 export * from "./Dump";
 export * from "./Home";
-export * from './ShadCNStyleShowcase';
+export * from "./ShadCNStyleShowcase";
