@@ -1,4 +1,5 @@
-import { ROUTES } from "@/routes";
+// Do not make this import absolute, it cause circular import and break the application
+import { ROUTES } from "../../routes/routes";
 import React, { useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 
