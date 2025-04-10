@@ -1,7 +1,7 @@
 import { ROUTES } from "./routes";
 
 // This is used to get all the routes defined in ROUTES object.
-type RouteValues = (typeof ROUTES)[keyof typeof ROUTES];
+type RouteValues = string & (typeof ROUTES)[keyof typeof ROUTES];
 
 /**
  * This is used for finding parameters in route string using template literals.
@@ -99,5 +99,3 @@ export const getRoute = <R extends RouteValues>(
     route as string,
   );
 };
-
-getRoute(ROUTES.user, { id: "123" });

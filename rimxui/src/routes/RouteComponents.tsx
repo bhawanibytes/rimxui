@@ -1,11 +1,16 @@
 import { RouteObject } from "react-router-dom";
 
-import { Dump, Home, ShadCNStypeShowcasePage } from "@pages";
+import { Dump, Home } from "@pages";
 
-import { ROUTES } from "./routes";
-import { Showcase } from "@/components/showcase";
 import ButtonPage from "@/components/showcase/ButtonPage";
+import { CardPage } from "@/components/showcase/CardPage";
+import { ColorShowcase } from "@/components/showcase/ColorShowcase";
+import { ColorUsageShowcase } from "@/components/showcase/ColorUsageShowcase";
 import ListPage from "@/components/showcase/ListPage";
+import ShadowShowcase from "@/components/showcase/ShadowShowcase";
+import { ShowcaseLayout } from "@/components/showcase/ShowcaseLayout";
+import TypographyPage from "@/components/showcase/TypographyPage";
+import { CHILD_ROUTES, ROUTES } from "./routes";
 
 export const ROUTE_COMPONENTS: Array<RouteObject> = [
   {
@@ -18,19 +23,39 @@ export const ROUTE_COMPONENTS: Array<RouteObject> = [
   },
   {
     path: ROUTES.showcase,
-    element: <ShadCNStypeShowcasePage />,
-  },
-  {
-    path: ROUTES.showcase,
-    element: <Showcase />,
+    element: <ShowcaseLayout />,
     children: [
       {
-        path: "/showcase/list",
+        index: true,
+        element: <ColorShowcase />,
+      },
+      {
+        path: CHILD_ROUTES.showcase.colors,
+        element: <ColorShowcase />,
+      },
+      {
+        path: CHILD_ROUTES.showcase.colorUsage,
+        element: <ColorUsageShowcase />,
+      },
+      {
+        path: CHILD_ROUTES.showcase.typography,
+        element: <TypographyPage />,
+      },
+      {
+        path: CHILD_ROUTES.showcase.buttons,
+        element: <ButtonPage />,
+      },
+      {
+        path: CHILD_ROUTES.showcase.cards,
+        element: <CardPage />,
+      },
+      {
+        path: CHILD_ROUTES.showcase.lists,
         element: <ListPage />,
       },
       {
-        path: "/showcase/button",
-        element: <ButtonPage />,
+        path: CHILD_ROUTES.showcase.shadows,
+        element: <ShadowShowcase />,
       },
     ],
   },

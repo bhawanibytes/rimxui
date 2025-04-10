@@ -14,7 +14,7 @@ type BaseButtonProps = {
   variant?: ButtonVariants;
   size?: ButtonSizes;
   className?: string;
-  label?: boolean;
+  label?: string;
   icon?: IconName;
 };
 

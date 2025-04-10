@@ -7,10 +7,17 @@ const ListPage = () => {
     { id: 2, name: "Drafts", icon: "📝", count: 5 },
     { id: 3, name: "Sent", icon: "📤", count: 18 },
   ];
+
+  const basicItems = [
+    { id: 1, text: "First Item" },
+    { id: 2, text: "Second Item" },
+    { id: 3, text: "Third Item" },
+  ];
+
   return (
-    <div className="space-y-12 max-w-3xl">
+    <div className="space-y-12 max-w-4xl">
       <div className="space-y-4">
-        <div className="inline-flex items-center rounded-lg bg-gray-100 dark:bg-gray-800 px-3 py-1 text-sm font-medium">
+        <div className="inline-flex items-center rounded-lg bg-neutral-100 dark:bg-neutral-800 px-3 py-1 text-sm font-medium">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-4 w-4 mr-1"
@@ -22,22 +29,22 @@ const ListPage = () => {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth={2}
-              d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
+              d="M4 6h16M4 12h16m-7 6h7"
             />
           </svg>
           <span>Components</span>
-          <span className="mx-2 text-gray-400 dark:text-gray-500">/</span>
+          <span className="mx-2 text-neutral-400 dark:text-neutral-500">/</span>
           <span>List</span>
         </div>
-        <h1 className="text-4xl font-bold tracking-tight">List</h1>
-        <p className="text-lg text-gray-500 dark:text-gray-400">
+        <h1 className="text-h1 text-neutral-900 dark:text-neutral-100">List</h1>
+        <p className="text-body-lg text-neutral-500 dark:text-neutral-400">
           A versatile list component for displaying items with various styles,
           supporting multiple variants and customizations.
         </p>
       </div>
 
       <PreviewWrapper
-        label="List"
+        label="Interactive List Example"
         preview={
           <List variant="outline" listType="plain" bordered>
             {folders.map((folder) => (
@@ -47,7 +54,7 @@ const ListPage = () => {
                 className="cursor-pointer"
                 secondaryAction={
                   folder.count > 0 ? (
-                    <span className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100 px-2 py-1 rounded-full text-xs">
+                    <span className="bg-primary-100 text-primary-800 dark:bg-primary-900/30 dark:text-primary-100 px-2 py-1 rounded-full text-body-xs">
                       {folder.count}
                     </span>
                   ) : null
@@ -55,162 +62,273 @@ const ListPage = () => {
               >
                 <div className="flex items-center">
                   <span className="mr-3 text-xl">{folder.icon}</span>
-                  <span>{folder.name}</span>
+                  <span className="text-body-md">{folder.name}</span>
                 </div>
               </ListItem>
             ))}
           </List>
         }
         code={`
-        import { List, ListItem } from "@components/list";
-        
-        export default function ListExample() {
-          const folders = [
-          { id: 1, name: "Inbox", icon: "📥", count: 24 },
-          { id: 2, name: "Drafts", icon: "📝", count: 5 },
-          { id: 3, name: "Sent", icon: "📤", count: 18 },
-          ];
-                                  
-          return (
-            <List variant="outline" listType="plain" bordered>
-              {folders.map((folder) => (
-                <ListItem 
-                  key={folder.id}
-                  itemType="plain"
-                  className="cursor-pointer"
-                  secondaryAction={
-                    folder.count > 0 ? (
-                      <span className="bg-blue-100 text-blue-800 dark:bg-blue-900 
-                        dark:text-blue-100 px-2 py-1 rounded-full text-xs">
-                        {folder.count}
-                      </span>
-                    ) : null
-                  }
-                  >
-                    <div className="flex items-center">
-                      <span className="mr-3 text-xl">{folder.icon}</span>
-                      <span>{folder.name}</span>
-                    </div>
-                </ListItem>
-              ))}
-            </List>
-          );
-        }`}
+<List variant="outline" listType="plain" bordered>
+  {folders.map((folder) => (
+    <ListItem
+      key={folder.id}
+      itemType="plain"
+      className="cursor-pointer"
+      secondaryAction={
+        folder.count > 0 ? (
+          <span className="bg-primary-100 text-primary-800 dark:bg-primary-900/30 
+            dark:text-primary-100 px-2 py-1 rounded-full text-body-xs">
+            {folder.count}
+          </span>
+        ) : null
+      }
+    >
+      <div className="flex items-center">
+        <span className="mr-3 text-xl">{folder.icon}</span>
+        <span className="text-body-md">{folder.name}</span>
+      </div>
+    </ListItem>
+  ))}
+</List>`}
       />
 
-      <div className="space-y-6">
-        <h2 className="text-2xl font-bold tracking-tight">Variants</h2>
+      <div className="space-y-8">
+        <h2 className="text-h4 text-neutral-900 dark:text-neutral-100">List Variants</h2>
 
-        <h3 className="text-xl font-semibold mt-4">Light Variants</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-2">
-            <h4 className="font-medium">Default</h4>
-            <div className="rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Default Variant */}
+          <PreviewWrapper
+            label="Default"
+            preview={
               <List variant="default" bordered>
-                <ListItem>Default List Item 1</ListItem>
-                <ListItem>Default List Item 2</ListItem>
+                {basicItems.map((item) => (
+                  <ListItem key={item.id} className="text-body-md">
+                    {item.text}
+                  </ListItem>
+                ))}
               </List>
-            </div>
-          </div>
-          <div className="space-y-2">
-            <h4 className="font-medium">Primary</h4>
-            <div className="rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden">
-              <List variant="primary" bordered>
-                <ListItem>Primary List Item 1</ListItem>
-                <ListItem>Primary List Item 2</ListItem>
-              </List>
-            </div>
-          </div>
-          <div className="space-y-2">
-            <h4 className="font-medium">Secondary</h4>
-            <div className="rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden">
-              <List variant="secondary" bordered>
-                <ListItem>Secondary List Item 1</ListItem>
-                <ListItem>Secondary List Item 2</ListItem>
-              </List>
-            </div>
-          </div>
-          <div className="space-y-2">
-            <h4 className="font-medium">Outline</h4>
-            <div className="rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden">
-              <List variant="outline" bordered>
-                <ListItem>Outline List Item 1</ListItem>
-                <ListItem>Outline List Item 2</ListItem>
-              </List>
-            </div>
-          </div>
-        </div>
+            }
+            code={`
+<List variant="default" bordered>
+  <ListItem>First Item</ListItem>
+  <ListItem>Second Item</ListItem>
+  <ListItem>Third Item</ListItem>
+</List>`}
+          />
 
-        <h3 className="text-xl font-semibold mt-8">Dark Variants</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-2">
-            <h4 className="font-medium">Dark</h4>
-            <div className="rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden">
+          {/* Primary Variant */}
+          <PreviewWrapper
+            label="Primary"
+            preview={
+              <List variant="primary" bordered>
+                {basicItems.map((item) => (
+                  <ListItem key={item.id} className="text-body-md">
+                    {item.text}
+                  </ListItem>
+                ))}
+              </List>
+            }
+            code={`
+<List variant="primary" bordered>
+  <ListItem>First Item</ListItem>
+  <ListItem>Second Item</ListItem>
+  <ListItem>Third Item</ListItem>
+</List>`}
+          />
+
+          {/* Secondary Variant */}
+          <PreviewWrapper
+            label="Secondary"
+            preview={
+              <List variant="secondary" bordered>
+                {basicItems.map((item) => (
+                  <ListItem key={item.id} className="text-body-md">
+                    {item.text}
+                  </ListItem>
+                ))}
+              </List>
+            }
+            code={`
+<List variant="secondary" bordered>
+  <ListItem>First Item</ListItem>
+  <ListItem>Second Item</ListItem>
+  <ListItem>Third Item</ListItem>
+</List>`}
+          />
+
+          {/* Outline Variant */}
+          <PreviewWrapper
+            label="Outline"
+            preview={
+              <List variant="outline" bordered>
+                {basicItems.map((item) => (
+                  <ListItem key={item.id} className="text-body-md">
+                    {item.text}
+                  </ListItem>
+                ))}
+              </List>
+            }
+            code={`
+<List variant="outline" bordered>
+  <ListItem>First Item</ListItem>
+  <ListItem>Second Item</ListItem>
+  <ListItem>Third Item</ListItem>
+</List>`}
+          />
+
+          {/* Dark Variant */}
+          <PreviewWrapper
+            label="Dark"
+            preview={
               <List variant="dark" bordered>
-                <ListItem>Dark List Item 1</ListItem>
-                <ListItem>Dark List Item 2</ListItem>
+                {basicItems.map((item) => (
+                  <ListItem key={item.id} className="text-body-md">
+                    {item.text}
+                  </ListItem>
+                ))}
               </List>
-            </div>
-          </div>
-          <div className="space-y-2">
-            <h4 className="font-medium">Dark Primary</h4>
-            <div className="rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden">
+            }
+            code={`
+<List variant="dark" bordered>
+  <ListItem>First Item</ListItem>
+  <ListItem>Second Item</ListItem>
+  <ListItem>Third Item</ListItem>
+</List>`}
+          />
+
+          {/* Dark Primary Variant */}
+          <PreviewWrapper
+            label="Dark Primary"
+            preview={
               <List variant="darkPrimary" bordered>
-                <ListItem>Dark Primary List Item 1</ListItem>
-                <ListItem>Dark Primary List Item 2</ListItem>
+                {basicItems.map((item) => (
+                  <ListItem key={item.id} className="text-body-md">
+                    {item.text}
+                  </ListItem>
+                ))}
               </List>
-            </div>
-          </div>
-          <div className="space-y-2">
-            <h4 className="font-medium">Dark Secondary</h4>
-            <div className="rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden">
-              <List variant="darkSecondary" bordered>
-                <ListItem>Dark Secondary List Item 1</ListItem>
-                <ListItem>Dark Secondary List Item 2</ListItem>
-              </List>
-            </div>
-          </div>
+            }
+            code={`
+<List variant="darkPrimary" bordered>
+  <ListItem>First Item</ListItem>
+  <ListItem>Second Item</ListItem>
+  <ListItem>Third Item</ListItem>
+</List>`}
+          />
         </div>
       </div>
 
-      <div className="space-y-6">
-        <h2 className="text-2xl font-bold tracking-tight">Features</h2>
+      <div className="space-y-8">
+        <h2 className="text-h4 text-neutral-900 dark:text-neutral-100">List Features</h2>
 
-        <h3 className="text-xl font-semibold mt-4">Selected Items</h3>
-        <div className="rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden">
-          <List variant="default" bordered>
-            <ListItem>Regular Item</ListItem>
-            <ListItem selected>Selected Item</ListItem>
-            <ListItem>Regular Item</ListItem>
-          </List>
-        </div>
+        {/* Selected Items */}
+        <PreviewWrapper
+          label="Selected Items"
+          preview={
+            <List variant="outline" bordered>
+              <ListItem className="text-body-md">Regular Item</ListItem>
+              <ListItem selected className="text-body-md">Selected Item</ListItem>
+              <ListItem className="text-body-md">Regular Item</ListItem>
+            </List>
+          }
+          code={`
+<List variant="outline" bordered>
+  <ListItem>Regular Item</ListItem>
+  <ListItem selected>Selected Item</ListItem>
+  <ListItem>Regular Item</ListItem>
+</List>`}
+        />
 
-        <h3 className="text-xl font-semibold mt-6">With Dividers</h3>
-        <div className="rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden">
-          <List variant="default">
-            <ListItem>First Item</ListItem>
-            <ListItem divider>Item With Divider</ListItem>
-            <ListItem>Last Item</ListItem>
-          </List>
-        </div>
+        {/* With Dividers */}
+        <PreviewWrapper
+          label="With Dividers"
+          preview={
+            <List variant="outline">
+              <ListItem className="text-body-md">First Item</ListItem>
+              <ListItem divider className="text-body-md">Item With Divider</ListItem>
+              <ListItem className="text-body-md">Last Item</ListItem>
+            </List>
+          }
+          code={`
+<List variant="outline">
+  <ListItem>First Item</ListItem>
+  <ListItem divider>Item With Divider</ListItem>
+  <ListItem>Last Item</ListItem>
+</List>`}
+        />
 
-        <h3 className="text-xl font-semibold mt-6">Without Gutters</h3>
-        <div className="rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden">
-          <List variant="default">
-            <ListItem>Regular Item</ListItem>
-            <ListItem disableGutters>Item Without Gutters</ListItem>
-            <ListItem>Regular Item</ListItem>
-          </List>
-        </div>
+        {/* Different Sizes */}
+        <PreviewWrapper
+          label="Different Sizes"
+          preview={
+            <div className="space-y-4">
+              <List variant="outline" size="sm" bordered>
+                <ListItem>Small Size List Item</ListItem>
+                <ListItem>Small Size List Item</ListItem>
+              </List>
+              <List variant="outline" size="md" bordered>
+                <ListItem>Medium Size List Item</ListItem>
+                <ListItem>Medium Size List Item</ListItem>
+              </List>
+              <List variant="outline" size="lg" bordered>
+                <ListItem>Large Size List Item</ListItem>
+                <ListItem>Large Size List Item</ListItem>
+              </List>
+            </div>
+          }
+          code={`
+<List variant="outline" size="sm" bordered>
+  <ListItem>Small Size List Item</ListItem>
+  <ListItem>Small Size List Item</ListItem>
+</List>
 
-        <h3 className="text-xl font-semibold mt-6">Without Padding</h3>
-        <div className="rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden">
-          <List variant="default">
-            <ListItem>Regular Item</ListItem>
-            <ListItem disablePadding>Item Without Padding</ListItem>
-            <ListItem>Regular Item</ListItem>
-          </List>
-        </div>
+<List variant="outline" size="md" bordered>
+  <ListItem>Medium Size List Item</ListItem>
+  <ListItem>Medium Size List Item</ListItem>
+</List>
+
+<List variant="outline" size="lg" bordered>
+  <ListItem>Large Size List Item</ListItem>
+  <ListItem>Large Size List Item</ListItem>
+</List>`}
+        />
+
+        {/* Different Spacing */}
+        <PreviewWrapper
+          label="Different Spacing"
+          preview={
+            <div className="space-y-4">
+              <List variant="outline" spacing="small" bordered>
+                <ListItem className="text-body-md">Small Spacing</ListItem>
+                <ListItem className="text-body-md">Small Spacing</ListItem>
+              </List>
+              <List variant="outline" spacing="medium" bordered>
+                <ListItem className="text-body-md">Medium Spacing</ListItem>
+                <ListItem className="text-body-md">Medium Spacing</ListItem>
+              </List>
+              <List variant="outline" spacing="large" bordered>
+                <ListItem className="text-body-md">Large Spacing</ListItem>
+                <ListItem className="text-body-md">Large Spacing</ListItem>
+              </List>
+            </div>
+          }
+          code={`
+<List variant="outline" spacing="small" bordered>
+  <ListItem>Small Spacing</ListItem>
+  <ListItem>Small Spacing</ListItem>
+</List>
+
+<List variant="outline" spacing="medium" bordered>
+  <ListItem>Medium Spacing</ListItem>
+  <ListItem>Medium Spacing</ListItem>
+</List>
+
+<List variant="outline" spacing="large" bordered>
+  <ListItem>Large Spacing</ListItem>
+  <ListItem>Large Spacing</ListItem>
+</List>`}
+        />
       </div>
     </div>
   );
