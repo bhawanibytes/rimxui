@@ -12,9 +12,9 @@ const Button: FC<ButtonProps> = ({
   ...props
 }) => {
   const sizeMap: Record<ButtonSizes, string> = {
-    sm: "text-sm px-3 py-1",
-    md: "text-md px-4 py-1.5",
-    lg: "text-lg px-4 py-1.5",
+    sm: "text-body-sm px-3 py-1.5",
+    md: "text-body-md px-4 py-2",
+    lg: "text-body-lg px-5 py-2.5",
   };
 
   const iconSizeMap: Record<ButtonSizes, string> = {
@@ -25,25 +25,25 @@ const Button: FC<ButtonProps> = ({
 
   const variantMap: Record<ButtonVariants, string> = {
     default:
-      "bg-gray-800 hover:bg-gray-900 text-white dark:bg-gray-100 dark:hover:bg-gray-200 dark:text-gray-800",
-    secondary: "bg-blue-800 hover:bg-blue-900 text-white",
-    destructive: "bg-red-600 hover:bg-red-700 text-white",
+      "bg-primary-500 hover:bg-primary-600 text-white dark:bg-primary-400 dark:hover:bg-primary-500 dark:text-white",
+    secondary: "bg-accent-500 hover:bg-accent-600 text-white",
+    destructive: "bg-error-500 hover:bg-error-600 text-white",
     outline:
-      "border border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white dark:border-gray-100 dark:text-gray-100 dark:hover:bg-gray-100 dark:hover:text-gray-800",
-    icon: "bg-gray-800 hover:bg-gray-900 text-white dark:bg-gray-100 dark:hover:bg-gray-200 dark:text-gray-800",
+      "border border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white dark:border-primary-400 dark:text-primary-400 dark:hover:bg-primary-400 dark:hover:text-white",
+    icon: "bg-primary-500 hover:bg-primary-600 text-white dark:bg-primary-400 dark:hover:bg-primary-500 dark:text-white",
     withIcon:
-      "bg-gray-800 hover:bg-gray-900 text-white dark:bg-gray-100 dark:hover:bg-gray-200 dark:text-gray-800",
+      "bg-primary-500 hover:bg-primary-600 text-white dark:bg-primary-400 dark:hover:bg-primary-500 dark:text-white",
   };
 
   return (
     <button
       {...props}
       className={mc(
-        "rounded-sm shadow-md shadow-gray-400 dark:shadow-gray-800 transition-all duration-300",
+        "rounded-md shadow-md shadow-neutral-200 dark:shadow-neutral-800 transition-all duration-300",
         variantMap[variant],
         sizeMap[size],
         variant === "withIcon"
-          ? "flex flex-row items-center justify-center gap-1.5"
+          ? "flex flex-row items-center justify-center gap-2"
           : "",
         className,
       )}

@@ -1,5 +1,5 @@
 export const LISTITEM_PADDING_STYLES = {
-  enabled: "py-2",
+  enabled: "py-2.5",
   disabled: "",
 };
 
@@ -9,25 +9,27 @@ export const LISTITEM_GUTTERS_STYLES = {
 };
 
 export const LISTITEM_DIVIDER_STYLES = {
-  enabled: "border-b border-gray-200 dark:border-gray-700",
+  enabled: "border-b border-neutral-200 dark:border-neutral-700",
   disabled: "",
 };
 
 export const LISTITEM_SELECTED_STYLES = {
-  enabled: "bg-gray-100 dark:bg-gray-800",
+  enabled: "bg-primary-50 dark:bg-primary-900/20 text-primary-900 dark:text-primary-100",
   disabled: "",
 };
 
 export const LISTITEM_HOVER_STYLES = {
   default:
-    "transition-colors duration-200 hover:bg-gray-50 dark:hover:bg-gray-800",
+    "transition-colors duration-200 hover:bg-neutral-50 dark:hover:bg-neutral-800/50",
   primary:
-    "transition-colors duration-200 hover:bg-blue-50 dark:hover:bg-blue-800/30",
+    "transition-colors duration-200 hover:bg-primary-50 dark:hover:bg-primary-900/30",
   secondary:
-    "transition-colors duration-200 hover:bg-purple-50 dark:hover:bg-purple-800/30",
-  dark: "transition-colors duration-200 hover:bg-gray-700",
-  darkPrimary: "transition-colors duration-200 hover:bg-blue-800",
-  darkSecondary: "transition-colors duration-200 hover:bg-purple-800",
+    "transition-colors duration-200 hover:bg-accent-50 dark:hover:bg-accent-900/30",
+  outline:
+    "transition-colors duration-200 hover:bg-neutral-50 dark:hover:bg-neutral-800/50",
+  dark: "transition-colors duration-200 hover:bg-neutral-700/50",
+  darkPrimary: "transition-colors duration-200 hover:bg-primary-800/50",
+  darkSecondary: "transition-colors duration-200 hover:bg-accent-800/50",
 };
 
 export const LISTITEM_HOVER_STYLES_DEFAULT = LISTITEM_HOVER_STYLES.default;
