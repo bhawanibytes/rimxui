@@ -17,9 +17,9 @@ const navigation = [
   { name: "Skeleton", path: ROUTES.skeletonShowcase },
   { name: "Chips", path: ROUTES.chipsShowcase },
   { name: "Accordion", path: ROUTES.accordionShowcase },
-  {name:"Countdown",path:ROUTES.counterShowcase},
-  {name:"Darkmode",path:ROUTES.darkModeShowcase},
-
+  { name: "Countdown", path: ROUTES.counterShowcase },
+  { name: "Darkmode", path: ROUTES.darkModeShowcase },
+  { name: "ChatNotification", path: ROUTES.notificationShowcase },
 ];
 
 export const ShowcaseLayout: React.FC = () => {

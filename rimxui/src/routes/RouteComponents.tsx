@@ -16,6 +16,7 @@ import ChipsPage from "@/components/showcase/ChipsPage";
 import AccordionPage from "@/components/showcase/AccordionPage";
 import CounterPage from "@/components/showcase/CounterPage";
 import DarkMode from "@/components/showcase/DarkMode";
+import NotificationPage from "@/components/showcase/NotificationPage";
 
 export const ROUTE_COMPONENTS: Array<RouteObject> = [
   {
@@ -82,6 +83,10 @@ export const ROUTE_COMPONENTS: Array<RouteObject> = [
         path: CHILD_ROUTES.showcase.darkMode,
         element: <DarkMode />,
       },
+      {
+        path:CHILD_ROUTES.showcase.notification,
+        element: <NotificationPage/>
+      }
     ],
   },
 ];
