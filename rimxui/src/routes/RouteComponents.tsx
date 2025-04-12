@@ -15,6 +15,7 @@ import SkeletonPage from "@/components/showcase/SkeletonPage";
 import ChipsPage from "@/components/showcase/ChipsPage";
 import AccordionPage from "@/components/showcase/AccordionPage";
 import CounterPage from "@/components/showcase/CounterPage";
+import DarkMode from "@/components/showcase/DarkMode";
 
 export const ROUTE_COMPONENTS: Array<RouteObject> = [
   {
@@ -76,6 +77,10 @@ export const ROUTE_COMPONENTS: Array<RouteObject> = [
       {
         path: CHILD_ROUTES.showcase.counter,
         element: <CounterPage />,
+      },
+      {
+        path: CHILD_ROUTES.showcase.darkMode,
+        element: <DarkMode />,
       },
     ],
   },

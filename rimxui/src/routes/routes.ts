@@ -11,6 +11,7 @@ export const CHILD_ROUTES = {
     chips: "chips",
     accordion:"accordion",
     counter:"counter",
+    darkMode: "darkMode",
   },
 } as const;
 
@@ -28,5 +29,6 @@ export const ROUTES = {
   skeletonShowcase: `/showcase/${CHILD_ROUTES.showcase.skeleton}`,
   chipsShowcase: `/showcase/${CHILD_ROUTES.showcase.chips}`,
   accordionShowcase:`/showcase/${CHILD_ROUTES.showcase.accordion}`,
-  counterShowcase:`/showcase/${CHILD_ROUTES.showcase.counter}`
+  counterShowcase:`/showcase/${CHILD_ROUTES.showcase.counter}`,
+  darkModeShowcase:`/showcase/${CHILD_ROUTES.showcase.darkMode}`
 } as const;
