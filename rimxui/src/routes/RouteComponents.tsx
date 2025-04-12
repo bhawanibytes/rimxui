@@ -11,6 +11,7 @@ import ShadowShowcase from "@/components/showcase/ShadowShowcase";
 import { ShowcaseLayout } from "@/components/showcase/ShowcaseLayout";
 import TypographyPage from "@/components/showcase/TypographyPage";
 import { CHILD_ROUTES, ROUTES } from "./routes";
+import SkeletonPage from "@/components/showcase/SkeletonPage";
 
 export const ROUTE_COMPONENTS: Array<RouteObject> = [
   {
@@ -57,6 +58,10 @@ export const ROUTE_COMPONENTS: Array<RouteObject> = [
         path: CHILD_ROUTES.showcase.shadows,
         element: <ShadowShowcase />,
       },
+      {
+        path: CHILD_ROUTES.showcase.skeleton,
+        element: < SkeletonPage/>,
+      }
     ],
   },
 ];
