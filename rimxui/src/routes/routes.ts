@@ -9,9 +9,10 @@ export const CHILD_ROUTES = {
     shadows: "shadows",
     skeleton: "skeleton",
     chips: "chips",
-    accordion:"accordion",
-    counter:"counter",
+    accordion: "accordion",
+    counter: "counter",
     darkMode: "darkMode",
+    notification: "notification",
   },
 } as const;
 
@@ -28,7 +29,8 @@ export const ROUTES = {
   shadowsShowcase: `/showcase/${CHILD_ROUTES.showcase.shadows}`,
   skeletonShowcase: `/showcase/${CHILD_ROUTES.showcase.skeleton}`,
   chipsShowcase: `/showcase/${CHILD_ROUTES.showcase.chips}`,
-  accordionShowcase:`/showcase/${CHILD_ROUTES.showcase.accordion}`,
-  counterShowcase:`/showcase/${CHILD_ROUTES.showcase.counter}`,
-  darkModeShowcase:`/showcase/${CHILD_ROUTES.showcase.darkMode}`
+  accordionShowcase: `/showcase/${CHILD_ROUTES.showcase.accordion}`,
+  counterShowcase: `/showcase/${CHILD_ROUTES.showcase.counter}`,
+  darkModeShowcase: `/showcase/${CHILD_ROUTES.showcase.darkMode}`,
+  notificationShowcase: `/showcase/${CHILD_ROUTES.showcase.notification}`,
 } as const;
