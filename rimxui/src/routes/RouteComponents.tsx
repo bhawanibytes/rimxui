@@ -13,6 +13,7 @@ import TypographyPage from "@/components/showcase/TypographyPage";
 import { CHILD_ROUTES, ROUTES } from "./routes";
 import SkeletonPage from "@/components/showcase/SkeletonPage";
 import ChipsPage from "@/components/showcase/ChipsPage";
+import AccordionPage from "@/components/showcase/AccordionPage";
 
 export const ROUTE_COMPONENTS: Array<RouteObject> = [
   {
@@ -66,6 +67,10 @@ export const ROUTE_COMPONENTS: Array<RouteObject> = [
       {
         path: CHILD_ROUTES.showcase.chips,
         element: <ChipsPage />,
+      },
+      {
+        path: CHILD_ROUTES.showcase.accordion,
+        element: <AccordionPage />,
       },
     ],
   },
