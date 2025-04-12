@@ -14,6 +14,7 @@ import { CHILD_ROUTES, ROUTES } from "./routes";
 import SkeletonPage from "@/components/showcase/SkeletonPage";
 import ChipsPage from "@/components/showcase/ChipsPage";
 import AccordionPage from "@/components/showcase/AccordionPage";
+import CounterPage from "@/components/showcase/CounterPage";
 
 export const ROUTE_COMPONENTS: Array<RouteObject> = [
   {
@@ -71,6 +72,10 @@ export const ROUTE_COMPONENTS: Array<RouteObject> = [
       {
         path: CHILD_ROUTES.showcase.accordion,
         element: <AccordionPage />,
+      },
+      {
+        path: CHILD_ROUTES.showcase.counter,
+        element: <CounterPage />,
       },
     ],
   },

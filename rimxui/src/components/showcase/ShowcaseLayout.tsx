@@ -17,6 +17,7 @@ const navigation = [
   { name: "Skeleton", path: ROUTES.skeletonShowcase },
   { name: "Chips", path: ROUTES.chipsShowcase },
   { name: "Accordion", path: ROUTES.accordionShowcase },
+  {name:"Countdown",path:ROUTES.counterShowcase}
 
 ];
 
