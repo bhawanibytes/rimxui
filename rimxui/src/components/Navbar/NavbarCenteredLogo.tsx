@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-
+import { Link } from 'react-router-dom';
 
 const leftLinks = [
   { name: "Features", href: "#features" },
@@ -26,9 +26,9 @@ const NavbarCenteredLogo = ({
         {/* Left Links */}
         <div className="hidden md:flex gap-6 text-gray-700">
           {leftLinks.map((link, idx) => (
-            <a key={idx} href={link.href} className="hover:text-blue-500">
+            <Link key={idx} to={link.href} className="hover:text-blue-500">
               {link.name}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -38,16 +38,16 @@ const NavbarCenteredLogo = ({
         {/* Right Links */}
         <div className="hidden md:flex items-center gap-6">
           {rightLinks.map((link, idx) => (
-            <a key={idx} href={link.href} className="hover:text-blue-500 text-gray-700">
+            <Link key={idx} to={link.href} className="hover:text-blue-500 text-gray-700">
               {link.name}
-            </a>
+            </Link>
           ))}
-          <a
-            href={ctaLink}
+          <Link
+            to={ctaLink}
             className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
           >
             {ctaText}
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -62,16 +62,16 @@ const NavbarCenteredLogo = ({
       {isOpen && (
         <div className="md:hidden px-4 pb-4 space-y-2 text-gray-700">
           {[...leftLinks, ...rightLinks].map((link, idx) => (
-            <a key={idx} href={link.href} className="block hover:text-blue-500">
+            <Link key={idx} to={link.href} className="block hover:text-blue-500">
               {link.name}
-            </a>
+            </Link>
           ))}
-          <a
-            href={ctaLink}
+          <Link
+            to={ctaLink}
             className="w-full mt-2 block bg-blue-500 text-white py-2 text-center rounded hover:bg-blue-600"
           >
             {ctaText}
-          </a>
+          </Link>
         </div>
       )}
     </nav>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-
+import { Link } from "react-router-dom"; 
 
 const navLinks = [
   { name: "Explore", href: "#explore" },
@@ -25,9 +25,9 @@ const NavbarGradient = ({
         {/* Desktop Nav */}
         <div className="hidden md:flex gap-6 items-center">
           {navLinks.map((link, idx) => (
-            <a key={idx} href={link.href} className="hover:text-gray-300">
+            <Link key={idx} to={link.href} className="hover:text-gray-300">
               {link.name}
-            </a>
+            </Link>
           ))}
           {enableSearch && (
             <input
@@ -50,9 +50,9 @@ const NavbarGradient = ({
       {isOpen && (
         <div className="md:hidden px-4 pb-4 space-y-2 text-sm">
           {navLinks.map((link, idx) => (
-            <a key={idx} href={link.href} className="block hover:text-gray-300">
+            <Link key={idx} to={link.href} className="block hover:text-gray-300">
               {link.name}
-            </a>
+            </Link>
           ))}
           {enableSearch && (
             <input

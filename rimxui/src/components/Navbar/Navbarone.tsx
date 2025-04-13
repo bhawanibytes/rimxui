@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-
+import { Link } from "react-router-dom"; 
 
 const navItems = [
   { name: "Home", href: "#home" },
@@ -24,9 +24,9 @@ const Navbarone = ({ logo = "Rimxui" }) => {
           {/* Desktop Links */}
           <div className="hidden md:flex space-x-8 text-gray-700 font-medium">
             {navItems.map((item, idx) => (
-              <a key={idx} href={item.href} className="hover:text-blue-500">
+              <Link key={idx} to={item.href} className="hover:text-blue-500">
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -44,9 +44,9 @@ const Navbarone = ({ logo = "Rimxui" }) => {
         <div className="md:hidden bg-white shadow-md">
           <div className="px-4 py-4 space-y-2 flex flex-col text-gray-700 font-medium">
             {navItems.map((item, idx) => (
-              <a key={idx} href={item.href} className="hover:text-blue-500">
+              <Link key={idx} to={item.href} className="hover:text-blue-500">
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
