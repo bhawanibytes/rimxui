@@ -11,6 +11,12 @@ import ShadowShowcase from "@/components/showcase/ShadowShowcase";
 import { ShowcaseLayout } from "@/components/showcase/ShowcaseLayout";
 import TypographyPage from "@/components/showcase/TypographyPage";
 import { CHILD_ROUTES, ROUTES } from "./routes";
+import SkeletonPage from "@/components/showcase/SkeletonPage";
+import ChipsPage from "@/components/showcase/ChipsPage";
+import AccordionPage from "@/components/showcase/AccordionPage";
+import CounterPage from "@/components/showcase/CounterPage";
+import DarkMode from "@/components/showcase/DarkMode";
+import NotificationPage from "@/components/showcase/NotificationPage";
 
 export const ROUTE_COMPONENTS: Array<RouteObject> = [
   {
@@ -57,6 +63,30 @@ export const ROUTE_COMPONENTS: Array<RouteObject> = [
         path: CHILD_ROUTES.showcase.shadows,
         element: <ShadowShowcase />,
       },
+      {
+        path: CHILD_ROUTES.showcase.skeleton,
+        element: <SkeletonPage />,
+      },
+      {
+        path: CHILD_ROUTES.showcase.chips,
+        element: <ChipsPage />,
+      },
+      {
+        path: CHILD_ROUTES.showcase.accordion,
+        element: <AccordionPage />,
+      },
+      {
+        path: CHILD_ROUTES.showcase.counter,
+        element: <CounterPage />,
+      },
+      {
+        path: CHILD_ROUTES.showcase.darkMode,
+        element: <DarkMode />,
+      },
+      {
+        path:CHILD_ROUTES.showcase.notification,
+        element: <NotificationPage/>
+      }
     ],
   },
 ];

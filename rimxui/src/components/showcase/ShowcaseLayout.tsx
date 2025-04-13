@@ -14,6 +14,12 @@ const navigation = [
   { name: "Cards", path: ROUTES.cardsShowcase },
   { name: "Lists", path: ROUTES.listsShowcase },
   { name: "Shadows", path: ROUTES.shadowsShowcase },
+  { name: "Skeleton", path: ROUTES.skeletonShowcase },
+  { name: "Chips", path: ROUTES.chipsShowcase },
+  { name: "Accordion", path: ROUTES.accordionShowcase },
+  { name: "Countdown", path: ROUTES.counterShowcase },
+  { name: "Darkmode", path: ROUTES.darkModeShowcase },
+  { name: "ChatNotification", path: ROUTES.notificationShowcase },
 ];
 
 export const ShowcaseLayout: React.FC = () => {
