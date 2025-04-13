@@ -14,10 +14,9 @@ const navigation = [
   { name: "Cards", path: ROUTES.cardsShowcase },
   { name: "Lists", path: ROUTES.listsShowcase },
   { name: "Shadows", path: ROUTES.shadowsShowcase },
-  { name: "Navbar", path: ROUTES.NavbarPage},
+  { name: "Navbar", path: ROUTES.NavbarPage },
   { name: "Pagination", path: ROUTES.PaginationPage },
   { name: "Breadcrumps", path: ROUTES.BreadcrumbsPage },
-  
   { name: "Skeleton", path: ROUTES.skeletonShowcase },
   { name: "Chips", path: ROUTES.chipsShowcase },
   { name: "Accordion", path: ROUTES.accordionShowcase },
@@ -99,8 +98,8 @@ export const ShowcaseLayout: React.FC = () => {
                   </svg>
                 )}
               </button>
-            </div>
-            <nav className="p-4">
+            </div> 
+            <nav className="p-4 max-h-[90vh] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:rounded-full  [&::-webkit-scrollbar-thumb]:bg-gray-300  dark:[&::-webkit-scrollbar-track]:bg-neutral-700  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
               {navigation.map((item) => (
                 <Link
                   key={item.path}
