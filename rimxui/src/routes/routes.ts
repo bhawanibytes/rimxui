@@ -1,3 +1,5 @@
+
+
 export const CHILD_ROUTES = {
   showcase: {
     colors: "colors",
@@ -7,6 +9,10 @@ export const CHILD_ROUTES = {
     cards: "cards",
     lists: "lists",
     shadows: "shadows",
+    navbarpage:"navbar",
+    paginationpage:"pagination",
+    breadcrumpspage:"breadcrumps"
+
   },
 } as const;
 
@@ -21,4 +27,8 @@ export const ROUTES = {
   cardsShowcase: `/showcase/${CHILD_ROUTES.showcase.cards}`,
   listsShowcase: `/showcase/${CHILD_ROUTES.showcase.lists}`,
   shadowsShowcase: `/showcase/${CHILD_ROUTES.showcase.shadows}`,
+  NavbarPage:`/showcase/${CHILD_ROUTES.showcase.navbarpage}`,
+  PaginationPage:`/showcase/${CHILD_ROUTES.showcase.paginationpage}`,
+  BreadcrumbsPage:`/showcase/${CHILD_ROUTES.showcase.breadcrumpspage}`,
+
 } as const;

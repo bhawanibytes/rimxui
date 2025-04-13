@@ -14,6 +14,10 @@ const navigation = [
   { name: "Cards", path: ROUTES.cardsShowcase },
   { name: "Lists", path: ROUTES.listsShowcase },
   { name: "Shadows", path: ROUTES.shadowsShowcase },
+  { name: "Navbar", path: ROUTES.NavbarPage},
+  { name: "Pagination", path: ROUTES.PaginationPage },
+  { name: "Breadcrumps", path: ROUTES.BreadcrumbsPage },
+  
 ];
 
 export const ShowcaseLayout: React.FC = () => {

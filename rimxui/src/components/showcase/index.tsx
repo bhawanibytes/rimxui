@@ -147,6 +147,24 @@ export const Showcase: React.FC = () => {
                 >
                   Dialog
                 </Link>
+                <Link
+                  to="pagination"
+                  className="block py-1 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-50 text-sm"
+                >
+                  Pagination
+                </Link>
+                <Link
+                  to="navbar"
+                  className="block py-1 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-50 text-sm"
+                >
+                  Navbar
+                </Link>
+                <Link
+                  to="breadcrumps"
+                  className="block py-1 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-50 text-sm"
+                >
+                  Breadcrumps
+                </Link>
               </nav>
             </aside>
 
