@@ -1,7 +1,8 @@
 import { RouteObject } from "react-router-dom";
 
 import { Dump, Home } from "@pages";
-
+import NavbarPage  from "@/components/showcase/NavbarPage";
+import PaginationPage from "@/components/showcase/PaginationPage";
 import ButtonPage from "@/components/showcase/ButtonPage";
 import { CardPage } from "@/components/showcase/CardPage";
 import { ColorShowcase } from "@/components/showcase/ColorShowcase";
@@ -11,6 +12,8 @@ import ShadowShowcase from "@/components/showcase/ShadowShowcase";
 import { ShowcaseLayout } from "@/components/showcase/ShowcaseLayout";
 import TypographyPage from "@/components/showcase/TypographyPage";
 import { CHILD_ROUTES, ROUTES } from "./routes";
+import BreadcrumbsPage from "@/components/showcase/BreadcrumpPage";
+
 import SkeletonPage from "@/components/showcase/SkeletonPage";
 import ChipsPage from "@/components/showcase/ChipsPage";
 import AccordionPage from "@/components/showcase/AccordionPage";
@@ -39,6 +42,14 @@ export const ROUTE_COMPONENTS: Array<RouteObject> = [
         element: <ColorShowcase />,
       },
       {
+        path: CHILD_ROUTES.showcase.navbarpage,
+        element: <NavbarPage />,
+      },
+      {
+        path: CHILD_ROUTES.showcase.paginationpage,
+        element: <PaginationPage />,
+      },
+      {
         path: CHILD_ROUTES.showcase.colors,
         element: <ColorShowcase />,
       },
@@ -62,9 +73,14 @@ export const ROUTE_COMPONENTS: Array<RouteObject> = [
         path: CHILD_ROUTES.showcase.lists,
         element: <ListPage />,
       },
+  
       {
         path: CHILD_ROUTES.showcase.shadows,
         element: <ShadowShowcase />,
+      },
+      {
+        path: CHILD_ROUTES.showcase.breadcrumpspage,
+        element: <BreadcrumbsPage />,
       },
       {
         path: CHILD_ROUTES.showcase.skeleton,
