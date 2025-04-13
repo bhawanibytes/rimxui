@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "remix",
+  "homepage": "http://localhost:5173",
+  "items": [
+    {
+      "name": "button",
+      "type": "registry:component",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "title": "button",
+      "description": "This is the button we used in most of the work",
+      "files": [
+        {
+          "path": "src/components/ui/Button.tsx",
+          "type": "registry:component",
+          "target": "src/component/ui/Button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:component",
+      "title": "card",
+      "description": "This is the cards components we used to build",
+      "files": [
+        {
+          "path": "src/components/Cards/Card.tsx",
+          "type": "registry:component",
+          "target": "src/component/ui/Card.tsx"
+        }
+      ]
+    }
+  ]
+}
