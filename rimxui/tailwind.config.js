@@ -2,6 +2,13 @@
 export default {
   darkMode: "selector",
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  safelist: [
+    // Generate all color utilities for the specific scales to ensure they're available
+    // even if not directly found in the content
+    { pattern: /^bg-(primary|neutral|success|error|warning|info|accent)-(50|100|200|300|400|500|600|700|800|900)$/ },
+    { pattern: /^text-(primary|neutral|success|error|warning|info|accent)-(50|100|200|300|400|500|600|700|800|900)$/ },
+    { pattern: /^border-(primary|neutral|success|error|warning|info|accent)-(50|100|200|300|400|500|600|700|800|900)$/ },
+  ],
   theme: {
     extend: {
       fontFamily: {
