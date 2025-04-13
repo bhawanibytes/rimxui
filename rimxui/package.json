@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "format": "prettier . --write",
-    "registry:build": "shadcn build"
+    "registry:build": "shadcn build --output ./public/registry"
   },
   "dependencies": {
     "@types/react-syntax-highlighter": "^15.5.13",
