@@ -13,6 +13,10 @@ export const CHILD_ROUTES = {
     counter: "counter",
     darkMode: "darkMode",
     notification: "notification",
+    label: "label",
+    input:"input",
+    textarea:"textarea",
+    radioButton:"radioButton"
   },
 } as const;
 
@@ -33,4 +37,8 @@ export const ROUTES = {
   counterShowcase: `/showcase/${CHILD_ROUTES.showcase.counter}`,
   darkModeShowcase: `/showcase/${CHILD_ROUTES.showcase.darkMode}`,
   notificationShowcase: `/showcase/${CHILD_ROUTES.showcase.notification}`,
+  labelShowcase: `/showcase/${CHILD_ROUTES.showcase.label}`,
+  inputShowcase: `/showcase/${CHILD_ROUTES.showcase.input}`,
+  textAreaShowcase: `/showcase/${CHILD_ROUTES.showcase.textarea}`,
+  radioButtonShowcase: `/showcase/${CHILD_ROUTES.showcase.radioButton}`,
 } as const;

@@ -17,6 +17,9 @@ import AccordionPage from "@/components/showcase/AccordionPage";
 import CounterPage from "@/components/showcase/CounterPage";
 import DarkMode from "@/components/showcase/DarkMode";
 import NotificationPage from "@/components/showcase/NotificationPage";
+import LabelPage from "@/components/showcase/LabelPage";
+import TextAreaPage from "@/components/showcase/TextAreaPage";
+import InputPage from "@/components/showcase/InputPage";
 
 export const ROUTE_COMPONENTS: Array<RouteObject> = [
   {
@@ -86,7 +89,19 @@ export const ROUTE_COMPONENTS: Array<RouteObject> = [
       {
         path:CHILD_ROUTES.showcase.notification,
         element: <NotificationPage/>
-      }
+      },
+      {
+        path:CHILD_ROUTES.showcase.label,
+        element: <LabelPage/>
+      },
+      {
+        path:CHILD_ROUTES.showcase.input,
+        element: <InputPage/>
+      },
+      {
+        path:CHILD_ROUTES.showcase.textarea,
+        element: <TextAreaPage/>
+      },
     ],
   },
 ];

@@ -6,9 +6,7 @@
     {
       "name": "button",
       "type": "registry:component",
-      "dependencies": [
-        "lucide-react"
-      ],
+      "dependencies": ["lucide-react"],
       "title": "button",
       "description": "This is the button we used in most of the work",
       "files": [
@@ -17,7 +15,8 @@
           "type": "registry:component",
           "target": "src/component/ui/Button.tsx"
         }
-      ]
+      ],
+      "author": "The RimxUi Team"
     },
     {
       "name": "card",
@@ -30,7 +29,100 @@
           "type": "registry:component",
           "target": "src/component/ui/Card.tsx"
         }
-      ]
+      ],
+      "author": "The RimxUi Team"
+    },
+    {
+      "name": "accordion",
+      "type": "registry:component",
+      "title": "card",
+      "description": "This is the accordion components we used to build",
+      "dependencies": ["lucide-react", "framer-motion"],
+      "files": [
+        {
+          "path": "src/components/Accordion/accordion.tsx",
+          "type": "registry:component",
+          "target": "src/component/ui/accordion.tsx"
+        }
+      ],
+      "author": "The RimxUi Team"
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:component",
+      "title": "skeleton",
+      "description": "This is the skeleton components we used to build",
+      "files": [
+        {
+          "path": "src/components/skeleton/skeleton.tsx",
+          "type": "registry:component",
+          "target": "src/component/ui/skeleton.tsx"
+        }
+      ],
+      "author": "The RimxUi Team"
+    },
+    {
+      "name": "chips",
+      "type": "registry:component",
+      "title": "chips",
+      "description": "This is the chips components.",
+      "dependencies": ["lucide-react", "framer-motion", "clsx"],
+      "files": [
+        {
+          "path": "src/components/Chips/chips.tsx",
+          "type": "registry:component",
+          "target": "src/component/ui/chips.tsx"
+        }
+      ],
+      "author": "The RimxUi Team"
+    },
+    {
+      "name": "dark-mode",
+      "type": "registry:component",
+      "title": "dark mode",
+      "files": [
+        {
+          "path": "src/components/DarkMode/dark.tsx",
+          "type": "registry:component",
+          "target": "src/component/ui/dark.tsx"
+        }
+      ],
+      "author": "The RimxUi Team"
+    },
+    {
+      "name": "notification",
+      "type": "registry:component",
+      "title": "Notification with sound",
+      "dependencies": [
+        "lucide-react",
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "src/components/ChatNotification/ChatNotification.tsx",
+          "type": "registry:component",
+          "target": "src/component/ui/ChatNotification/ChatNotification.tsx"
+        },
+        {
+          "path": "src/components/ChatNotification/NotificationContainer.tsx",
+          "type": "registry:component",
+          "target": "src/component/ui/ChatNotification/NotificationContainer.tsx"
+        },
+        {
+          "path": "src/components/ChatNotification/NotificationManager.tsx",
+          "type": "registry:component",
+          "target": "src/component/ui/ChatNotification/NotificationManager.tsx"
+        },
+        {
+          "path": "src/components/ChatNotification/NotificationSound.mp3",
+          "type": "registry:file",
+          "target": "src/component/ui/ChatNotification/NotificationSound.mp3"
+        }
+      ],
+      "author": "The RimxUi Team"
+    },
+    {
+      
     }
   ]
 }

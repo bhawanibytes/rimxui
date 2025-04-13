@@ -20,6 +20,9 @@ const navigation = [
   { name: "Countdown", path: ROUTES.counterShowcase },
   { name: "Darkmode", path: ROUTES.darkModeShowcase },
   { name: "ChatNotification", path: ROUTES.notificationShowcase },
+  { name: "Label", path: ROUTES.labelShowcase },
+  { name: "Input", path: ROUTES.inputShowcase },
+  { name: "textarea", path: ROUTES.textAreaShowcase },
 ];
 
 export const ShowcaseLayout: React.FC = () => {
