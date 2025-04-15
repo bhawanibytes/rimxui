@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button",
+  "type": "registry:component",
+  "title": "button",
+  "author": "The RimxUi Team",
+  "description": "This is the button we used in most of the work",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/Button.tsx",
+      "content": "import { FC } from \"react\";\nimport { mc } from \"@utils\";\nimport { DynamicIcon } from \"lucide-react/dynamic\";\nimport { ButtonProps, ButtonSizes, ButtonVariants } from \"@types\";\n\nconst Button: FC<ButtonProps> = ({\n  variant = \"default\",\n  size = \"md\",\n  label = \"Button\",\n  className,\n  icon = \"home\",\n  ...props\n}) => {\n  const sizeMap: Record<ButtonSizes, string> = {\n    sm: \"text-body-sm px-3 py-1.5\",\n    md: \"text-body-md px-4 py-2\",\n    lg: \"text-body-lg px-5 py-2.5\",\n  };\n\n  const iconSizeMap: Record<ButtonSizes, string> = {\n    sm: \"w-4 h-4\",\n    md: \"w-5 h-5\",\n    lg: \"w-6 h-6\",\n  };\n\n  const variantMap: Record<ButtonVariants, string> = {\n    default:\n      \"bg-primary-500 hover:bg-primary-600 text-white dark:bg-primary-400 dark:hover:bg-primary-500 dark:text-white\",\n    secondary: \"bg-accent-500 hover:bg-accent-600 text-white\",\n    destructive: \"bg-error-500 hover:bg-error-600 text-white\",\n    outline:\n      \"border border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white dark:border-primary-400 dark:text-primary-400 dark:hover:bg-primary-400 dark:hover:text-white\",\n    icon: \"bg-primary-500 hover:bg-primary-600 text-white dark:bg-primary-400 dark:hover:bg-primary-500 dark:text-white\",\n    withIcon:\n      \"bg-primary-500 hover:bg-primary-600 text-white dark:bg-primary-400 dark:hover:bg-primary-500 dark:text-white\",\n  };\n\n  return (\n    <button\n      {...props}\n      className={mc(\n        \"rounded-md shadow-md shadow-neutral-200 dark:shadow-neutral-800 transition-all duration-300\",\n        variantMap[variant],\n        sizeMap[size],\n        variant === \"withIcon\"\n          ? \"flex flex-row items-center justify-center gap-2\"\n          : \"\",\n        className,\n      )}\n    >\n      {variant === \"withIcon\" && (\n        <DynamicIcon\n          name={icon}\n          strokeWidth={1.5}\n          className={mc(iconSizeMap[size])}\n        />\n      )}\n      {variant === \"icon\" ? (\n        <DynamicIcon\n          name={icon}\n          strokeWidth={1.5}\n          className={mc(iconSizeMap[size])}\n        />\n      ) : (\n        label\n      )}\n    </button>\n  );\n};\n\nexport default Button;\n",
+      "type": "registry:component",
+      "target": "src/component/ui/Button.tsx"
+    }
+  ]
+}

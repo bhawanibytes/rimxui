@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dark-mode",
+  "type": "registry:component",
+  "title": "dark mode",
+  "author": "The RimxUi Team",
+  "files": [
+    {
+      "path": "src/components/DarkMode/dark.tsx",
+      "content": "import { useEffect, useState } from \"react\";\n\ninterface DarkModeToggleProps {\n  variant?: \"icon\" | \"switch\" | \"text\"; // Define the variant types\n  lightIcon?: string;\n  darkIcon?: string;\n  className?: string;\n  remember?: boolean;\n  onToggle?: (isDark: boolean) => void;\n}\n\nconst DarkModeToggle: React.FC<DarkModeToggleProps> = ({\n  variant = \"icon\", // Default to \"icon\"\n  lightIcon = \"🌞\",\n  darkIcon = \"🌙\",\n  className = \"\",\n  remember = true,\n  onToggle,\n}) => {\n  const [isDark, setIsDark] = useState<boolean>(() => {\n    if (typeof window !== \"undefined\") {\n      return (\n        (remember && localStorage.theme === \"dark\") ||\n        (!(\"theme\" in localStorage) &&\n          window.matchMedia(\"(prefers-color-scheme: dark)\").matches)\n      );\n    }\n    return false;\n  });\n\n  useEffect(() => {\n    const root = document.documentElement;\n    if (isDark) {\n      root.classList.add(\"dark\");\n      if (remember) localStorage.setItem(\"theme\", \"dark\");\n    } else {\n      root.classList.remove(\"dark\");\n      if (remember) localStorage.setItem(\"theme\", \"light\");\n    }\n    onToggle?.(isDark);\n  }, [isDark, remember, onToggle]);\n\n  const toggle = () => setIsDark((prev) => !prev);\n\n  const renderContent = () => {\n    if (variant === \"switch\") {\n      return (\n        <div className=\"relative w-14 h-8 rounded-full bg-neutral-300 dark:bg-neutral-600 transition-colors group-hover:bg-neutral-400 dark:group-hover:bg-neutral-500\">\n          <div\n            className={`absolute top-1 left-1 h-6 w-6 rounded-full bg-white shadow-md transform transition-transform ${\n              isDark ? \"translate-x-6\" : \"\"\n            }`}\n          />\n        </div>\n      );\n    }\n\n    if (variant === \"text\") {\n      return (\n        <span className=\"px-4 py-1 border border-neutral-500 dark:border-neutral-400 rounded-md text-neutral-700 dark:text-neutral-200 transition-colors duration-200 group-hover:border-black dark:group-hover:border-white group-hover:text-black dark:group-hover:text-white\">\n          {isDark ? \"Light\" : \"Dark\"}\n        </span>\n      );\n    }\n\n    // Default: icon\n    return (\n      <span className=\"text-yellow-500 dark:text-gray-200 transition-transform group-hover:scale-125 duration-200\">\n        {isDark ? lightIcon : darkIcon}\n      </span>\n    );\n  };\n\n  return (\n    <button\n      onClick={toggle}\n      className={`group flex items-center justify-center p-2 rounded-full transition duration-300 hover:bg-neutral-200 dark:hover:bg-neutral-700 active:scale-95 ${className}`}\n      aria-label=\"Toggle Dark Mode\"\n    >\n      {renderContent()}\n    </button>\n  );\n};\n\nexport default DarkModeToggle;\n",
+      "type": "registry:component",
+      "target": "src/component/ui/dark.tsx"
+    }
+  ]
+}

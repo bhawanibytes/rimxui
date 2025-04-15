@@ -1,6 +1,5 @@
-import  { useEffect, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { X } from "lucide-react";
-import soundSrc from "./NotificationSound.mp3";
 
 // Define the props type
 interface ChatNotificationProps {
@@ -10,19 +9,46 @@ interface ChatNotificationProps {
 }
 
 export function ChatNotification({ title, message, onClose }: ChatNotificationProps) {
+  const [audioSrc, setAudioSrc] = useState<string | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
+  // Fallback URL
+  const fallbackAudioUrl = "https://rimxuidev.vercel.app/audio/NotificationSound.mp3"; // Replace with your actual remote URL
+
   useEffect(() => {
-    if (audioRef.current) {
+    const checkLocalAudio = async () => {
+      try {
+        // Check if the local file exists
+        const response = await fetch("/NotificationSound.mp3", { method: "HEAD" });
+
+        if (response.ok) {
+          // If the file exists locally, use the local path
+          setAudioSrc("/NotificationSound.mp3");
+        } else {
+          // Fallback to remote URL if local file doesn't exist
+          setAudioSrc(fallbackAudioUrl);
+        }
+      } catch (error) {
+        console.warn("Error fetching the local audio file:", error);
+        // Fallback to remote URL in case of network error
+        setAudioSrc(fallbackAudioUrl);
+      }
+    };
+
+    checkLocalAudio();
+  }, []);
+
+  useEffect(() => {
+    if (audioRef.current && audioSrc) {
       audioRef.current.play().catch((e) => {
         console.warn("Sound couldn't be played automatically:", e);
       });
     }
-  }, []);
+  }, [audioSrc]);
 
   return (
     <div className="max-w-sm w-full bg-white dark:bg-gray-900 shadow-lg rounded-lg p-4 flex justify-between items-start gap-3 border border-gray-200 dark:border-gray-700">
-      <audio ref={audioRef} src={soundSrc} preload="auto" />
+      {audioSrc && <audio ref={audioRef} src={audioSrc} preload="auto" />}
       <div className="flex-1">
         <h4 className="font-semibold text-gray-900 dark:text-white text-base mb-1">
           {title}
