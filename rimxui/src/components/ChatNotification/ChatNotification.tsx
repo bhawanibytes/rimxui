@@ -23,7 +23,7 @@ export function ChatNotification({ title, message, onClose }: ChatNotificationPr
 
         if (response.ok) {
           // If the file exists locally, use the local path
-          setAudioSrc("/NotificationSound.mp3");
+          setAudioSrc("/audio/NotificationSound.mp3");
         } else {
           // Fallback to remote URL if local file doesn't exist
           setAudioSrc(fallbackAudioUrl);
