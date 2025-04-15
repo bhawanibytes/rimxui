@@ -1,0 +1,79 @@
+/* Import Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Base Typography Styles */
+.h1 {
+  @apply text-h1;
+}
+
+.h2 {
+  @apply text-h2;
+}
+
+.h3 {
+  @apply text-h3;
+}
+
+.h4 {
+  @apply text-h4;
+}
+
+.h5 {
+  @apply text-h5;
+}
+
+.h6 {
+  @apply text-h6;
+}
+
+/* Body Large Styles */
+.body-large {
+  @apply text-body-lg;
+}
+
+.body-large-medium {
+  @apply text-body-lg-medium;
+}
+
+.body-large-semibold {
+  @apply text-body-lg-semibold;
+}
+
+.body-large-bold {
+  @apply text-body-lg-bold;
+}
+
+/* Body Medium Styles */
+.body-medium {
+  @apply text-body-md;
+}
+
+.body-medium-medium {
+  @apply text-body-md-medium;
+}
+
+.body-medium-semibold {
+  @apply text-body-md-semibold;
+}
+
+.body-medium-bold {
+  @apply text-body-md-bold;
+}
+
+/* Body Small Styles */
+.body-small {
+  @apply text-body-sm;
+}
+
+.body-small-medium {
+  @apply text-body-sm-medium;
+}
+
+/* Body Extra Small Styles */
+.body-xs {
+  @apply text-body-xs;
+}
+
+.body-xs-medium {
+  @apply text-body-xs-medium;
+} 

@@ -1,0 +1,156 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "remix",
+  "homepage": "https://rimxuidev.vercel.app/",
+  "items": [
+    {
+      "name": "button",
+      "type": "registry:component",
+      "dependencies": ["lucide-react"],
+      "title": "button",
+      "description": "This is the button we used in most of the work",
+      "files": [
+        {
+          "path": "src/components/ui/Button.tsx",
+          "type": "registry:component",
+          "target": "src/component/ui/Button.tsx"
+        }
+      ],
+      "author": "The RimxUi Team"
+    },
+    {
+      "name": "card",
+      "type": "registry:component",
+      "title": "card",
+      "description": "This is the cards components we used to build",
+      "files": [
+        {
+          "path": "src/components/Cards/Card.tsx",
+          "type": "registry:component",
+          "target": "src/component/ui/Card.tsx"
+        }
+      ],
+      "author": "The RimxUi Team"
+    },
+    {
+      "name": "accordion",
+      "type": "registry:component",
+      "title": "card",
+      "description": "This is the accordion components we used to build",
+      "dependencies": ["lucide-react", "framer-motion"],
+      "files": [
+        {
+          "path": "src/components/Acoordion/accordion.tsx",
+          "type": "registry:component",
+          "target": "src/component/ui/accordion.tsx"
+        }
+      ],
+      "author": "The RimxUi Team"
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:component",
+      "title": "skeleton",
+      "description": "This is the skeleton components we used to build",
+      "files": [
+        {
+          "path": "src/components/skeleton/skeleton.tsx",
+          "type": "registry:component",
+          "target": "src/component/ui/skeleton.tsx"
+        }
+      ],
+      "author": "The RimxUi Team"
+    },
+    {
+      "name": "chips",
+      "type": "registry:component",
+      "title": "chips",
+      "description": "This is the chips components.",
+      "dependencies": ["lucide-react", "framer-motion", "clsx"],
+      "files": [
+        {
+          "path": "src/components/Chips/chips.tsx",
+          "type": "registry:component",
+          "target": "src/component/ui/chips.tsx"
+        }
+      ],
+      "author": "The RimxUi Team"
+    },
+    {
+      "name": "dark-mode",
+      "type": "registry:component",
+      "title": "dark mode",
+      "files": [
+        {
+          "path": "src/components/DarkMode/dark.tsx",
+          "type": "registry:component",
+          "target": "src/component/ui/dark.tsx"
+        }
+      ],
+      "author": "The RimxUi Team"
+    },
+    {
+      "name": "notification",
+      "type": "registry:component",
+      "title": "Notification with sound",
+      "dependencies": [
+        "lucide-react",
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "src/components/ChatNotification/ChatNotification.tsx",
+          "type": "registry:component",
+          "target": "src/component/ui/ChatNotification/ChatNotification.tsx"
+        },
+        {
+          "path": "src/components/ChatNotification/NotificationContainer.tsx",
+          "type": "registry:component",
+          "target": "src/component/ui/ChatNotification/NotificationContainer.tsx"
+        },
+        {
+          "path": "src/components/ChatNotification/NotificationManager.tsx",
+          "type": "registry:component",
+          "target": "src/component/ui/ChatNotification/NotificationManager.tsx"
+        }
+      ],
+      "author": "The RimxUi Team"
+    },
+    {
+      "name": "breadcrumps",
+      "type": "registry:component",
+      "dependencies": [],
+      "files": [
+        {
+          
+          "path": "src/components/Breadcrump/BreadcrumpsBasic.tsx",
+          "type": "registry:component",
+          "target": "src/components/ui/BreadcrumpsBasic.tsx"
+        },
+        {
+          "path": "src/components/Breadcrump/BreadcrumpsGhost.tsx",
+          "type": "registry:component",
+          "target": "src/components/ui/BreadcrumpsGhost.tsx"
+        }, 
+        {
+          "path": "src/components/Breadcrump/BreadcrumpsOutlined.tsx",
+          "type": "registry:component",
+          "target": "src/components/ui/BreadcrumpsOutlined.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:component",
+      "dependencies": [],
+      "files": [
+        {
+
+          "path": "src/components/Pagination/Pagination.tsx",
+          "type": "registry:component",
+          "target": "src/components/ui/Pagination.tsx"
+        }
+      ]
+    }
+  ]
+}

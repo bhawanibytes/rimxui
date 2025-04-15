@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion",
+  "type": "registry:component",
+  "title": "card",
+  "author": "The RimxUi Team",
+  "description": "This is the accordion components we used to build",
+  "dependencies": [
+    "lucide-react",
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "src/components/Acoordion/accordion.tsx",
+      "content": "import { useState } from \"react\";\nimport { ChevronDown } from \"lucide-react\";\nimport { AnimatePresence, motion } from \"framer-motion\";\nimport { ReactNode } from \"react\";\n\n// Define types for the item object and props\ninterface AccordionItem {\n  title: string;\n  content: string | ReactNode; // Content can be either a string or JSX\n}\n\ninterface AccordionProps {\n  items: AccordionItem[]; // List of items with title and content\n  openMultiple?: boolean; // Flag to allow multiple items to be open at once\n  defaultOpenIndexes?: number[]; // Default open indexes for the accordion items\n  containerClass?: string; // Custom container class\n  itemClass?: string; // Custom item class\n  titleClass?: string; // Custom title class\n  iconClass?: string; // Custom icon class\n  contentClass?: string; // Custom content class\n}\n\nexport default function Accordion({\n  items = [],\n  openMultiple = false,\n  defaultOpenIndexes = [],\n  containerClass = \"\",\n  itemClass = \"\",\n  titleClass = \"\",\n  iconClass = \"\",\n  contentClass = \"\",\n}: AccordionProps) {\n  const [openIndexes, setOpenIndexes] = useState<number[]>(defaultOpenIndexes);\n\n  const toggle = (index: number) => {\n    if (openMultiple) {\n      setOpenIndexes((prev) =>\n        prev.includes(index)\n          ? prev.filter((i) => i !== index)\n          : [...prev, index]\n      );\n    } else {\n      setOpenIndexes(openIndexes.includes(index) ? [] : [index]);\n    }\n  };\n\n  return (\n    <div className={`w-full max-w-3xl mx-auto space-y-4 ${containerClass}`}>\n      {items.map((item, index) => {\n        const isOpen = openIndexes.includes(index);\n\n        return (\n          <div\n            key={index}\n            className={`border border-textColor-secondary dark:border-textColor-secondary rounded-xl overflow-hidden shadow-sm bg-white dark:bg-zinc-900 ${itemClass}`}\n          >\n            <button\n              onClick={() => toggle(index)}\n              className={`w-full flex justify-between items-center px-6 py-4 text-left transition-colors duration-200 \n              hover:bg-primary/10 dark:hover:bg-secondary/10 ${titleClass}`}\n              aria-expanded={isOpen}\n              aria-controls={`accordion-content-${index}`}\n            >\n              <span className=\"font-medium text-textColor-primary dark:text-textColor-secondary\">\n                {item.title}\n              </span>\n              <ChevronDown\n                className={`w-5 h-5 transform transition-transform duration-200 \n                ${isOpen ? \"rotate-180 text-primary\" : \"text-textColor-primary\"} ${iconClass}`}\n              />\n            </button>\n\n            <AnimatePresence initial={false}>\n              {isOpen && (\n                <motion.div\n                  id={`accordion-content-${index}`}\n                  initial={{ height: 0, opacity: 0 }}\n                  animate={{ height: \"auto\", opacity: 1 }}\n                  exit={{ height: 0, opacity: 0 }}\n                  transition={{ duration: 0.3, ease: \"easeInOut\" }}\n                >\n                  <div\n                    className={`px-6 py-4 text-sm text-textColor-secondary dark:text-gray-300 ${contentClass}`}\n                  >\n                    {item.content}\n                  </div>\n                </motion.div>\n              )}\n            </AnimatePresence>\n          </div>\n        );\n      })}\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "src/component/ui/accordion.tsx"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chips",
+  "type": "registry:component",
+  "title": "chips",
+  "author": "The RimxUi Team",
+  "description": "This is the chips components.",
+  "dependencies": [
+    "lucide-react",
+    "framer-motion",
+    "clsx"
+  ],
+  "files": [
+    {
+      "path": "src/components/Chips/chips.tsx",
+      "content": "import { X } from \"lucide-react\";\nimport { motion, AnimatePresence } from \"framer-motion\";\nimport { clsx } from \"clsx\";\n\n// Define types for the component props\ntype ChipVariant = \"filled\" | \"outlined\" | \"soft\";\ntype ChipColor = \"primary\" | \"secondary\" | \"danger\" | \"gray\";\n\ninterface ChipProps {\n  children: React.ReactNode; // The content inside the chip\n  variant?: ChipVariant; // The variant of the chip (filled, outlined, soft)\n  color?: ChipColor; // The color of the chip (primary, secondary, danger, gray)\n  dismissable?: boolean; // Flag to make the chip dismissable\n  onDismiss?: () => void; // Callback function to handle dismissal\n  className?: string; // Additional classes for customization\n}\n\nconst chipColors: Record<ChipColor, Record<ChipVariant, string>> = {\n  primary: {\n    filled: \"bg-primary text-white dark:bg-primary-dark dark:text-white\",\n    outlined: \"border border-primary text-primary dark:border-primary-dark dark:text-primary\",\n    soft: \"bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary\"\n  },\n  secondary: {\n    filled: \"bg-secondary text-white dark:bg-secondary-dark dark:text-white\",\n    outlined: \"border border-secondary text-secondary dark:border-secondary-dark dark:text-secondary\",\n    soft: \"bg-secondary/10 text-secondary dark:bg-secondary/20 dark:text-secondary\"\n  },\n  danger: {\n    filled: \"bg-red-600 text-white dark:bg-red-700 dark:text-white\",\n    outlined: \"border border-red-600 text-red-600 dark:border-red-700 dark:text-red-600\",\n    soft: \"bg-red-100 text-red-600 dark:bg-red-200 dark:text-red-600\"\n  },\n  gray: {\n    filled: \"bg-gray-600 text-white dark:bg-gray-700 dark:text-white\",\n    outlined: \"border border-gray-600 text-gray-600 dark:border-gray-700 dark:text-gray-600\",\n    soft: \"bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200\"\n  }\n};\n\nconst Chip = ({\n  children,\n  variant = \"soft\",\n  color = \"gray\",\n  dismissable = false,\n  onDismiss,\n  className = \"\"\n}: ChipProps) => {\n  return (\n    <AnimatePresence>\n      <motion.div\n        initial={{ scale: 0.8, opacity: 0 }}\n        animate={{ scale: 1, opacity: 1 }}\n        exit={{ scale: 0.8, opacity: 0 }}\n        transition={{ duration: 0.2 }}\n        className={clsx(\n          \"inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200\",\n          chipColors[color]?.[variant],\n          className\n        )}\n      >\n        <span>{children}</span>\n\n        {dismissable && (\n          <button\n            onClick={onDismiss}\n            className=\"ml-1 hover:opacity-70 transition\"\n            aria-label=\"Dismiss chip\"\n          >\n            <X size={14} />\n          </button>\n        )}\n      </motion.div>\n    </AnimatePresence>\n  );\n};\n\nexport default Chip;\n",
+      "type": "registry:component",
+      "target": "src/component/ui/chips.tsx"
+    }
+  ]
+}
