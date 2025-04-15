@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "notification",
+  "type": "registry:component",
+  "title": "Notification with sound",
+  "author": "The RimxUi Team",
+  "dependencies": [
+    "lucide-react",
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "src/components/ChatNotification/ChatNotification.tsx",
+      "content": "import { useEffect, useState, useRef } from \"react\";\nimport { X } from \"lucide-react\";\n\n// Define the props type\ninterface ChatNotificationProps {\n  title: string;\n  message: string;\n  onClose: () => void;\n}\n\nexport function ChatNotification({ title, message, onClose }: ChatNotificationProps) {\n  const [audioSrc, setAudioSrc] = useState<string | null>(null);\n  const audioRef = useRef<HTMLAudioElement | null>(null);\n\n  // Fallback URL\n  const fallbackAudioUrl = \"https://rimxuidev.vercel.app/audio/NotificationSound.mp3\"; // Replace with your actual remote URL\n\n  useEffect(() => {\n    const checkLocalAudio = async () => {\n      try {\n        // Check if the local file exists\n        const response = await fetch(\"/NotificationSound.mp3\", { method: \"HEAD\" });\n\n        if (response.ok) {\n          // If the file exists locally, use the local path\n          setAudioSrc(\"/NotificationSound.mp3\");\n        } else {\n          // Fallback to remote URL if local file doesn't exist\n          setAudioSrc(fallbackAudioUrl);\n        }\n      } catch (error) {\n        console.warn(\"Error fetching the local audio file:\", error);\n        // Fallback to remote URL in case of network error\n        setAudioSrc(fallbackAudioUrl);\n      }\n    };\n\n    checkLocalAudio();\n  }, []);\n\n  useEffect(() => {\n    if (audioRef.current && audioSrc) {\n      audioRef.current.play().catch((e) => {\n        console.warn(\"Sound couldn't be played automatically:\", e);\n      });\n    }\n  }, [audioSrc]);\n\n  return (\n    <div className=\"max-w-sm w-full bg-white dark:bg-gray-900 shadow-lg rounded-lg p-4 flex justify-between items-start gap-3 border border-gray-200 dark:border-gray-700\">\n      {audioSrc && <audio ref={audioRef} src={audioSrc} preload=\"auto\" />}\n      <div className=\"flex-1\">\n        <h4 className=\"font-semibold text-gray-900 dark:text-white text-base mb-1\">\n          {title}\n        </h4>\n        <p className=\"text-sm text-gray-700 dark:text-white\">{message}</p>\n      </div>\n      <button onClick={onClose} aria-label=\"Close notification\" className=\"text-gray-500 hover:text-gray-700 transition\">\n        <X className=\"w-4 h-4\" />\n      </button>\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "src/component/ui/ChatNotification/ChatNotification.tsx"
+    },
+    {
+      "path": "src/components/ChatNotification/NotificationContainer.tsx",
+      "content": "import { useState, useEffect } from \"react\";\nimport { ChatNotification } from \"./ChatNotification\";\nimport { AnimatePresence, motion } from \"framer-motion\";\nimport { registerNotifier } from \"./NotificationManager\"; // 👈 import it\n\nexport interface Notification {\n  id: string;\n  title: string;\n  message: string;\n  type?: \"success\" | \"error\" | \"info\" | \"warning\";\n  duration?: number;\n  onClose?: () => void;\n}\n\nconst MAX_NOTIFICATIONS = 3;\n\nexport function NotificationContainer() {\n  const [notifications, setNotifications] = useState<Notification[]>([]);\n\n  const addNotification = (notification: Omit<Notification, \"id\">) => {\n    const id = crypto.randomUUID();\n    const fullNotification: Notification = { id, ...notification };\n\n    setNotifications((prev) => {\n      const updated = [...prev, fullNotification];\n      if (updated.length > MAX_NOTIFICATIONS) updated.shift();\n      return updated;\n    });\n\n    if (notification.duration) {\n      setTimeout(() => removeNotification(id), notification.duration);\n    }\n  };\n\n  const removeNotification = (id: string) => {\n    setNotifications((prev) => {\n      const toRemove = prev.find((n) => n.id === id);\n      if (toRemove?.onClose) toRemove.onClose();\n      return prev.filter((n) => n.id !== id);\n    });\n  };\n\n  useEffect(() => {\n    registerNotifier(addNotification); // 👈 this sets global notify\n  }, []);\n\n  return (\n    <div className=\"fixed z-50 top-4 right-4 flex flex-col gap-3 w-fit max-w-sm dark:text-white\">\n      <AnimatePresence>\n        {notifications.map((notification) => (\n          <motion.div\n            key={notification.id}\n            layout\n            initial={{ opacity: 0, scale: 0.95, y: 20 }}\n            animate={{ opacity: 1, scale: 1, y: 0 }}\n            exit={{ opacity: 0, scale: 0.9, y: 20, transition: { duration: 0.3 } }}\n            transition={{ type: \"spring\", stiffness: 300, damping: 20 }}\n          >\n            <ChatNotification\n              {...notification}\n              onClose={() => removeNotification(notification.id)}\n            />\n          </motion.div>\n        ))}\n      </AnimatePresence>\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "src/component/ui/ChatNotification/NotificationContainer.tsx"
+    },
+    {
+      "path": "src/components/ChatNotification/NotificationManager.tsx",
+      "content": "import { Notification } from \"./NotificationContainer\";\n// Default fallback if container not mounted\nlet notifyFn: (notification: Omit<Notification, \"id\">) => void = (n) =>\n  console.warn(\"Notification system is not mounted!\", n);\n\nexport const notify = (notification: Omit<Notification, \"id\">) => {\n  notifyFn(notification);\n};\n\n// Called by NotificationContainer to register itself\nexport const registerNotifier = (\n  fn: (notification: Omit<Notification, \"id\">) => void\n) => {\n  notifyFn = fn;\n};\n",
+      "type": "registry:component",
+      "target": "src/component/ui/ChatNotification/NotificationManager.tsx"
+    }
+  ]
+}

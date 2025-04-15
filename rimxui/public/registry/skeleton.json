@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton",
+  "type": "registry:component",
+  "title": "skeleton",
+  "author": "The RimxUi Team",
+  "description": "This is the skeleton components we used to build",
+  "files": [
+    {
+      "path": "src/components/skeleton/skeleton.tsx",
+      "content": "import React from \"react\";\n\n// Defining the type for SkeletonBlock props\ninterface SkeletonBlockProps {\n  width: string;\n  height: string;\n  circle?: boolean;\n  className?: string;\n}\n\n// SkeletonBlock component\nconst SkeletonBlock: React.FC<SkeletonBlockProps> = ({\n  width,\n  height,\n  circle = false,\n  className = \"\",\n}) => {\n  return (\n    <div\n      className={`bg-gray-300 animate-pulse ${\n        circle ? \"rounded-full\" : \"rounded-md\"\n      } ${className}`}\n      style={{ width, height }}\n    />\n  );\n};\n\n// Defining the type for Skeleton props\ninterface SkeletonProps {\n  variant: \"avatar\" | \"card\" | \"blog\" | \"default\";\n}\n\n// Main Skeleton component with variants\nconst Skeleton: React.FC<SkeletonProps> = ({ variant }) => {\n  switch (variant) {\n    case \"avatar\":\n      return (\n        <div className=\"flex items-center space-x-4\">\n          <SkeletonBlock width=\"50px\" height=\"50px\" circle />\n          <div className=\"flex flex-col space-y-2\">\n            <SkeletonBlock width=\"100px\" height=\"16px\" />\n            <SkeletonBlock width=\"140px\" height=\"12px\" />\n          </div>\n        </div>\n      );\n\n    case \"card\":\n      return (\n        <div className=\"w-full p-4 border border-gray-200 rounded-md space-y-3\">\n          <SkeletonBlock width=\"100%\" height=\"150px\" />\n          <SkeletonBlock width=\"60%\" height=\"20px\" />\n          <SkeletonBlock width=\"80%\" height=\"14px\" />\n        </div>\n      );\n\n    case \"blog\":\n      return (\n        <div className=\"space-y-3\">\n          <SkeletonBlock width=\"100%\" height=\"200px\" />\n          <SkeletonBlock width=\"70%\" height=\"24px\" />\n          <SkeletonBlock width=\"100%\" height=\"14px\" />\n          <SkeletonBlock width=\"90%\" height=\"14px\" />\n        </div>\n      );\n\n    default:\n      return <SkeletonBlock width=\"100%\" height=\"20px\" />;\n  }\n};\n\nexport default Skeleton;\nexport { SkeletonBlock };\n",
+      "type": "registry:component",
+      "target": "src/component/ui/skeleton.tsx"
+    }
+  ]
+}
