@@ -19,7 +19,7 @@ export function ChatNotification({ title, message, onClose }: ChatNotificationPr
     const checkLocalAudio = async () => {
       try {
         // Check if the local file exists
-        const response = await fetch("/NotificationSound.mp3", { method: "HEAD" });
+        const response = await fetch("/audio/NotificationSound.mp3", { method: "HEAD" });
 
         if (response.ok) {
           // If the file exists locally, use the local path
