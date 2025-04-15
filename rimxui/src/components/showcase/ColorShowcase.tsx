@@ -1,5 +1,7 @@
 import PreviewWrapper from "../PreviewWrapper";
 
+const COLOR_ACCENTS = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
+
 const ColorPreview = () => {
   return (
     <div className="space-y-8">
@@ -7,7 +9,7 @@ const ColorPreview = () => {
       <div className="space-y-3">
         <h3 className="text-lg font-semibold">Primary Colors</h3>
         <div className="grid grid-cols-5 gap-4">
-          {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => (
+          {COLOR_ACCENTS.map((weight) => (
             <div key={weight} className="space-y-1.5">
               <div className={`h-10 w-full rounded-lg bg-primary-${weight}`} />
               <div className="px-0.5">
@@ -27,7 +29,7 @@ const ColorPreview = () => {
       <div className="space-y-3">
         <h3 className="text-lg font-semibold">Neutral Colors</h3>
         <div className="grid grid-cols-5 gap-4">
-          {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => (
+          {COLOR_ACCENTS.map((weight) => (
             <div key={weight} className="space-y-1.5">
               <div className={`h-10 w-full rounded-lg bg-neutral-${weight}`} />
               <div className="px-0.5">
@@ -47,7 +49,7 @@ const ColorPreview = () => {
       <div className="space-y-3">
         <h3 className="text-lg font-semibold">Success Colors</h3>
         <div className="grid grid-cols-5 gap-4">
-          {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => (
+          {COLOR_ACCENTS.map((weight) => (
             <div key={weight} className="space-y-1.5">
               <div className={`h-10 w-full rounded-lg bg-success-${weight}`} />
               <div className="px-0.5">
@@ -67,7 +69,7 @@ const ColorPreview = () => {
       <div className="space-y-3">
         <h3 className="text-lg font-semibold">Error Colors</h3>
         <div className="grid grid-cols-5 gap-4">
-          {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((weight) => (
+          {COLOR_ACCENTS.map((weight) => (
             <div key={weight} className="space-y-1.5">
               <div className={`h-10 w-full rounded-lg bg-error-${weight}`} />
               <div className="px-0.5">
@@ -76,6 +78,46 @@ const ColorPreview = () => {
                 </div>
                 <div className="text-xs text-neutral-500 dark:text-neutral-400">
                   error-{weight}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Warning Colors */}
+      <div className="space-y-3">
+        <h3 className="text-lg font-semibold">Warning Colors</h3>
+        <div className="grid grid-cols-5 gap-4">
+          {COLOR_ACCENTS.map((weight) => (
+            <div key={weight} className="space-y-1.5">
+              <div className={`h-10 w-full rounded-lg bg-warning-${weight}`} />
+              <div className="px-0.5">
+                <div className="text-xs font-medium text-neutral-600 dark:text-neutral-400">
+                  {weight}
+                </div>
+                <div className="text-xs text-neutral-500 dark:text-neutral-400">
+                  warning-{weight}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Accent Colors */}
+      <div className="space-y-3">
+        <h3 className="text-lg font-semibold">Accent Colors</h3>
+        <div className="grid grid-cols-5 gap-4">
+          {COLOR_ACCENTS.map((weight) => (
+            <div key={weight} className="space-y-1.5">
+              <div className={`h-10 w-full rounded-lg bg-accent-${weight}`} />
+              <div className="px-0.5">
+                <div className="text-xs font-medium text-neutral-600 dark:text-neutral-400">
+                  {weight}
+                </div>
+                <div className="text-xs text-neutral-500 dark:text-neutral-400">
+                  accent-{weight}
                 </div>
               </div>
             </div>
@@ -119,7 +161,8 @@ export const ColorShowcase = () => {
       <div>
         <h1 className="text-3xl font-bold mb-2">Colors</h1>
         <p className="text-neutral-600 dark:text-neutral-400">
-          A comprehensive color system with semantic colors for consistent theming.
+          A comprehensive color system with semantic colors for consistent
+          theming.
         </p>
       </div>
 
@@ -133,4 +176,4 @@ export const ColorShowcase = () => {
   );
 };
 
-export default ColorShowcase; 
+export default ColorShowcase;
