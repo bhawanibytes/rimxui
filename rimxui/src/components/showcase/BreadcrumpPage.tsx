@@ -11,6 +11,10 @@ const breadcrumbItems = [
 function BreadcrumbsPage() {
                return (
                               <div className="space-y-10 p-6">
+                                              <h2 className="text-2xl font-bold tracking-tight">BreadCrumps</h2>
+          <p className="text-muted-foreground">
+            Displays a breadcrumps or a component that looks like a Breadcrumps.
+          </p>
                                              <PreviewWrapper
                                                             label="Basic Breadcrumbs"
                                                             preview={<BreadcrumbsBasic items={breadcrumbItems} />}

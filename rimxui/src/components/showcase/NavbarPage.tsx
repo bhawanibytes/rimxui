@@ -50,7 +50,8 @@ export default NavbarGradient;
 function NavbarPage() {
   return (
     <div className="flex flex-col gap-10">
-      <h1 className="text-2xl font-bold">This is my navbar component</h1>
+      <h1 className="text-2xl font-bold">NavBar </h1>
+      <h3>Displays a Navbar or a component that looks like a Navbar.</h3>
 
       <PreviewWrapper
         label="Responsive Navbar"
