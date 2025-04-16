@@ -1,5 +1,6 @@
-import { Optional } from "@types";
+import { twMerge } from "tailwind-merge";
+import { clsx, type ClassValue } from "clsx";
 
-export const mc = (...classes: Array<Optional<string>>) => {
-  return classes.filter(Boolean).join(" ");
+export const mc = (...inputs: ClassValue[]) => {
+  return twMerge(clsx(inputs));
 };
