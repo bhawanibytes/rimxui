@@ -13,7 +13,12 @@ function PaginationPage() {
 
   return (
     <div className="space-y-10 p-6">
-      <PreviewWrapper
+
+<h2 className="text-2xl font-bold tracking-tight">Pagination</h2>
+          <p className="text-muted-foreground">
+            Displays a Pagination or a component that looks like a Pagination.
+          </p>
+        <PreviewWrapper
         label="Basic Pagination"
         preview={
           <PaginationBasic
