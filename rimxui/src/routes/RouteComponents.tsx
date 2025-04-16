@@ -5,6 +5,8 @@ import NavbarPage  from "@/components/showcase/NavbarPage";
 import PaginationPage from "@/components/showcase/PaginationPage";
 import ButtonPage from "@/components/showcase/ButtonPage";
 import { CardPage } from "@/components/showcase/CardPage";
+import { ModalPage } from "@/components/showcase/ModalPage";
+import { ToastPage } from "@/components/showcase/ToastPage";
 import { ColorShowcase } from "@/components/showcase/ColorShowcase";
 import { ColorUsageShowcase } from "@/components/showcase/ColorUsageShowcase";
 import ListPage from "@/components/showcase/ListPage";
@@ -74,6 +76,14 @@ export const ROUTE_COMPONENTS: Array<RouteObject> = [
       {
         path: CHILD_ROUTES.showcase.shadows,
         element: <ShadowShowcase />,
+      },
+      {
+        path: CHILD_ROUTES.showcase.modals,
+        element: <ModalPage />,
+      },
+      {
+        path: CHILD_ROUTES.showcase.toasts,
+        element: <ToastPage />,
       },
       {
         path: CHILD_ROUTES.showcase.breadcrumpspage,
