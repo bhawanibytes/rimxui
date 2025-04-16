@@ -1,7 +1,7 @@
 import { Github, Menu, X } from "lucide-react";
 import { useState } from "react";
 import Chip from "../components/Chips/chips";
-import DarkModeToggle from "../components/DarkMode/dark";
+// import DarkModeToggle from "../components/DarkMode/dark";
 import { Link } from "react-router-dom";
 import Button from "../components/ui/Button";
 import ButtonImg from "../assets/images/buttons.png";
@@ -19,7 +19,10 @@ const HomePage = () => {
   return (
     <>
       {/* This is the Navbar */}
-      <header>
+      <header className="">
+        <p className="w-full text-center bg-blue-200 py-1">
+          This is currently in Beta version
+        </p>
         <nav className="bg-gradient-to-r dark:from-black via-gray-800 to-gray-900 text-white w-full ">
           <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between md:justify-around">
             <div className="text-xl font-bold text-blue-600 flex items-center gap-2">
@@ -115,7 +118,7 @@ const HomePage = () => {
                 ease: "easeInOut",
               }}
               src={CardImg}
-              alt="ButtonComponent"
+              alt="CardComponent"
               width={300}
               height={300}
               className=" mt-5"
@@ -130,7 +133,7 @@ const HomePage = () => {
                 ease: "easeInOut",
               }}
               src={BreadCrumbImg}
-              alt="ButtonComponent"
+              alt="BreadCrumbComponent"
               className="absolute mt-5 top-40"
             />
             <motion.img
@@ -143,7 +146,7 @@ const HomePage = () => {
                 ease: "easeInOut",
               }}
               src={Chips}
-              alt="ButtonComponent"
+              alt="ChipsComponent"
               className="absolute mt-5 top-52 left-72"
             />
             <motion.img
@@ -156,7 +159,7 @@ const HomePage = () => {
                 ease: "easeInOut",
               }}
               src={ChipsGray}
-              alt="ButtonComponent"
+              alt="ChipsGrayComponent"
               className="absolute mt-5 top-64 left-96"
             />
             <motion.img
@@ -169,7 +172,7 @@ const HomePage = () => {
                 ease: "easeInOut",
               }}
               src={List}
-              alt="ButtonComponent"
+              alt="ListComponent"
               className="absolute mt-5 top-96 -left-[500px]"
             />
           </div>
