@@ -39,7 +39,7 @@ const HomePage = () => {
               >
                 Components
               </Link>
-              <DarkModeToggle />
+              {/* <DarkModeToggle /> */}
               <Chip color="gray">
                 <Link to={""}>
                   <Github className="w-4 h-4" />
