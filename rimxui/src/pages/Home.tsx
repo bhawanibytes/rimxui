@@ -1,3 +1,3 @@
-import { CountdownV2 } from "@components";
+import HomePage from "./HomePage";
 
-export const Home = () => <CountdownV2 />;
+export const Home = () => <HomePage />;
