@@ -1,5 +1,6 @@
 
 
+
 export const CHILD_ROUTES = {
   showcase: {
     colors: "colors",
@@ -12,13 +13,14 @@ export const CHILD_ROUTES = {
     navbarpage:"navbar",
     paginationpage:"pagination",
     breadcrumpspage:"breadcrumps",
-
+    sidebarpage:"sidebar",
     skeleton: "skeleton",
     chips: "chips",
     accordion: "accordion",
     counter: "counter",
     darkMode: "darkMode",
     notification: "notification",
+
   },
 } as const;
 
@@ -36,11 +38,12 @@ export const ROUTES = {
   NavbarPage:`/showcase/${CHILD_ROUTES.showcase.navbarpage}`,
   PaginationPage:`/showcase/${CHILD_ROUTES.showcase.paginationpage}`,
   BreadcrumbsPage:`/showcase/${CHILD_ROUTES.showcase.breadcrumpspage}`,
-
+  SidebarPage:`/showcase/${CHILD_ROUTES.showcase.sidebarpage}`,
   skeletonShowcase: `/showcase/${CHILD_ROUTES.showcase.skeleton}`,
   chipsShowcase: `/showcase/${CHILD_ROUTES.showcase.chips}`,
   accordionShowcase: `/showcase/${CHILD_ROUTES.showcase.accordion}`,
   counterShowcase: `/showcase/${CHILD_ROUTES.showcase.counter}`,
   darkModeShowcase: `/showcase/${CHILD_ROUTES.showcase.darkMode}`,
   notificationShowcase: `/showcase/${CHILD_ROUTES.showcase.notification}`,
+  
 } as const;

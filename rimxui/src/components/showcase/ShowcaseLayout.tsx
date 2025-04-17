@@ -17,6 +17,7 @@ const navigation = [
   { name: "Navbar", path: ROUTES.NavbarPage},
   { name: "Pagination", path: ROUTES.PaginationPage },
   { name: "Breadcrumps", path: ROUTES.BreadcrumbsPage },
+  {name:"sidebar",path:ROUTES.SidebarPage},
   
   { name: "Skeleton", path: ROUTES.skeletonShowcase },
   { name: "Chips", path: ROUTES.chipsShowcase },

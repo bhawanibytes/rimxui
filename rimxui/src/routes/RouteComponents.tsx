@@ -20,7 +20,7 @@ import AccordionPage from "@/components/showcase/AccordionPage";
 import CounterPage from "@/components/showcase/CounterPage";
 import DarkMode from "@/components/showcase/DarkMode";
 import NotificationPage from "@/components/showcase/NotificationPage";
-
+import SidebarPage from "@/components/showcase/SidebarPage";
 export const ROUTE_COMPONENTS: Array<RouteObject> = [
   {
     path: ROUTES.home,
@@ -41,6 +41,10 @@ export const ROUTE_COMPONENTS: Array<RouteObject> = [
       {
         path: CHILD_ROUTES.showcase.navbarpage,
         element: <NavbarPage />,
+      },
+      {
+        path: CHILD_ROUTES.showcase.sidebarpage,
+        element: <SidebarPage />,
       },
       {
         path: CHILD_ROUTES.showcase.paginationpage,
