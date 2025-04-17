@@ -1,8 +1,10 @@
 import { ElementType, forwardRef } from "react";
 
 import {
-  HEADING_LEVEL_STYLES,
-  TYPOGRAPHY_SIZES_STYLES,
+  DEFAULT_HEADING_WEIGHTS,
+  FONT_WEIGHT_STYLES,
+  HEADING_SIZE_SCALES,
+  TEXT_SIZES_STYLES,
   TYPOGRAPHY_VARIANTS_STYLES,
 } from "@constants";
 import {
@@ -30,6 +32,7 @@ export const Typography = forwardRef<TypographyRefType, TypographyProps>(
       type = "text",
       variant = "default",
       size = "md",
+      weight,
       className,
       as,
       ...restProps
@@ -37,23 +40,36 @@ export const Typography = forwardRef<TypographyRefType, TypographyProps>(
     ref,
   ) => {
     const typographyVariantStyles = TYPOGRAPHY_VARIANTS_STYLES[variant];
-    const typographySizeStyles = TYPOGRAPHY_SIZES_STYLES[size];
 
-    let headingStyles = "";
+    let sizeStyles = "";
+    let weightStyles = "";
     let Component: ElementType;
 
     if (type === "heading" && "level" in restProps) {
       const level = restProps.level || 1;
-      headingStyles = HEADING_LEVEL_STYLES[level];
+
+      const headingSizeScale = HEADING_SIZE_SCALES[level];
+
+      sizeStyles = headingSizeScale[size];
+
+      const headingWeight = weight || DEFAULT_HEADING_WEIGHTS[level];
+      weightStyles = FONT_WEIGHT_STYLES[headingWeight];
+
       Component = as || getHeadingElement(level);
     } else {
+      sizeStyles = TEXT_SIZES_STYLES[size];
+
+      weightStyles = weight
+        ? FONT_WEIGHT_STYLES[weight]
+        : FONT_WEIGHT_STYLES.normal;
+
       Component = as || TYPOGRAPHY_COMPONENT_MAP[type] || "div";
     }
 
     const typographyComponentStyles = mc(
       typographyVariantStyles,
-      typographySizeStyles,
-      headingStyles,
+      sizeStyles,
+      weightStyles,
       className,
     );
 

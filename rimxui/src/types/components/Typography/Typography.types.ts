@@ -21,9 +21,21 @@ export type TypographySizes =
   | "3xl"
   | "4xl";
 
+export type TypographyWeight =
+  | "thin"
+  | "extralight"
+  | "light"
+  | "normal"
+  | "medium"
+  | "semibold"
+  | "bold"
+  | "extrabold"
+  | "black";
+
 type BaseTypographyProps = {
   variant?: TypographyVariants;
   size?: TypographySizes;
+  weight?: TypographyWeight;
   className?: string;
   as?: ElementType;
 };
