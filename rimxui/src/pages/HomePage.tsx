@@ -11,6 +11,9 @@ import DarkModeToggle from "@/components/DarkMode/dark";
 import { Card, CardContent, CardFooter } from "@/components/Cards/Card";
 import { BreadcrumbsOutlined } from "@/components/Breadcrump/BreadcrumpsGhost";
 import { ListItem, List } from "@/components/list";
+import { NotificationContainer } from "../components/ChatNotification/NotificationContainer";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const HomePage = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -80,7 +83,8 @@ const HomePage = () => {
       </header>
 
       {/* This is the hero section */}
-      <main className="relative max-w-7xl mx-auto p-8 h-screen ">
+      <main className=" max-w-7xl mx-auto p-8 h-screen ">
+        {/* animation balls */}
         <motion.div
           initial={{ x: 0, y: 0 }}
           animate={{
@@ -88,7 +92,7 @@ const HomePage = () => {
             y: [0, -200, 100, -150, 0],
           }}
           transition={{
-            duration: 15,
+            duration: 20,
             repeat: Infinity,
             repeatType: "loop",
             ease: "easeInOut",
@@ -102,7 +106,7 @@ const HomePage = () => {
             y: [0, 150, -200, 100, 0],
           }}
           transition={{
-            duration: 18,
+            duration: 23,
             repeat: Infinity,
             repeatType: "loop",
             ease: "easeInOut",
@@ -112,26 +116,41 @@ const HomePage = () => {
         <motion.div
           initial={{ x: 0, y: 0 }}
           animate={{
-            x: [0, 300, -200, 100, 0],
+            x: [0, 200, -200, 100, 0],
             y: [0, -150, 200, -100, 0],
           }}
           transition={{
-            duration: 20,
+            duration: 25,
             repeat: Infinity,
             repeatType: "loop",
             ease: "easeInOut",
           }}
           className="absolute w-80 h-80 right-52 top-0 bg-yellow-500/20 rounded-full blur-3xl"
         ></motion.div>
+        <motion.div
+          initial={{ x: 0, y: 0 }}
+          animate={{
+            x: [0, 100, -400, 200, 0],
+            y: [0, -250, 200, -150, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            repeatType: "loop",
+            ease: "easeInOut",
+          }}
+          className="absolute w-80 h-80 right-52 top-0 bg-green-500/20 rounded-full blur-3xl"
+        ></motion.div>
+
         <section className="h-full w-full bg-transparent text-center">
-          <p className="font-bold text-5xl text-zinc-700 pt-12">
+          <p className="font-bold text-5xl text-zinc-700 dark:text-zinc-300 pt-12">
             Design Fast. Develop Faster. With{" "}
             <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
               RiMX UI
             </span>
             .
           </p>
-          <p className="mt-8 text-zinc-600 w-full px-32 text-center ">
+          <p className="mt-8 text-zinc-600 dark:text-zinc-400 w-full px-32 text-center ">
             RiMX UI is a sleek, developer-first React component library designed
             for speed, flexibility, and stunning design—helping you build
             modern, responsive interfaces with ease and elegance.
@@ -145,35 +164,92 @@ const HomePage = () => {
           </Link>
         </section>
 
-        {/* right side */}
-        {/* <div className="w-1/2 h-full relative"> */}
-        {/* <div className="absolute left-52 top-[500px]">
+        <section className="absolute md:w-[1200px] top-96 p-5 grid py-16 mt-20">
+          <div className="mb-12 flex flex-col items-center gap-3">
+            <h1 className="w-full  text-center font-bold text-4xl">
+              Explore Our UI Building Blocks
+            </h1>
+            <p className="text-zinc-400">
+              A sneak peek into the beautifully crafted components that power
+              your next stunning interface.
+            </p>
+          </div>
+          {/* Buttons */}
+          <div className="flex items-center gap-3 justify-center">
+            <motion.div
+              initial={{ y: 0 }}
+              animate={{ y: [0, -10, 0] }}
+              transition={{
+                delay: 0 * 0.2,
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 3,
+              }}
+            >
+              <Button label="Primary" variant="default" />
+            </motion.div>
+
+            <motion.div
+              initial={{ y: 0 }}
+              animate={{ y: [0, -10, 0] }}
+              transition={{
+                delay: 1 * 0.2,
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 3,
+              }}
+            >
+              <Button label="Secondary" variant="secondary" />
+            </motion.div>
+
+            <motion.div
+              initial={{ y: 0 }}
+              animate={{ y: [0, -10, 0] }}
+              transition={{
+                delay: 2 * 0.2,
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 3,
+              }}
+            >
+              <Button label="Destructive" variant="destructive" />
+            </motion.div>
+
+            <motion.div
+              initial={{ y: 0 }}
+              animate={{ y: [0, -10, 0] }}
+              transition={{
+                delay: 3 * 0.2,
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 3,
+              }}
+            >
+              <Button label="Outline" variant="outline" />
+            </motion.div>
+
+            <motion.div
+              initial={{ y: 0 }}
+              animate={{ y: [0, -10, 0] }}
+              transition={{
+                delay: 4 * 0.2,
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 3,
+              }}
+            >
+              <Button label="Icon" variant="icon" />
+            </motion.div>
+          </div>
+
+          {/* Card */}
           <motion.div
             initial={{ y: 0 }}
-            animate={{ y: [0, -10, 0] }}
+            animate={{ y: [0, -40, 0] }}
             transition={{
-              duration: 1.8,
               repeat: Infinity,
-              repeatType: "loop",
-              ease: "easeInOut",
-            }}
-            className="flex items-center gap-3"
-          >
-            <Button label="Primary" variant="default" />
-            <Button label="Secondary" variant="secondary" />
-            <Button label="Destructive" variant="destructive" />
-            <Button label="Outline" variant="outline" />
-            <Button label="Icon" variant="icon" />
-          </motion.div>
-
-          <motion.div
-            initial={{ x: 0 }}
-            animate={{ x: [0, -10, 0] }}
-            transition={{
-              duration: 2.8,
-              repeat: Infinity,
-              repeatType: "loop",
-              ease: "easeInOut",
+              duration: 6,
+              easings: ["easeInOut"],
             }}
           >
             <Card>
@@ -202,16 +278,11 @@ const HomePage = () => {
             </Card>
           </motion.div>
 
+          {/* BreadCrumb */}
           <motion.div
-            initial={{ y: 0 }}
-            animate={{ y: [0, -10, 0] }}
-            transition={{
-              duration: 2.8,
-              repeat: Infinity,
-              repeatType: "loop",
-              ease: "easeInOut",
-            }}
-            className="absolute top-20 left-64"
+            animate={{ x: [0, -10, 0, 10, 0] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-60 left-96"
           >
             <BreadcrumbsOutlined
               items={[
@@ -230,34 +301,31 @@ const HomePage = () => {
             />
           </motion.div>
 
-          <motion.div
-            initial={{ y: 0 }}
-            animate={{ y: [0, -10, 0] }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              repeatType: "loop",
-              ease: "easeInOut",
-            }}
-          >
-            <Chip color="gray" className="absolute left-64">
-              Gray Soft
-            </Chip>
-            <Chip color="danger" className="absolute left-80 -top-5">
-              Danger
-            </Chip>
-          </motion.div>
+          {/* Chips */}
+          <div className="relative">
+            <motion.div
+              animate={{ x: [0, -10, 0, 10, 0] }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Chip color="gray" className="absolute left-64">
+                Gray Soft
+              </Chip>
+            </motion.div>
+            <motion.div
+              animate={{ x: [0, 10, 0, -10, 0] }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Chip color="danger" className="absolute left-80 -top-5">
+                Danger
+              </Chip>
+            </motion.div>
+          </div>
 
+          {/* Lists */}
           <motion.div
-            initial={{ y: 0 }}
-            animate={{ y: [0, -10, 0] }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              repeatType: "loop",
-              ease: "easeInOut",
-            }}
-            className="absolute mt-5 top-96 -left-[650px] w-full"
+            animate={{ x: [0, -20, 0, 20, 0] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute left-96 top-80 w-3/5"
           >
             <List variant="outline" listType="plain" bordered>
               {folders.map((folder) => (
@@ -284,8 +352,106 @@ const HomePage = () => {
               ))}
             </List>
           </motion.div>
-        </div> */}
+
+          {/* Notification */}
+          <NotificationContainer />
+        </section>
+
+        {/* Customization components section */}
       </main>
+      <section className="mt-96 ">
+        <motion.div
+          initial={{ x: 0, y: 0 }}
+          animate={{
+            x: [0, 100, -100, 150, 0],
+            y: [0, -100, 100, -10, 0],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            repeatType: "loop",
+            ease: "easeInOut",
+          }}
+          className="absolute w-96 h-96 bg-purple-500/20 rounded-full blur-2xl"
+        ></motion.div>
+        <div className="mb-12 flex flex-col items-center gap-3">
+          <h1 className="w-full  text-center font-bold text-4xl">
+            Make It Yours
+          </h1>
+          <p className="text-zinc-400">
+            Personalize every pixel — from props to design tokens, your brand,
+            your rules.
+          </p>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <div className="flex items-start pl-40 py-12 w-1/2  gap-2">
+            <span className="border rounded-full px-3 py-1 border-zinc-400">
+              1
+            </span>{" "}
+            <div className="">
+              Easily override default styles using utility classes or custom
+              props to match your brand’s look without breaking component
+              structure or behavior.
+            </div>
+          </div>
+          <div className="w-1/2 pr-40 py-12">
+            <SyntaxHighlighter
+              language="tsx"
+              style={oneDark}
+              showLineNumbers={true}
+              wrapLines={true}
+              className="w-full"
+            >
+              {`<Button
+  label="Get Started ->"
+  variant="default"
+  className="mt-16"
+/>`}
+            </SyntaxHighlighter>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <div className="flex items-start pl-40 py-12 w-1/2  gap-2">
+            <span className="border rounded-full px-3 py-1 border-zinc-400">
+              2
+            </span>{" "}
+            <div className="">
+              Switch between light and dark themes effortlessly with our live
+              toggle — preview component styles in real time as you customize.
+              <div className="flex items-center justify-start py-4 ">
+                <DarkModeToggle variant="icon" />
+                <DarkModeToggle variant="switch" />
+                <DarkModeToggle variant="text" />
+                <DarkModeToggle
+                  variant="icon"
+                  lightIcon="🔆" // Custom light mode icon
+                  darkIcon="🌑" // Custom dark mode icon
+                />
+              </div>
+            </div>
+          </div>
+          <div className="w-1/2 pr-40 py-12 flex items-center justify-center">
+            <SyntaxHighlighter
+              language="tsx"
+              style={oneDark}
+              showLineNumbers={true}
+              wrapLines={true}
+              className="w-full"
+            >
+              {`<DarkModeToggle variant="icon" />
+<DarkModeToggle variant="switch" />
+<DarkModeToggle variant="text" />
+<DarkModeToggle
+  variant="icon"
+  lightIcon="🔆" // Custom light mode icon
+  darkIcon="🌑" // Custom dark mode icon
+/>`}
+            </SyntaxHighlighter>
+          </div>
+        </div>
+      </section>
     </>
   );
 };

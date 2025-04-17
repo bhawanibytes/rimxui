@@ -56,7 +56,7 @@ export const ShowcaseLayout: React.FC = () => {
                   />
                 </svg>
                 <Link
-                  to="/showcase"
+                  to="/"
                   className="text-xl font-semibold text-neutral-900 dark:text-white"
                 >
                   R<span className="text-red-500">i</span>MX UI
@@ -98,7 +98,7 @@ export const ShowcaseLayout: React.FC = () => {
                   </svg>
                 )}
               </button>
-            </div> 
+            </div>
             <nav className="p-4 max-h-[90vh] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:rounded-full  [&::-webkit-scrollbar-thumb]:bg-gray-300  dark:[&::-webkit-scrollbar-track]:bg-neutral-700  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
               {navigation.map((item) => (
                 <Link
