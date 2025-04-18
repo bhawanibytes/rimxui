@@ -1,5 +1,6 @@
 import PreviewWrapper from "../PreviewWrapper";
 import Button from "../ui/Button";
+import { CliTabs } from "../CliTabs/CliTab";
 
 const ButtonPage = () => {
   return (
@@ -11,6 +12,17 @@ const ButtonPage = () => {
             Displays a button or a component that looks like a button.
           </p>
         </div>
+        <section id="#installation">
+          <h1 className="text-h4 mb-6">Installation</h1>
+          <CliTabs
+            commands={{
+              pnpm: "pnpm dlx shadcn@latest add http://rimxui.vercel.app/registry/button.json",
+              npm: "npx shadcn@latest add http://rimxui.vercel.app/registry/button.json",
+              bun: "bunx shadcn@latest add http://rimxui.vercel.app/registry/button.json",
+              yarn: "yarn dlx shadcn@latest add http://rimxui.vercel.app/registry/button.json",
+            }}
+          />
+        </section>
         <div className="grid gap-6">
           <PreviewWrapper
             label="Button Variants"
