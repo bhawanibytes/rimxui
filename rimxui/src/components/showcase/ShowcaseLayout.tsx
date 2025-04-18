@@ -34,7 +34,6 @@ const navigation = [
   { name: "Toggle", path: ROUTES.toggleShowcase },
   { name: "textarea", path: ROUTES.textareaShowcase },
   { name: "Radio Group", path: ROUTES.radioButtonShowcase },
-  { name: "Morphedbutton", path: ROUTES.morphedShowcase },
   { name: "Otp", path: ROUTES.otpShowcase },
   { name: "Select", path: ROUTES.selectShowcase },
 ];
