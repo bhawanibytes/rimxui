@@ -32,10 +32,25 @@ export type TypographyWeight =
   | "extrabold"
   | "black";
 
+export type TypographyColorNames =
+  | "default"
+  | "primary"
+  | "secondary"
+  | "success"
+  | "warning"
+  | "error"
+  | "info"
+  | "gray"
+  | "red"
+  | "green"
+  | "blue"
+  | "yellow";
+
 type BaseTypographyProps = {
   variant?: TypographyVariants;
   size?: TypographySizes;
   weight?: TypographyWeight;
+  color?: TypographyColorNames | string;
   className?: string;
   as?: ElementType;
 };
