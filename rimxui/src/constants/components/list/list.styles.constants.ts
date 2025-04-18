@@ -26,5 +26,4 @@ export const LIST_SPACING_STYLES: Record<ListSpacings, string> = {
 export const LIST_BORDERED_STYLES = {
   enabled: "divide-y divide-neutral-200 dark:divide-neutral-700",
   disabled: "",
-  dark: "divide-y divide-neutral-700",
 };

@@ -68,12 +68,8 @@ export const ListItem = forwardRef<ListItemRefType, ListItemProps>(
       ? LISTITEM_GUTTERS_STYLES.disabled
       : LISTITEM_GUTTERS_STYLES.enabled;
 
-    const isDarkVariant = listContext?.isDarkVariant;
-
     const dividerStyles = divider
-      ? isDarkVariant
-        ? LISTITEM_DIVIDER_STYLES.dark
-        : LISTITEM_DIVIDER_STYLES.enabled
+      ? LISTITEM_DIVIDER_STYLES.enabled
       : LISTITEM_DIVIDER_STYLES.disabled;
 
     const selectedStyles = selected

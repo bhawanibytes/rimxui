@@ -60,20 +60,15 @@ export const List = forwardRef<ListRefType, ListProps>(
     const listSizeStyles = LIST_SIZES_STYLES[size];
     const listSpacingStyles = LIST_SPACING_STYLES[spacing];
 
-    const isDarkVariant = variant.startsWith("dark");
-
-    const borderedStyles = !bordered
-      ? LIST_BORDERED_STYLES.disabled
-      : isDarkVariant
-        ? LIST_BORDERED_STYLES.dark
-        : LIST_BORDERED_STYLES.enabled;
+    const borderedStyles = bordered
+      ? LIST_BORDERED_STYLES.enabled
+      : LIST_BORDERED_STYLES.disabled;
 
     const listComponentStyles = mc(
       listVariantStyles,
       listSizeStyles,
       listSpacingStyles,
       borderedStyles,
-      isDarkVariant ? "text-white" : "",
       className,
     );
 
@@ -84,7 +79,6 @@ export const List = forwardRef<ListRefType, ListProps>(
       size,
       spacing,
       bordered,
-      isDarkVariant,
     };
 
     const accessibilityProps = {
