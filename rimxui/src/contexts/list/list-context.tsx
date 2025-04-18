@@ -6,6 +6,7 @@ export interface ListContextProps {
   size: ListSizes;
   spacing: ListSpacings;
   bordered: boolean;
+  isDarkVariant?: boolean;
 }
 
 export const ListContext = createContext<Nullable<ListContextProps>>(null);

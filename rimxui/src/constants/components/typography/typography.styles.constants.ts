@@ -2,6 +2,7 @@ import {
   TypographyHeadingLevels,
   TypographySizes,
   TypographyWeight,
+  TypographyColorNames,
 } from "@/types";
 
 export const TYPOGRAPHY_VARIANTS_STYLES = {
@@ -13,6 +14,21 @@ export const TYPOGRAPHY_VARIANTS_STYLES = {
   dark: "text-gray-900 dark:text-white",
   darkPrimary: "text-primary-700 dark:text-primary-300",
   darkSecondary: "text-gray-700 dark:text-gray-300",
+};
+
+export const TYPOGRAPHY_COLOR_STYLES: Record<TypographyColorNames, string> = {
+  default: "text-gray-900 dark:text-gray-100",
+  primary: "text-primary-600 dark:text-primary-400",
+  secondary: "text-gray-600 dark:text-gray-400",
+  success: "text-green-600 dark:text-green-400",
+  warning: "text-yellow-600 dark:text-yellow-400",
+  error: "text-red-600 dark:text-red-400",
+  info: "text-blue-600 dark:text-blue-400",
+  gray: "text-gray-600 dark:text-gray-400",
+  red: "text-red-600 dark:text-red-400",
+  green: "text-green-600 dark:text-green-400",
+  blue: "text-blue-600 dark:text-blue-400",
+  yellow: "text-yellow-600 dark:text-yellow-400",
 };
 
 export const TEXT_SIZES_STYLES = {

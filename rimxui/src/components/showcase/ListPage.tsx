@@ -1,12 +1,26 @@
+import { ListSizes, ListSpacings, ListType, ListVariants } from "@/types";
 import { List, ListItem } from "../list";
 import PreviewWrapper from "../PreviewWrapper";
+import { Typography } from "../typography/Typography";
+import {
+  ShowcaseAPIReference,
+  ShowcaseGuidelines,
+  ShowcaseHeader,
+} from "./common";
 
 const ListPage = () => {
-  const folders = [
-    { id: 1, name: "Inbox", icon: "📥", count: 24 },
-    { id: 2, name: "Drafts", icon: "📝", count: 5 },
-    { id: 3, name: "Sent", icon: "📤", count: 18 },
+  const LIST_VARIANTS: Array<ListVariants> = [
+    "default",
+    "primary",
+    "secondary",
+    "outline",
+    "dark",
+    "darkPrimary",
   ];
+
+  const LIST_SIZES: Array<ListSizes> = ["sm", "md", "lg"];
+  const LIST_SPACING: Array<ListSpacings> = ["small", "medium", "large"];
+  const LIST_TYPES: Array<ListType> = ["unordered", "ordered", "plain"];
 
   const basicItems = [
     { id: 1, text: "First Item" },
@@ -14,322 +28,678 @@ const ListPage = () => {
     { id: 3, text: "Third Item" },
   ];
 
-  return (
-    <div className="space-y-12 max-w-4xl">
-      <div className="space-y-4">
-        <div className="inline-flex items-center rounded-lg bg-neutral-100 dark:bg-neutral-800 px-3 py-1 text-sm font-medium">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4 mr-1"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16m-7 6h7"
-            />
-          </svg>
-          <span>Components</span>
-          <span className="mx-2 text-neutral-400 dark:text-neutral-500">/</span>
-          <span>List</span>
-        </div>
-        <h1 className="text-h1 text-neutral-900 dark:text-neutral-100">List</h1>
-        <p className="text-body-lg text-neutral-500 dark:text-neutral-400">
-          A versatile list component for displaying items with various styles,
-          supporting multiple variants and customizations.
-        </p>
-      </div>
+  const interactiveItems = [
+    { id: 1, name: "Inbox", icon: "📥", count: 24 },
+    { id: 2, name: "Drafts", icon: "📝", count: 5 },
+    { id: 3, name: "Sent", icon: "📤", count: 18 },
+  ];
 
+  const renderIntroduction = () => (
+    <div className="space-y-6">
+      <ShowcaseHeader
+        title="List"
+        description="A versatile list component for displaying items with various styles,
+          supporting multiple variants and customizations."
+      />
       <PreviewWrapper
-        label="Interactive List Example"
+        label="Basic Usage"
         preview={
-          <List variant="outline" listType="plain" bordered>
-            {folders.map((folder) => (
-              <ListItem
-                key={folder.id}
-                itemType="plain"
-                className="cursor-pointer"
-                secondaryAction={
-                  folder.count > 0 ? (
-                    <span className="bg-primary-100 text-primary-800 dark:bg-primary-900/30 dark:text-primary-100 px-2 py-1 rounded-full text-body-xs">
-                      {folder.count}
-                    </span>
-                  ) : null
-                }
-              >
-                <div className="flex items-center">
-                  <span className="mr-3 text-xl">{folder.icon}</span>
-                  <span className="text-body-md">{folder.name}</span>
-                </div>
+          <List variant="outline" bordered>
+            {basicItems.map((item) => (
+              <ListItem key={item.id}>
+                <Typography type="text" variant="default" size="md">
+                  {item.text}
+                </Typography>
               </ListItem>
             ))}
           </List>
         }
         code={`
+<List variant="outline" bordered>
+  <ListItem>First Item</ListItem>
+  <ListItem>Second Item</ListItem>
+  <ListItem>Third Item</ListItem>
+</List>
+        `}
+      />
+    </div>
+  );
+
+  const renderVariants = () => (
+    <div className="space-y-8">
+      <Typography type="heading" level={2} variant="default" size="xl">
+        List Variants
+      </Typography>
+      <Typography type="text" variant="secondary" size="md" className="mt-2">
+        Lists come in different variants to match your design needs.
+      </Typography>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {LIST_VARIANTS.map((variant) => {
+          return (
+            <PreviewWrapper
+              key={variant}
+              label={variant}
+              preview={
+                <List variant={variant} bordered>
+                  {basicItems.map((item) => (
+                    <ListItem key={item.id}>{item.text}</ListItem>
+                  ))}
+                </List>
+              }
+              code={`
+<List variant="${variant}" bordered>
+  <ListItem>First Item</ListItem>
+  <ListItem>Second Item</ListItem>
+  <ListItem>Third Item</ListItem>
+</List>
+              `}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+
+  const renderSizes = () => (
+    <div className="space-y-8">
+      <Typography type="heading" level={2} variant="default" size="xl">
+        List Sizes
+      </Typography>
+      <Typography type="text" variant="secondary" size="md" className="mt-2">
+        Lists can be rendered in different sizes to accommodate various use
+        cases.
+      </Typography>
+
+      <div className="space-y-6">
+        {LIST_SIZES.map((size) => (
+          <PreviewWrapper
+            key={size}
+            label={`Size: ${size}`}
+            preview={
+              <List variant="outline" size={size} bordered>
+                {basicItems.map((item) => (
+                  <ListItem key={item.id}>
+                    <Typography type="text" variant="default" size={size}>
+                      {item.text}
+                    </Typography>
+                  </ListItem>
+                ))}
+              </List>
+            }
+            code={`
+<List variant="outline" size="${size}" bordered>
+  <ListItem>First Item</ListItem>
+  <ListItem>Second Item</ListItem>
+  <ListItem>Third Item</ListItem>
+</List>
+            `}
+          />
+        ))}
+      </div>
+    </div>
+  );
+
+  const renderSpacing = () => (
+    <div className="space-y-8">
+      <Typography type="heading" level={2} variant="default" size="xl">
+        List Spacing
+      </Typography>
+      <Typography type="text" variant="secondary" size="md" className="mt-2">
+        Control the spacing between list items using the spacing prop.
+      </Typography>
+
+      <div className="space-y-6">
+        {LIST_SPACING.map((spacing) => (
+          <PreviewWrapper
+            key={spacing}
+            label={`Spacing: ${spacing}`}
+            preview={
+              <List variant="outline" spacing={spacing} bordered>
+                {basicItems.map((item) => (
+                  <ListItem key={item.id}>
+                    <Typography type="text" variant="default" size="md">
+                      {item.text}
+                    </Typography>
+                  </ListItem>
+                ))}
+              </List>
+            }
+            code={`
+<List variant="outline" spacing="${spacing}" bordered>
+  <ListItem>First Item</ListItem>
+  <ListItem>Second Item</ListItem>
+  <ListItem>Third Item</ListItem>
+</List>
+            `}
+          />
+        ))}
+      </div>
+    </div>
+  );
+
+  const renderTypes = () => (
+    <div className="space-y-8">
+      <Typography type="heading" level={2} variant="default" size="xl">
+        List Types
+      </Typography>
+      <Typography type="text" variant="secondary" size="md" className="mt-2">
+        Lists can be rendered as unordered, ordered, or plain lists.
+      </Typography>
+
+      <div className="space-y-6">
+        {LIST_TYPES.map((type) => (
+          <PreviewWrapper
+            key={type}
+            label={`Type: ${type}`}
+            preview={
+              <List variant="outline" listType={type} bordered>
+                {basicItems.map((item) => (
+                  <ListItem key={item.id}>
+                    <Typography type="text" variant="default" size="md">
+                      {item.text}
+                    </Typography>
+                  </ListItem>
+                ))}
+              </List>
+            }
+            code={`
+<List variant="outline" listType="${type}" bordered>
+  <ListItem>First Item</ListItem>
+  <ListItem>Second Item</ListItem>
+  <ListItem>Third Item</ListItem>
+</List>
+            `}
+          />
+        ))}
+      </div>
+    </div>
+  );
+
+  const renderFeatures = () => (
+    <div className="space-y-8">
+      <Typography type="heading" level={2} variant="default" size="xl">
+        List Features
+      </Typography>
+
+      <div className="space-y-6">
+        <div>
+          <Typography type="heading" level={3} variant="default" size="lg">
+            Selected Items
+          </Typography>
+          <PreviewWrapper
+            label="Selected Items"
+            preview={
+              <List variant="outline" bordered>
+                <ListItem>
+                  <Typography type="text" variant="default" size="md">
+                    Regular Item
+                  </Typography>
+                </ListItem>
+                <ListItem selected>
+                  <Typography type="text" variant="default" size="md">
+                    Selected Item
+                  </Typography>
+                </ListItem>
+                <ListItem>
+                  <Typography type="text" variant="default" size="md">
+                    Regular Item
+                  </Typography>
+                </ListItem>
+              </List>
+            }
+            code={`
+<List variant="outline" bordered>
+  <ListItem>Regular Item</ListItem>
+  <ListItem selected>Selected Item</ListItem>
+  <ListItem>Regular Item</ListItem>
+</List>
+            `}
+          />
+        </div>
+
+        <div>
+          <Typography type="heading" level={3} variant="default" size="lg">
+            With Dividers
+          </Typography>
+          <PreviewWrapper
+            label="With Dividers"
+            preview={
+              <List variant="outline" bordered>
+                <ListItem>
+                  <Typography type="text" variant="default" size="md">
+                    First Item
+                  </Typography>
+                </ListItem>
+                <ListItem divider>
+                  <Typography type="text" variant="default" size="md">
+                    Item with Divider
+                  </Typography>
+                </ListItem>
+                <ListItem>
+                  <Typography type="text" variant="default" size="md">
+                    Last Item
+                  </Typography>
+                </ListItem>
+              </List>
+            }
+            code={`
+<List variant="outline" bordered>
+  <ListItem>First Item</ListItem>
+  <ListItem divider>Item with Divider</ListItem>
+  <ListItem>Last Item</ListItem>
+</List>
+            `}
+          />
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderUseCases = () => (
+    <div className="space-y-8">
+      <Typography type="heading" level={2} variant="default" size="xl">
+        Use Cases
+      </Typography>
+
+      <div className="space-y-6">
+        <div>
+          <Typography type="heading" level={3} variant="default" size="lg">
+            Interactive List
+          </Typography>
+          <PreviewWrapper
+            label="Interactive List"
+            preview={
+              <List variant="outline" listType="plain" bordered>
+                {interactiveItems.map((item) => (
+                  <ListItem
+                    key={item.id}
+                    itemType="plain"
+                    className="cursor-pointer"
+                    secondaryAction={
+                      item.count > 0 ? (
+                        <span className="bg-primary-100 text-primary-800 dark:bg-primary-900/30 dark:text-primary-100 px-2 py-1 rounded-full text-body-xs">
+                          {item.count}
+                        </span>
+                      ) : null
+                    }
+                  >
+                    <div className="flex items-center">
+                      <span className="mr-3 text-xl">{item.icon}</span>
+                      <Typography type="text" variant="default" size="md">
+                        {item.name}
+                      </Typography>
+                    </div>
+                  </ListItem>
+                ))}
+              </List>
+            }
+            code={`
 <List variant="outline" listType="plain" bordered>
-  {folders.map((folder) => (
+  {items.map((item) => (
     <ListItem
-      key={folder.id}
+      key={item.id}
       itemType="plain"
       className="cursor-pointer"
       secondaryAction={
-        folder.count > 0 ? (
+        item.count > 0 ? (
           <span className="bg-primary-100 text-primary-800 dark:bg-primary-900/30 
             dark:text-primary-100 px-2 py-1 rounded-full text-body-xs">
-            {folder.count}
+            {item.count}
           </span>
         ) : null
       }
     >
       <div className="flex items-center">
-        <span className="mr-3 text-xl">{folder.icon}</span>
-        <span className="text-body-md">{folder.name}</span>
+        <span className="mr-3 text-xl">{item.icon}</span>
+        <Typography type="text" variant="default" size="md">
+          {item.name}
+        </Typography>
       </div>
     </ListItem>
   ))}
-</List>`}
-      />
-
-      <div className="space-y-8">
-        <h2 className="text-h4 text-neutral-900 dark:text-neutral-100">List Variants</h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Default Variant */}
-          <PreviewWrapper
-            label="Default"
-            preview={
-              <List variant="default" bordered>
-                {basicItems.map((item) => (
-                  <ListItem key={item.id} className="text-body-md">
-                    {item.text}
-                  </ListItem>
-                ))}
-              </List>
-            }
-            code={`
-<List variant="default" bordered>
-  <ListItem>First Item</ListItem>
-  <ListItem>Second Item</ListItem>
-  <ListItem>Third Item</ListItem>
-</List>`}
+</List>
+            `}
           />
+        </div>
 
-          {/* Primary Variant */}
+        <div>
+          <Typography type="heading" level={3} variant="default" size="lg">
+            Navigation List
+          </Typography>
           <PreviewWrapper
-            label="Primary"
+            label="Navigation List"
             preview={
-              <List variant="primary" bordered>
-                {basicItems.map((item) => (
-                  <ListItem key={item.id} className="text-body-md">
-                    {item.text}
-                  </ListItem>
-                ))}
+              <List variant="outline" listType="plain" bordered>
+                <ListItem className="cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800">
+                  <div className="flex items-center">
+                    <span className="mr-3">🏠</span>
+                    <Typography type="text" variant="default" size="md">
+                      Home
+                    </Typography>
+                  </div>
+                </ListItem>
+                <ListItem className="cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800">
+                  <div className="flex items-center">
+                    <span className="mr-3">👤</span>
+                    <Typography type="text" variant="default" size="md">
+                      Profile
+                    </Typography>
+                  </div>
+                </ListItem>
+                <ListItem className="cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800">
+                  <div className="flex items-center">
+                    <span className="mr-3">⚙️</span>
+                    <Typography type="text" variant="default" size="md">
+                      Settings
+                    </Typography>
+                  </div>
+                </ListItem>
               </List>
             }
             code={`
-<List variant="primary" bordered>
-  <ListItem>First Item</ListItem>
-  <ListItem>Second Item</ListItem>
-  <ListItem>Third Item</ListItem>
-</List>`}
-          />
-
-          {/* Secondary Variant */}
-          <PreviewWrapper
-            label="Secondary"
-            preview={
-              <List variant="secondary" bordered>
-                {basicItems.map((item) => (
-                  <ListItem key={item.id} className="text-body-md">
-                    {item.text}
-                  </ListItem>
-                ))}
-              </List>
-            }
-            code={`
-<List variant="secondary" bordered>
-  <ListItem>First Item</ListItem>
-  <ListItem>Second Item</ListItem>
-  <ListItem>Third Item</ListItem>
-</List>`}
-          />
-
-          {/* Outline Variant */}
-          <PreviewWrapper
-            label="Outline"
-            preview={
-              <List variant="outline" bordered>
-                {basicItems.map((item) => (
-                  <ListItem key={item.id} className="text-body-md">
-                    {item.text}
-                  </ListItem>
-                ))}
-              </List>
-            }
-            code={`
-<List variant="outline" bordered>
-  <ListItem>First Item</ListItem>
-  <ListItem>Second Item</ListItem>
-  <ListItem>Third Item</ListItem>
-</List>`}
-          />
-
-          {/* Dark Variant */}
-          <PreviewWrapper
-            label="Dark"
-            preview={
-              <List variant="dark" bordered>
-                {basicItems.map((item) => (
-                  <ListItem key={item.id} className="text-body-md">
-                    {item.text}
-                  </ListItem>
-                ))}
-              </List>
-            }
-            code={`
-<List variant="dark" bordered>
-  <ListItem>First Item</ListItem>
-  <ListItem>Second Item</ListItem>
-  <ListItem>Third Item</ListItem>
-</List>`}
-          />
-
-          {/* Dark Primary Variant */}
-          <PreviewWrapper
-            label="Dark Primary"
-            preview={
-              <List variant="darkPrimary" bordered>
-                {basicItems.map((item) => (
-                  <ListItem key={item.id} className="text-body-md">
-                    {item.text}
-                  </ListItem>
-                ))}
-              </List>
-            }
-            code={`
-<List variant="darkPrimary" bordered>
-  <ListItem>First Item</ListItem>
-  <ListItem>Second Item</ListItem>
-  <ListItem>Third Item</ListItem>
-</List>`}
+<List variant="outline" listType="plain" bordered>
+  <ListItem className="cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800">
+    <div className="flex items-center">
+      <span className="mr-3">🏠</span>
+      <Typography type="text" variant="default" size="md">
+        Home
+      </Typography>
+    </div>
+  </ListItem>
+  {/* More items */}
+</List>
+            `}
           />
         </div>
       </div>
+    </div>
+  );
 
-      <div className="space-y-8">
-        <h2 className="text-h4 text-neutral-900 dark:text-neutral-100">List Features</h2>
+  const renderGuidelines = () => {
+    const bestPractices = [
+      {
+        title: "Use Consistent Spacing",
+        description:
+          "Maintain consistent spacing between list items to improve readability and visual hierarchy.",
+      },
+      {
+        title: "Choose Appropriate Variants",
+        description:
+          "Select list variants that match your content's purpose and context.",
+      },
+      {
+        title: "Use Secondary Actions Wisely",
+        description:
+          "Include secondary actions only when they add value and don't clutter the interface.",
+      },
+    ];
 
-        {/* Selected Items */}
-        <PreviewWrapper
-          label="Selected Items"
-          preview={
-            <List variant="outline" bordered>
-              <ListItem className="text-body-md">Regular Item</ListItem>
-              <ListItem selected className="text-body-md">Selected Item</ListItem>
-              <ListItem className="text-body-md">Regular Item</ListItem>
-            </List>
-          }
-          code={`
-<List variant="outline" bordered>
-  <ListItem>Regular Item</ListItem>
-  <ListItem selected>Selected Item</ListItem>
-  <ListItem>Regular Item</ListItem>
-</List>`}
-        />
+    const thingsToAvoid = [
+      {
+        title: "Mixing List Types",
+        description:
+          "Avoid mixing different list types within the same list component.",
+      },
+      {
+        title: "Inconsistent Styling",
+        description:
+          "Don't mix different styles or variants within the same list unless necessary.",
+      },
+      {
+        title: "Overcrowding",
+        description:
+          "Avoid adding too many actions or complex content within a single list item.",
+      },
+    ];
 
-        {/* With Dividers */}
-        <PreviewWrapper
-          label="With Dividers"
-          preview={
-            <List variant="outline">
-              <ListItem className="text-body-md">First Item</ListItem>
-              <ListItem divider className="text-body-md">Item With Divider</ListItem>
-              <ListItem className="text-body-md">Last Item</ListItem>
-            </List>
-          }
-          code={`
-<List variant="outline">
-  <ListItem>First Item</ListItem>
-  <ListItem divider>Item With Divider</ListItem>
-  <ListItem>Last Item</ListItem>
-</List>`}
-        />
+    return (
+      <ShowcaseGuidelines
+        description="Follow these guidelines to create consistent and accessible lists."
+        bestPractices={bestPractices}
+        thingsToAvoid={thingsToAvoid}
+      />
+    );
+  };
 
-        {/* Different Sizes */}
-        <PreviewWrapper
-          label="Different Sizes"
-          preview={
-            <div className="space-y-4">
-              <List variant="outline" size="sm" bordered>
-                <ListItem>Small Size List Item</ListItem>
-                <ListItem>Small Size List Item</ListItem>
+  const renderExamples = () => (
+    <div className="space-y-8">
+      <Typography type="heading" level={2} variant="default" size="xl">
+        Examples
+      </Typography>
+      <Typography type="text" variant="secondary" size="md" className="mt-2">
+        Common patterns and use cases for the List component.
+      </Typography>
+
+      <div className="space-y-6">
+        <div>
+          <Typography type="heading" level={3} variant="default" size="lg">
+            Settings Menu
+          </Typography>
+          <PreviewWrapper
+            label="Settings Menu"
+            preview={
+              <List variant="outline" listType="plain" bordered>
+                <ListItem className="cursor-pointer">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <span className="mr-3">🔔</span>
+                      <div>
+                        <Typography type="text" variant="default" size="md">
+                          Notifications
+                        </Typography>
+                        <Typography type="text" variant="secondary" size="sm">
+                          Manage your notification preferences
+                        </Typography>
+                      </div>
+                    </div>
+                    <span className="text-neutral-400">→</span>
+                  </div>
+                </ListItem>
+                <ListItem className="cursor-pointer">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <span className="mr-3">🔒</span>
+                      <div>
+                        <Typography type="text" variant="default" size="md">
+                          Privacy
+                        </Typography>
+                        <Typography type="text" variant="secondary" size="sm">
+                          Control your privacy settings
+                        </Typography>
+                      </div>
+                    </div>
+                    <span className="text-neutral-400">→</span>
+                  </div>
+                </ListItem>
               </List>
-              <List variant="outline" size="md" bordered>
-                <ListItem>Medium Size List Item</ListItem>
-                <ListItem>Medium Size List Item</ListItem>
-              </List>
-              <List variant="outline" size="lg" bordered>
-                <ListItem>Large Size List Item</ListItem>
-                <ListItem>Large Size List Item</ListItem>
-              </List>
-            </div>
-          }
-          code={`
-<List variant="outline" size="sm" bordered>
-  <ListItem>Small Size List Item</ListItem>
-  <ListItem>Small Size List Item</ListItem>
-</List>
-
-<List variant="outline" size="md" bordered>
-  <ListItem>Medium Size List Item</ListItem>
-  <ListItem>Medium Size List Item</ListItem>
-</List>
-
-<List variant="outline" size="lg" bordered>
-  <ListItem>Large Size List Item</ListItem>
-  <ListItem>Large Size List Item</ListItem>
-</List>`}
-        />
-
-        {/* Different Spacing */}
-        <PreviewWrapper
-          label="Different Spacing"
-          preview={
-            <div className="space-y-4">
-              <List variant="outline" spacing="small" bordered>
-                <ListItem className="text-body-md">Small Spacing</ListItem>
-                <ListItem className="text-body-md">Small Spacing</ListItem>
-              </List>
-              <List variant="outline" spacing="medium" bordered>
-                <ListItem className="text-body-md">Medium Spacing</ListItem>
-                <ListItem className="text-body-md">Medium Spacing</ListItem>
-              </List>
-              <List variant="outline" spacing="large" bordered>
-                <ListItem className="text-body-md">Large Spacing</ListItem>
-                <ListItem className="text-body-md">Large Spacing</ListItem>
-              </List>
-            </div>
-          }
-          code={`
-<List variant="outline" spacing="small" bordered>
-  <ListItem>Small Spacing</ListItem>
-  <ListItem>Small Spacing</ListItem>
-</List>
-
-<List variant="outline" spacing="medium" bordered>
-  <ListItem>Medium Spacing</ListItem>
-  <ListItem>Medium Spacing</ListItem>
-</List>
-
-<List variant="outline" spacing="large" bordered>
-  <ListItem>Large Spacing</ListItem>
-  <ListItem>Large Spacing</ListItem>
-</List>`}
-        />
+            }
+            code={`
+<List variant="outline" listType="plain" bordered>
+  <ListItem className="cursor-pointer">
+    <div className="flex items-center justify-between">
+      <div className="flex items-center">
+        <span className="mr-3">🔔</span>
+        <div>
+          <Typography type="text" variant="default" size="md">
+            Notifications
+          </Typography>
+          <Typography type="text" variant="secondary" size="sm">
+            Manage your notification preferences
+          </Typography>
+        </div>
       </div>
+      <span className="text-neutral-400">→</span>
+    </div>
+  </ListItem>
+  {/* More items */}
+</List>
+            `}
+          />
+        </div>
+
+        <div>
+          <Typography type="heading" level={3} variant="default" size="lg">
+            Task List
+          </Typography>
+          <PreviewWrapper
+            label="Task List"
+            preview={
+              <List variant="outline" bordered>
+                <ListItem>
+                  <div className="flex items-center">
+                    <input type="checkbox" className="mr-3" />
+                    <div>
+                      <Typography type="text" variant="default" size="md">
+                        Complete project documentation
+                      </Typography>
+                      <Typography type="text" variant="secondary" size="sm">
+                        Due in 2 days
+                      </Typography>
+                    </div>
+                  </div>
+                </ListItem>
+                <ListItem selected>
+                  <div className="flex items-center">
+                    <input type="checkbox" className="mr-3" checked readOnly />
+                    <div>
+                      <Typography type="text" variant="default" size="md">
+                        Review pull requests
+                      </Typography>
+                      <Typography type="text" variant="secondary" size="sm">
+                        Completed yesterday
+                      </Typography>
+                    </div>
+                  </div>
+                </ListItem>
+              </List>
+            }
+            code={`
+<List variant="outline" bordered>
+  <ListItem>
+    <div className="flex items-center">
+      <input type="checkbox" className="mr-3" />
+      <div>
+        <Typography type="text" variant="default" size="md">
+          Complete project documentation
+        </Typography>
+        <Typography type="text" variant="secondary" size="sm">
+          Due in 2 days
+        </Typography>
+      </div>
+    </div>
+  </ListItem>
+  {/* More items */}
+</List>
+            `}
+          />
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderAPIReference = () => {
+    const listProps = [
+      {
+        name: "variant",
+        type: '"default" | "primary" | "secondary" | "outline" | "dark" | "darkPrimary" | "darkSecondary"',
+        defaultValue: '"default"',
+        description: "The visual style variant of the list.",
+      },
+      {
+        name: "size",
+        type: '"sm" | "md" | "lg"',
+        defaultValue: '"md"',
+        description: "The size of the list items.",
+      },
+      {
+        name: "spacing",
+        type: '"small" | "medium" | "large"',
+        defaultValue: '"medium"',
+        description: "The spacing between list items.",
+      },
+      {
+        name: "listType",
+        type: '"unordered" | "ordered" | "plain"',
+        defaultValue: '"unordered"',
+        description: "The type of list to render.",
+      },
+      {
+        name: "bordered",
+        type: "boolean",
+        defaultValue: "false",
+        description: "Whether to show a border around the list.",
+      },
+    ];
+
+    const listItemProps = [
+      {
+        name: "itemType",
+        type: '"list-item" | "plain"',
+        defaultValue: '"list-item"',
+        description: "The type of list item to render.",
+      },
+      {
+        name: "selected",
+        type: "boolean",
+        defaultValue: "false",
+        description: "Whether the item is selected.",
+      },
+      {
+        name: "divider",
+        type: "boolean",
+        defaultValue: "false",
+        description: "Whether to show a divider below the item.",
+      },
+      {
+        name: "disablePadding",
+        type: "boolean",
+        defaultValue: "false",
+        description: "Whether to disable padding on the item.",
+      },
+      {
+        name: "disableGutters",
+        type: "boolean",
+        defaultValue: "false",
+        description: "Whether to disable gutters on the item.",
+      },
+      {
+        name: "secondaryAction",
+        type: "ReactNode",
+        defaultValue: "undefined",
+        description:
+          "Secondary content to display on the right side of the item.",
+      },
+    ];
+
+    return (
+      <ShowcaseAPIReference
+        propTables={[
+          {
+            title: "List Props",
+            props: listProps,
+          },
+          {
+            title: "ListItem Props",
+            props: listItemProps,
+          },
+        ]}
+      />
+    );
+  };
+
+  return (
+    <div className="space-y-16 py-8">
+      {renderIntroduction()}
+      {renderVariants()}
+      {renderSizes()}
+      {renderSpacing()}
+      {renderTypes()}
+      {renderFeatures()}
+      {renderExamples()}
+      {renderUseCases()}
+      {renderGuidelines()}
+      {renderAPIReference()}
     </div>
   );
 };
