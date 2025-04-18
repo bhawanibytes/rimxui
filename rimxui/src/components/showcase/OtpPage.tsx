@@ -7,8 +7,8 @@ export default function OTPPage() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-50">
-      <div className="p-6 rounded-lg shadow-lg bg-white">
+    <div className="flex justify-center items-center h-screen bg-gray-50 dark:bg-neutral-900">
+      <div className="p-6 rounded-lg shadow-lg bg-white dark:bg-neutral-900">
         <h2 className="text-xl font-semibold mb-4">Enter OTP</h2>
         <OtpInput
           length={6}
