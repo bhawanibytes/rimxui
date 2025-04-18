@@ -2,7 +2,7 @@ import {
   TypographyHeadingLevels,
   TypographySizes,
   TypographyVariants,
-  TypographyWeight
+  TypographyWeight,
 } from "@/types";
 import PreviewWrapper from "../PreviewWrapper";
 import { Typography } from "../typography/Typography";
@@ -652,7 +652,7 @@ export const TypographyPreview = () => {
           <PreviewWrapper
             label="Link Sizes"
             preview={
-              <div className="space-y-4">
+              <div className="flex flex-col gap-4">
                 {TYPOGRAPHY_SIZES.map((size) => (
                   <Typography
                     key={size}
@@ -682,7 +682,7 @@ export const TypographyPreview = () => {
           <PreviewWrapper
             label="Link Weights"
             preview={
-              <div className="space-y-4">
+              <div className="flex flex-col gap-4">
                 {["normal", "medium", "semibold", "bold"].map((weight) => (
                   <Typography
                     key={weight}
@@ -1174,13 +1174,8 @@ export const TypographyPreview = () => {
                 <Typography type="text" variant="default" size="md">
                   Ready to improve your typography skills? Check out our{" "}
                   <Typography type="link" variant="primary" size="md" href="#">
-                    advanced typography guide
-                  </Typography>{" "}
-                  or{" "}
-                  <Typography type="link" variant="primary" size="md" href="#">
-                    join our design workshop
+                    advanced typography guide.
                   </Typography>
-                  .
                 </Typography>
               </div>
             }
@@ -1229,13 +1224,8 @@ export const TypographyPreview = () => {
     <Typography type="text" variant="default" size="md">
       Ready to improve your typography skills? Check out our{" "}
       <Typography type="link" variant="primary" size="md" href="#">
-        advanced typography guide
-      </Typography>{" "}
-      or{" "}
-      <Typography type="link" variant="primary" size="md" href="#">
-        join our design workshop
+        advanced typography guide.
       </Typography>
-      .
     </Typography>
   </div>
             `}
@@ -1390,10 +1380,6 @@ export const TypographyPreview = () => {
             preview={
               <div className="bg-blue-50 border border-blue-200 rounded-md p-4 max-w-2xl dark:bg-blue-900/20 dark:border-blue-800">
                 <div className="flex">
-                  <div className="flex-shrink-0">
-                    {/* Icon placeholder */}
-                    <div className="w-5 h-5 text-blue-500"></div>
-                  </div>
                   <div className="ml-3">
                     <Typography
                       type="heading"
@@ -1430,10 +1416,6 @@ export const TypographyPreview = () => {
             code={`
   <div className="bg-blue-50 border border-blue-200 rounded-md p-4 max-w-2xl dark:bg-blue-900/20 dark:border-blue-800">
     <div className="flex">
-      <div className="flex-shrink-0">
-        {/* Icon placeholder */}
-        <div className="w-5 h-5 text-blue-500"></div>
-      </div>
       <div className="ml-3">
         <Typography type="heading" level={4} variant="primary" size="md" weight="semibold">
           Information
@@ -1469,212 +1451,164 @@ export const TypographyPreview = () => {
       <div className="space-y-6">
         <div>
           <h3 className="text-lg font-medium mb-4">Best Practices</h3>
-          <PreviewWrapper
-            label="Typography Best Practices"
-            preview={
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-900/30">
-                    ✓
-                  </div>
-                  <div className="ml-4">
-                    <Typography
-                      type="heading"
-                      level={4}
-                      variant="dark"
-                      size="md"
-                      weight="semibold"
-                    >
-                      Maintain Hierarchy
-                    </Typography>
-                    <Typography
-                      type="text"
-                      variant="secondary"
-                      size="md"
-                      className="mt-1"
-                    >
-                      Use typography to create a clear visual hierarchy by
-                      varying size, weight, and style.
-                    </Typography>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-900/30">
-                    ✓
-                  </div>
-                  <div className="ml-4">
-                    <Typography
-                      type="heading"
-                      level={4}
-                      variant="dark"
-                      size="md"
-                      weight="semibold"
-                    >
-                      Be Consistent
-                    </Typography>
-                    <Typography
-                      type="text"
-                      variant="secondary"
-                      size="md"
-                      className="mt-1"
-                    >
-                      Use the same variants for similar elements throughout your
-                      application.
-                    </Typography>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-900/30">
-                    ✓
-                  </div>
-                  <div className="ml-4">
-                    <Typography
-                      type="heading"
-                      level={4}
-                      variant="dark"
-                      size="md"
-                      weight="semibold"
-                    >
-                      Prioritize Readability
-                    </Typography>
-                    <Typography
-                      type="text"
-                      variant="secondary"
-                      size="md"
-                      className="mt-1"
-                    >
-                      Choose sizes and colors that are easy to read on different
-                      devices and in different lighting conditions.
-                    </Typography>
-                  </div>
-                </div>
+          <div className="space-y-4">
+            <div className="flex items-start">
+              <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-900/30">
+                ✓
               </div>
-            }
-            code={`
-  <div className="space-y-4">
-    <div className="flex items-start">
-      <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-900/30">
-        ✓
-      </div>
-      <div className="ml-4">
-        <Typography type="heading" level={4} variant="dark" size="md" weight="semibold">
-          Maintain Hierarchy
-        </Typography>
-        <Typography type="text" variant="secondary" size="md" className="mt-1">
-          Use typography to create a clear visual hierarchy by varying size, weight, and style.
-        </Typography>
-      </div>
-    </div>
-    {/* More best practices... */}
-  </div>
-            `}
-            variant="default"
-          />
+              <div className="ml-4">
+                <Typography
+                  type="heading"
+                  level={4}
+                  variant="dark"
+                  size="md"
+                  weight="semibold"
+                >
+                  Maintain Hierarchy
+                </Typography>
+                <Typography
+                  type="text"
+                  variant="secondary"
+                  size="md"
+                  className="mt-1"
+                >
+                  Use typography to create a clear visual hierarchy by varying
+                  size, weight, and style.
+                </Typography>
+              </div>
+            </div>
+            <div className="flex items-start">
+              <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-900/30">
+                ✓
+              </div>
+              <div className="ml-4">
+                <Typography
+                  type="heading"
+                  level={4}
+                  variant="dark"
+                  size="md"
+                  weight="semibold"
+                >
+                  Be Consistent
+                </Typography>
+                <Typography
+                  type="text"
+                  variant="secondary"
+                  size="md"
+                  className="mt-1"
+                >
+                  Use the same variants for similar elements throughout your
+                  application.
+                </Typography>
+              </div>
+            </div>
+            <div className="flex items-start">
+              <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-900/30">
+                ✓
+              </div>
+              <div className="ml-4">
+                <Typography
+                  type="heading"
+                  level={4}
+                  variant="dark"
+                  size="md"
+                  weight="semibold"
+                >
+                  Prioritize Readability
+                </Typography>
+                <Typography
+                  type="text"
+                  variant="secondary"
+                  size="md"
+                  className="mt-1"
+                >
+                  Choose sizes and colors that are easy to read on different
+                  devices and in different lighting conditions.
+                </Typography>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div>
           <h3 className="text-lg font-medium mb-4">Things to Avoid</h3>
-          <PreviewWrapper
-            label="Typography Don'ts"
-            preview={
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-red-100 text-red-600 dark:bg-red-900/30">
-                    ✗
-                  </div>
-                  <div className="ml-4">
-                    <Typography
-                      type="heading"
-                      level={4}
-                      variant="dark"
-                      size="md"
-                      weight="semibold"
-                    >
-                      Too Many Styles
-                    </Typography>
-                    <Typography
-                      type="text"
-                      variant="secondary"
-                      size="md"
-                      className="mt-1"
-                    >
-                      Avoid using too many different sizes, weights, or variants
-                      on a single page.
-                    </Typography>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-red-100 text-red-600 dark:bg-red-900/30">
-                    ✗
-                  </div>
-                  <div className="ml-4">
-                    <Typography
-                      type="heading"
-                      level={4}
-                      variant="dark"
-                      size="md"
-                      weight="semibold"
-                    >
-                      Poor Contrast
-                    </Typography>
-                    <Typography
-                      type="text"
-                      variant="secondary"
-                      size="md"
-                      className="mt-1"
-                    >
-                      Ensure there's enough contrast between text and background
-                      colors for readability.
-                    </Typography>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-red-100 text-red-600 dark:bg-red-900/30">
-                    ✗
-                  </div>
-                  <div className="ml-4">
-                    <Typography
-                      type="heading"
-                      level={4}
-                      variant="dark"
-                      size="md"
-                      weight="semibold"
-                    >
-                      Inconsistent Sizing
-                    </Typography>
-                    <Typography
-                      type="text"
-                      variant="secondary"
-                      size="md"
-                      className="mt-1"
-                    >
-                      Don't use arbitrary or inconsistent sizing. Stick to the
-                      defined size scale.
-                    </Typography>
-                  </div>
-                </div>
+          <div className="space-y-4">
+            <div className="flex items-start">
+              <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-red-100 text-red-600 dark:bg-red-900/30">
+                ✗
               </div>
-            }
-            code={`
-  <div className="space-y-4">
-    <div className="flex items-start">
-      <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-red-100 text-red-600 dark:bg-red-900/30">
-        ✗
-      </div>
-      <div className="ml-4">
-        <Typography type="heading" level={4} variant="dark" size="md" weight="semibold">
-          Too Many Styles
-        </Typography>
-        <Typography type="text" variant="secondary" size="md" className="mt-1">
-          Avoid using too many different sizes, weights, or variants on a single page.
-        </Typography>
-      </div>
-    </div>
-    {/* More things to avoid... */}
-  </div>
-            `}
-            variant="default"
-          />
+              <div className="ml-4">
+                <Typography
+                  type="heading"
+                  level={4}
+                  variant="dark"
+                  size="md"
+                  weight="semibold"
+                >
+                  Too Many Styles
+                </Typography>
+                <Typography
+                  type="text"
+                  variant="secondary"
+                  size="md"
+                  className="mt-1"
+                >
+                  Avoid using too many different sizes, weights, or variants on
+                  a single page.
+                </Typography>
+              </div>
+            </div>
+            <div className="flex items-start">
+              <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-red-100 text-red-600 dark:bg-red-900/30">
+                ✗
+              </div>
+              <div className="ml-4">
+                <Typography
+                  type="heading"
+                  level={4}
+                  variant="dark"
+                  size="md"
+                  weight="semibold"
+                >
+                  Poor Contrast
+                </Typography>
+                <Typography
+                  type="text"
+                  variant="secondary"
+                  size="md"
+                  className="mt-1"
+                >
+                  Ensure there's enough contrast between text and background
+                  colors for readability.
+                </Typography>
+              </div>
+            </div>
+            <div className="flex items-start">
+              <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-red-100 text-red-600 dark:bg-red-900/30">
+                ✗
+              </div>
+              <div className="ml-4">
+                <Typography
+                  type="heading"
+                  level={4}
+                  variant="dark"
+                  size="md"
+                  weight="semibold"
+                >
+                  Inconsistent Sizing
+                </Typography>
+                <Typography
+                  type="text"
+                  variant="secondary"
+                  size="md"
+                  className="mt-1"
+                >
+                  Don't use arbitrary or inconsistent sizing. Stick to the
+                  defined size scale.
+                </Typography>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
