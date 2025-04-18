@@ -6,8 +6,8 @@ interface MorphingButtonProps {
   morphedLabel: string;
   initialIcon?: React.ElementType;
   morphedIcon?: React.ElementType;
-  initialContent?: React.ReactNode; // ✅ New — supports emoji or anything
-  morphedContent?: React.ReactNode; // ✅ New — supports emoji or anything
+  initialContent?: React.ReactNode;
+  morphedContent?: React.ReactNode;
   duration?: number;
   onClick?: () => void;
   onMorphStart?: () => void;
@@ -26,6 +26,7 @@ interface MorphingButtonProps {
   initialTextColor?: string;
   morphedTextColor?: string;
   disableTapEffect?: boolean;
+  resetAfter?: number;
 }
 
 const MorphingButton: React.FC<MorphingButtonProps> = ({
@@ -35,7 +36,6 @@ const MorphingButton: React.FC<MorphingButtonProps> = ({
   morphedIcon: MorphedIcon,
   initialContent,
   morphedContent,
-  duration,
   onClick,
   onMorphStart,
   onMorphEnd,
@@ -53,8 +53,10 @@ const MorphingButton: React.FC<MorphingButtonProps> = ({
   initialTextColor = "text-white",
   morphedTextColor = "text-white",
   disableTapEffect = false,
+  resetAfter,
 }) => {
   const [morphed, setMorphed] = useState(false);
+  const [cooldown, setCooldown] = useState(false); 
 
   useEffect(() => {
     if (forceMorph) {
@@ -65,20 +67,31 @@ const MorphingButton: React.FC<MorphingButtonProps> = ({
     }
   }, [forceMorph]);
 
+  useEffect(() => {
+    if (resetAfter && morphed) {
+      setCooldown(true); 
+      const timer = setTimeout(() => {
+        setMorphed(false);
+        onMorphEnd?.();
+        setCooldown(false); 
+      }, resetAfter);
+      return () => clearTimeout(timer);
+    }
+  }, [morphed, resetAfter, onMorphEnd]);
+
   const handleClick = () => {
-    if (disabled) return;
+    if (disabled || cooldown) return; 
     onClick?.();
 
     if (!morphOnClick) return;
 
-    setMorphed(true);
-    onMorphStart?.();
+    const willMorph = !morphed;
+    setMorphed(willMorph);
 
-    if (duration) {
-      setTimeout(() => {
-        setMorphed(false);
-        onMorphEnd?.();
-      }, duration);
+    if (willMorph) {
+      onMorphStart?.();
+    } else {
+      onMorphEnd?.();
     }
   };
 
@@ -86,12 +99,12 @@ const MorphingButton: React.FC<MorphingButtonProps> = ({
     <motion.button
       onClick={handleClick}
       whileTap={!disableTapEffect ? { scale: 0.95 } : {}}
-      disabled={disabled}
+      disabled={disabled || cooldown}
       className={`relative flex justify-center items-center gap-2 rounded-full font-medium overflow-hidden transition-colors duration-300
         ${width} ${height} ${padding}
         ${morphed ? morphedBgColor : initialBgColor}
         ${morphed ? morphedTextColor : initialTextColor}
-        ${disabled ? "opacity-50 cursor-not-allowed" : ""}
+        ${(disabled || cooldown) ? "opacity-50 cursor-not-allowed" : ""}
         ${className}`}
     >
       <AnimatePresence mode="wait">

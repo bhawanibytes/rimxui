@@ -35,7 +35,6 @@ const navigation = [
   { name: "TextArea", path: ROUTES.textareaDocs },
   { name: "Radio Group", path: ROUTES.radioButtonDocs },
   { name: "Select", path: ROUTES.selectDocs },
-  { name: "Cli Tab", path: ROUTES.cliDocs },
 ];
 
 export const ShowcaseLayout: React.FC = () => {
