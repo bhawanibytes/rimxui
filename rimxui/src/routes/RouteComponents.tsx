@@ -1,7 +1,7 @@
 import { RouteObject } from "react-router-dom";
 
 import { Dump, Home } from "@pages";
-import NavbarPage  from "@/components/showcase/NavbarPage";
+import NavbarPage from "@/components/showcase/NavbarPage";
 import PaginationPage from "@/components/showcase/PaginationPage";
 import ButtonPage from "@/components/showcase/ButtonPage";
 import { CardPage } from "@/components/showcase/CardPage";
@@ -10,7 +10,7 @@ import { ColorUsageShowcase } from "@/components/showcase/ColorUsageShowcase";
 import ListPage from "@/components/showcase/ListPage";
 import ShadowShowcase from "@/components/showcase/ShadowShowcase";
 import { ShowcaseLayout } from "@/components/showcase/ShowcaseLayout";
-import TypographyPage from "@/components/showcase/TypographyPage";
+import { TypographyPreview } from "@/components/showcase/TypographyPage";
 import { CHILD_ROUTES, ROUTES } from "./routes";
 import BreadcrumbsPage from "@/components/showcase/BreadcrumpPage";
 
@@ -62,7 +62,7 @@ export const ROUTE_COMPONENTS: Array<RouteObject> = [
       },
       {
         path: CHILD_ROUTES.showcase.typography,
-        element: <TypographyPage />,
+        element: <TypographyPreview />,
       },
       {
         path: CHILD_ROUTES.showcase.buttons,
@@ -76,7 +76,7 @@ export const ROUTE_COMPONENTS: Array<RouteObject> = [
         path: CHILD_ROUTES.showcase.lists,
         element: <ListPage />,
       },
-  
+
       {
         path: CHILD_ROUTES.showcase.shadows,
         element: <ShadowShowcase />,
@@ -106,32 +106,32 @@ export const ROUTE_COMPONENTS: Array<RouteObject> = [
         element: <DarkMode />,
       },
       {
-        path:CHILD_ROUTES.showcase.notification,
-        element: <NotificationPage/>
+        path: CHILD_ROUTES.showcase.notification,
+        element: <NotificationPage />,
       },
       {
-        path:CHILD_ROUTES.showcase.label,
-        element: <LabelPage/>
+        path: CHILD_ROUTES.showcase.label,
+        element: <LabelPage />,
       },
       {
-        path:CHILD_ROUTES.showcase.input,
-        element: <InputPage/>
+        path: CHILD_ROUTES.showcase.input,
+        element: <InputPage />,
       },
       {
-        path:CHILD_ROUTES.showcase.textarea,
-        element: <TextAreaPage/>
+        path: CHILD_ROUTES.showcase.textarea,
+        element: <TextAreaPage />,
       },
       // {
       //   path:CHILD_ROUTES.showcase.toggle,
       //   element: <TogglePage/>
       // },
       {
-        path:CHILD_ROUTES.showcase.radioButton,
-        element: <RadioButtonPage/>
+        path: CHILD_ROUTES.showcase.radioButton,
+        element: <RadioButtonPage />,
       },
       {
-        path:CHILD_ROUTES.showcase.checkbox,
-        element: <CheckboxPage/>
+        path: CHILD_ROUTES.showcase.checkbox,
+        element: <CheckboxPage />,
       },
     ],
   },
