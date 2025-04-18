@@ -93,10 +93,7 @@
       "name": "notification",
       "type": "registry:component",
       "title": "Notification with sound",
-      "dependencies": [
-        "lucide-react",
-        "framer-motion"
-      ],
+      "dependencies": ["lucide-react", "framer-motion"],
       "files": [
         {
           "path": "src/components/ChatNotification/ChatNotification.tsx",
@@ -122,7 +119,6 @@
       "dependencies": [],
       "files": [
         {
-          
           "path": "src/components/Breadcrump/BreadcrumpsBasic.tsx",
           "type": "registry:component",
           "target": "src/components/ui/BreadcrumpsBasic.tsx"
@@ -131,7 +127,7 @@
           "path": "src/components/Breadcrump/BreadcrumpsGhost.tsx",
           "type": "registry:component",
           "target": "src/components/ui/BreadcrumpsGhost.tsx"
-        }, 
+        },
         {
           "path": "src/components/Breadcrump/BreadcrumpsOutlined.tsx",
           "type": "registry:component",
@@ -145,10 +141,57 @@
       "dependencies": [],
       "files": [
         {
-
           "path": "src/components/Pagination/Pagination.tsx",
           "type": "registry:component",
           "target": "src/components/ui/Pagination.tsx"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "src/components/Label/Label.tsx",
+          "type": "registry:component",
+          "target": "src/components/ui/Label.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "src/components/Input/Input.tsx",
+          "type": "registry:component",
+          "target": "src/components/ui/Input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "src/components/TextArea/TextArea.tsx",
+          "type": "registry:component",
+          "target": "src/components/ui/TextArea.tsx"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "src/components/Checkbox/Checkbox.tsx",
+          "type": "registry:component",
+          "target": "src/components/ui/Checkbox.tsx"
         }
       ]
     }

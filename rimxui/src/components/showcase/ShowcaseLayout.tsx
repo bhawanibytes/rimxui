@@ -1,7 +1,7 @@
 // Do not make this import absolute, it cause circular import and break the application
-import { ROUTES } from "../../routes/routes";
 import React, { useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
+import { ROUTES } from "../../routes/routes";
 
 const navigation = [
   { name: "Getting Started", path: ROUTES.showcase },
@@ -17,12 +17,20 @@ const navigation = [
   { name: "Navbar", path: ROUTES.NavbarPage },
   { name: "Pagination", path: ROUTES.PaginationPage },
   { name: "Breadcrumps", path: ROUTES.BreadcrumbsPage },
+  { name: "Sidebar", path: ROUTES.SidebarPagePage },
+
   { name: "Skeleton", path: ROUTES.skeletonShowcase },
   { name: "Chips", path: ROUTES.chipsShowcase },
   { name: "Accordion", path: ROUTES.accordionShowcase },
   { name: "Countdown", path: ROUTES.counterShowcase },
   { name: "Darkmode", path: ROUTES.darkModeShowcase },
   { name: "ChatNotification", path: ROUTES.notificationShowcase },
+  { name: "Label", path: ROUTES.labelShowcase },
+  { name: "Input", path: ROUTES.inputShowcase },
+  { name: "Checkbox", path: ROUTES.checkboxShowcase },
+  { name: "Toggle", path: ROUTES.toggleShowcase },
+  { name: "textarea", path: ROUTES.textareaShowcase },
+  { name: "Radio Group", path: ROUTES.radioButtonShowcase },
 ];
 
 export const ShowcaseLayout: React.FC = () => {

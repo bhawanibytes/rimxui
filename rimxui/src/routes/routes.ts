@@ -1,5 +1,4 @@
 
-
 export const CHILD_ROUTES = {
   showcase: {
     colors: "colors",
@@ -12,6 +11,7 @@ export const CHILD_ROUTES = {
     navbarpage:"navbar",
     paginationpage:"pagination",
     breadcrumpspage:"breadcrumps",
+    sidebarpage:"sidebar",
 
     skeleton: "skeleton",
     chips: "chips",
@@ -19,6 +19,12 @@ export const CHILD_ROUTES = {
     counter: "counter",
     darkMode: "darkMode",
     notification: "notification",
+    label:"label",
+    input:"input",
+    checkbox:"checkbox",
+    textarea:"textarea",
+    toggle:"toggle",
+    radioButton:"radio-button"
   },
 } as const;
 
@@ -36,6 +42,7 @@ export const ROUTES = {
   NavbarPage:`/showcase/${CHILD_ROUTES.showcase.navbarpage}`,
   PaginationPage:`/showcase/${CHILD_ROUTES.showcase.paginationpage}`,
   BreadcrumbsPage:`/showcase/${CHILD_ROUTES.showcase.breadcrumpspage}`,
+  SidebarPagePage:`/showcase/${CHILD_ROUTES.showcase.sidebarpage}`,
 
   skeletonShowcase: `/showcase/${CHILD_ROUTES.showcase.skeleton}`,
   chipsShowcase: `/showcase/${CHILD_ROUTES.showcase.chips}`,
@@ -43,4 +50,10 @@ export const ROUTES = {
   counterShowcase: `/showcase/${CHILD_ROUTES.showcase.counter}`,
   darkModeShowcase: `/showcase/${CHILD_ROUTES.showcase.darkMode}`,
   notificationShowcase: `/showcase/${CHILD_ROUTES.showcase.notification}`,
+  labelShowcase: `/showcase/${CHILD_ROUTES.showcase.label}`,
+  inputShowcase: `/showcase/${CHILD_ROUTES.showcase.input}`,
+  textareaShowcase: `/showcase/${CHILD_ROUTES.showcase.textarea}`,
+  toggleShowcase: `/showcase/${CHILD_ROUTES.showcase.toggle}`,
+  radioButtonShowcase: `/showcase/${CHILD_ROUTES.showcase.radioButton}`,
+  checkboxShowcase: `/showcase/${CHILD_ROUTES.showcase.checkbox}`,
 } as const;
