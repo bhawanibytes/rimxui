@@ -37,7 +37,7 @@ export const Typography = forwardRef<TypographyRefType, TypographyProps>(
       type = "text",
       variant = "default",
       color,
-      size = "md",
+      size,
       weight,
       className,
       as,
@@ -67,14 +67,14 @@ export const Typography = forwardRef<TypographyRefType, TypographyProps>(
 
       const headingSizeScale = HEADING_SIZE_SCALES[level];
 
-      sizeStyles = headingSizeScale[size];
+      sizeStyles = size ? headingSizeScale[size] : "";
 
       const headingWeight = weight || DEFAULT_HEADING_WEIGHTS[level];
       weightStyles = FONT_WEIGHT_STYLES[headingWeight];
 
       Component = as || getHeadingElement(level);
     } else {
-      sizeStyles = TEXT_SIZES_STYLES[size];
+      sizeStyles = size ? TEXT_SIZES_STYLES[size] : "";
 
       weightStyles = weight
         ? FONT_WEIGHT_STYLES[weight]

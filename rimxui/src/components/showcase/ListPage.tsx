@@ -1,14 +1,14 @@
 import { ListSizes, ListSpacings, ListType, ListVariants } from "@/types";
-import { List, ListItem } from "../list";
+import { List, ListItem } from "../List";
 import PreviewWrapper from "../PreviewWrapper";
-import { Typography } from "../typography/Typography";
+import { Typography } from "../Typography/Typography";
 import {
   ShowcaseAPIReference,
   ShowcaseGuidelines,
   ShowcaseHeader,
 } from "./common";
 
-const ListPage = () => {
+export const ListPreview = () => {
   const LIST_VARIANTS: Array<ListVariants> = [
     "default",
     "primary",
@@ -703,5 +703,3 @@ const ListPage = () => {
     </div>
   );
 };
-
-export default ListPage;

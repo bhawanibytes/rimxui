@@ -1,4 +1,4 @@
-import { Typography } from "@/components/typography";
+import { Typography } from "@/components/Typography";
 
 interface PropDetail {
   name: string;
@@ -10,6 +10,7 @@ interface PropDetail {
 interface PropTableConfig {
   title: string;
   props: PropDetail[];
+  note?: string;
 }
 
 interface ShowcaseAPIReferenceProps {

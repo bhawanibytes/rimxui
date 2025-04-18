@@ -1,5 +1,4 @@
-import { Typography } from "@/components/typography";
-import { List, ListItem } from "@/components/list";
+import { List, ListItem, Typography } from "@/components";
 
 interface GuidelineItem {
   title: string;

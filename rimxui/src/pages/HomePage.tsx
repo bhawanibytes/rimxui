@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 import DarkModeToggle from "@/components/DarkMode/dark";
 import { Card, CardContent, CardFooter } from "@/components/Cards/Card";
 import { BreadcrumbsOutlined } from "@/components/Breadcrump/BreadcrumpsGhost";
-import { ListItem, List } from "@/components/list";
+import { ListItem, List } from "@/components";
 import { NotificationContainer } from "../components/ChatNotification/NotificationContainer";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";

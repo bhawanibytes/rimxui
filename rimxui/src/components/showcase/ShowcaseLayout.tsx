@@ -9,12 +9,16 @@ const navigation = [
   { name: "Installation", path: "#" },
   { name: "Components", path: "#" },
   { name: "Colors", path: ROUTES.colorsShowcase },
+  // Components
+
+  { name: "Layout", path: ROUTES.layoutShowcase },
   { name: "Typography", path: ROUTES.typographyShowcase },
   { name: "Buttons", path: ROUTES.buttonsShowcase },
-  { name: "Cards", path: ROUTES.cardsShowcase },
   { name: "Lists", path: ROUTES.listsShowcase },
+  { name: "Cards", path: ROUTES.cardsShowcase },
   { name: "Shadows", path: ROUTES.shadowsShowcase },
   { name: "Navbar", path: ROUTES.NavbarPage },
+  { name: "Navbar Showcase", path: ROUTES.NavbarShowcase },
   { name: "Pagination", path: ROUTES.PaginationPage },
   { name: "Breadcrumps", path: ROUTES.BreadcrumbsPage },
   { name: "Sidebar", path: ROUTES.SidebarPagePage },
