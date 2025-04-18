@@ -7,11 +7,12 @@ export const CHILD_ROUTES = {
     cards: "cards",
     lists: "lists",
     shadows: "shadows",
-    navbarpage: "navbar",
-    paginationpage: "pagination",
-    breadcrumpspage: "breadcrumps",
-    sidebarpage: "sidebar",
-
+    modals: "modals",
+    toasts: "toasts",
+    navbarpage:"navbar",
+    paginationpage:"pagination",
+    breadcrumpspage:"breadcrumps",
+    sidebarpage:"sidebar",
     skeleton: "skeleton",
     chips: "chips",
     accordion: "accordion",
@@ -26,6 +27,7 @@ export const CHILD_ROUTES = {
     radioButton: "radio-button",
     morphed: "morphed",
     otp: "otp",
+    select: "select"
   },
 } as const;
 
@@ -40,11 +42,12 @@ export const ROUTES = {
   cardsShowcase: `/showcase/${CHILD_ROUTES.showcase.cards}`,
   listsShowcase: `/showcase/${CHILD_ROUTES.showcase.lists}`,
   shadowsShowcase: `/showcase/${CHILD_ROUTES.showcase.shadows}`,
-  NavbarPage: `/showcase/${CHILD_ROUTES.showcase.navbarpage}`,
-  PaginationPage: `/showcase/${CHILD_ROUTES.showcase.paginationpage}`,
-  BreadcrumbsPage: `/showcase/${CHILD_ROUTES.showcase.breadcrumpspage}`,
-  SidebarPagePage: `/showcase/${CHILD_ROUTES.showcase.sidebarpage}`,
-
+  modalsShowcase: `/showcase/${CHILD_ROUTES.showcase.modals}`,
+  toastsShowcase: `/showcase/${CHILD_ROUTES.showcase.toasts}`,
+  NavbarPage:`/showcase/${CHILD_ROUTES.showcase.navbarpage}`,
+  PaginationPage:`/showcase/${CHILD_ROUTES.showcase.paginationpage}`,
+  BreadcrumbsPage:`/showcase/${CHILD_ROUTES.showcase.breadcrumpspage}`,
+  SidebarPagePage:`/showcase/${CHILD_ROUTES.showcase.sidebarpage}`,
   skeletonShowcase: `/showcase/${CHILD_ROUTES.showcase.skeleton}`,
   chipsShowcase: `/showcase/${CHILD_ROUTES.showcase.chips}`,
   accordionShowcase: `/showcase/${CHILD_ROUTES.showcase.accordion}`,
@@ -57,6 +60,7 @@ export const ROUTES = {
   toggleShowcase: `/showcase/${CHILD_ROUTES.showcase.toggle}`,
   radioButtonShowcase: `/showcase/${CHILD_ROUTES.showcase.radioButton}`,
   checkboxShowcase: `/showcase/${CHILD_ROUTES.showcase.checkbox}`,
+  selectShowcase: `/showcase/${CHILD_ROUTES.showcase.select}`,
   morphedShowcase: `/showcase/${CHILD_ROUTES.showcase.morphed}`,
   otpShowcase: `/showcase/${CHILD_ROUTES.showcase.otp}`,
 } as const;

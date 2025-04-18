@@ -2,13 +2,14 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "label",
   "type": "registry:component",
+  "author": "The RimxUi Team",
   "dependencies": [
     "class-variance-authority"
   ],
   "files": [
     {
       "path": "src/components/Label/Label.tsx",
-      "content": "\r\nimport React from \"react\";\r\nimport { cva, type VariantProps } from \"class-variance-authority\";\r\nimport { mc } from \"@utils\";\r\n\r\nconst labelVariants = cva(\r\n  \"text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70\",\r\n  {\r\n    variants: {\r\n      variant: {\r\n        default: \"\",\r\n        destructive: \"text-destructive\",\r\n        success: \"text-success\",\r\n        warning: \"text-warning\",\r\n        info: \"text-info\",\r\n      },\r\n      size: {\r\n        default: \"\",\r\n        sm: \"text-xs\",\r\n        lg: \"text-base\",\r\n      },\r\n    },\r\n    defaultVariants: {\r\n      variant: \"default\",\r\n      size: \"default\",\r\n    },\r\n  },\r\n);\r\n\r\nexport interface LabelProps\r\n  extends React.LabelHTMLAttributes<HTMLLabelElement>,\r\n    VariantProps<typeof labelVariants> {\r\n  required?: boolean;\r\n}\r\n\r\nconst Label = React.forwardRef<HTMLLabelElement, LabelProps>(\r\n  ({ className, variant, size, required, children, ...props }, ref) => {\r\n    return (\r\n      <label\r\n        ref={ref}\r\n        className={mc(labelVariants({ variant, size, className }))}\r\n        {...props}\r\n      >\r\n        {children}\r\n        {required && <span className=\"text-destructive ml-1\">*</span>}\r\n      </label>\r\n    );\r\n  },\r\n);\r\nLabel.displayName = \"Label\";\r\n\r\nexport { Label };\r\n",
+      "content": "\nimport React from \"react\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport { mc } from \"@utils\";\n\nconst labelVariants = cva(\n  \"text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70\",\n  {\n    variants: {\n      variant: {\n        default: \"\",\n        destructive: \"text-destructive\",\n        success: \"text-success\",\n        warning: \"text-warning\",\n        info: \"text-info\",\n      },\n      size: {\n        default: \"\",\n        sm: \"text-xs\",\n        lg: \"text-base\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n      size: \"default\",\n    },\n  },\n);\n\nexport interface LabelProps\n  extends React.LabelHTMLAttributes<HTMLLabelElement>,\n    VariantProps<typeof labelVariants> {\n  required?: boolean;\n}\n\nconst Label = React.forwardRef<HTMLLabelElement, LabelProps>(\n  ({ className, variant, size, required, children, ...props }, ref) => {\n    return (\n      <label\n        ref={ref}\n        className={mc(labelVariants({ variant, size, className }))}\n        {...props}\n      >\n        {children}\n        {required && <span className=\"text-destructive ml-1\">*</span>}\n      </label>\n    );\n  },\n);\nLabel.displayName = \"Label\";\n\nexport { Label };\n",
       "type": "registry:component",
       "target": "src/components/ui/Label.tsx"
     }

@@ -11,14 +11,16 @@ const navigation = [
   { name: "Colors", path: ROUTES.colorsShowcase },
   { name: "Typography", path: ROUTES.typographyShowcase },
   { name: "Buttons", path: ROUTES.buttonsShowcase },
+  { name: "Morphed Buttons", path: ROUTES.morphedShowcase },
   { name: "Cards", path: ROUTES.cardsShowcase },
   { name: "Lists", path: ROUTES.listsShowcase },
   { name: "Shadows", path: ROUTES.shadowsShowcase },
+  { name: "Modals", path: ROUTES.modalsShowcase },
+  { name: "Toasts", path: ROUTES.toastsShowcase },
   { name: "Navbar", path: ROUTES.NavbarPage },
   { name: "Pagination", path: ROUTES.PaginationPage },
   { name: "Breadcrumps", path: ROUTES.BreadcrumbsPage },
   { name: "Sidebar", path: ROUTES.SidebarPagePage },
-
   { name: "Skeleton", path: ROUTES.skeletonShowcase },
   { name: "Chips", path: ROUTES.chipsShowcase },
   { name: "Accordion", path: ROUTES.accordionShowcase },
@@ -27,12 +29,14 @@ const navigation = [
   { name: "ChatNotification", path: ROUTES.notificationShowcase },
   { name: "Label", path: ROUTES.labelShowcase },
   { name: "Input", path: ROUTES.inputShowcase },
+  { name: "Otp Input", path: ROUTES.otpShowcase },
   { name: "Checkbox", path: ROUTES.checkboxShowcase },
   { name: "Toggle", path: ROUTES.toggleShowcase },
   { name: "textarea", path: ROUTES.textareaShowcase },
   { name: "Radio Group", path: ROUTES.radioButtonShowcase },
   { name: "Morphedbutton", path: ROUTES.morphedShowcase },
   { name: "Otp", path: ROUTES.otpShowcase },
+  { name: "Select", path: ROUTES.selectShowcase },
 ];
 
 export const ShowcaseLayout: React.FC = () => {
