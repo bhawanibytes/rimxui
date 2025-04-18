@@ -2,7 +2,7 @@ import DarkModeToggle from "../DarkMode/dark";
 
 function DarkMode() {
   return (
-    <div className="min-h-screen flex flex-col gap-4 items-center justify-center bg-white dark:bg-black text-black dark:text-white">
+    <div className="min-h-screen flex flex-col gap-4 items-center justify-center bg-white dark:bg-neutral-900 text-black dark:text-white">
       <h1 className="text-2xl font-bold">Dark Mode Toggle Test</h1>
       <DarkModeToggle variant="icon" />
       <DarkModeToggle variant="switch" />

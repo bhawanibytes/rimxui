@@ -11,7 +11,7 @@ import {
   
   export default function ExampleButtons() {
     return (
-      <div className="flex flex-col sm:flex-row flex-wrap gap-6 p-8 items-center justify-center bg-gray-100 min-h-screen">
+      <div className="flex flex-col sm:flex-row flex-wrap gap-6 p-8 items-center justify-center dark:bg-neutral-90 min-h-screen">
   
         {/* 1. Lucide Icon Button (Follow/Following) */}
         <MorphingButton

@@ -14,7 +14,7 @@ export default function FullChipExample() {
   };
 
   return (
-    <div className="p-6 bg-white dark:bg-zinc-900 min-h-screen text-gray-800 dark:text-white space-y-6">
+    <div className="p-6 bg-white dark:bg-neutral-900 min-h-screen text-gray-800 dark:text-white space-y-6">
       <h2 className="text-xl font-semibold">Selected Tags</h2>
 
       {/* Selected tags displayed as dismissable chips */}
