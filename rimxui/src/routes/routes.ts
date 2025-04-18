@@ -24,7 +24,8 @@ export const CHILD_ROUTES = {
     checkbox:"checkbox",
     textarea:"textarea",
     toggle:"toggle",
-    radioButton:"radio-button"
+    radioButton:"radio-button",
+    select: "select",
   },
 } as const;
 
@@ -56,4 +57,5 @@ export const ROUTES = {
   toggleShowcase: `/showcase/${CHILD_ROUTES.showcase.toggle}`,
   radioButtonShowcase: `/showcase/${CHILD_ROUTES.showcase.radioButton}`,
   checkboxShowcase: `/showcase/${CHILD_ROUTES.showcase.checkbox}`,
+  selectShowcase: `/showcase/${CHILD_ROUTES.showcase.select}`,
 } as const;
