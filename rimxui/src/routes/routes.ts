@@ -13,6 +13,8 @@ export const CHILD_ROUTES = {
     counter: "counter",
     darkMode: "darkMode",
     notification: "notification",
+    morphed: "morphed",
+    otp: "otp",
   },
 } as const;
 
@@ -33,4 +35,6 @@ export const ROUTES = {
   counterShowcase: `/showcase/${CHILD_ROUTES.showcase.counter}`,
   darkModeShowcase: `/showcase/${CHILD_ROUTES.showcase.darkMode}`,
   notificationShowcase: `/showcase/${CHILD_ROUTES.showcase.notification}`,
+  morphedShowcase: `/showcase/${CHILD_ROUTES.showcase.morphed}`,
+  otpShowcase: `/showcase/${CHILD_ROUTES.showcase.otp}`,
 } as const;

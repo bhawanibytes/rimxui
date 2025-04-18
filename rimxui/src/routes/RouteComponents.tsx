@@ -17,6 +17,8 @@ import AccordionPage from "@/components/showcase/AccordionPage";
 import CounterPage from "@/components/showcase/CounterPage";
 import DarkMode from "@/components/showcase/DarkMode";
 import NotificationPage from "@/components/showcase/NotificationPage";
+import MorphedButton from "@/components/showcase/MorphedButton";
+import OTPPage from "@/components/showcase/OtpPage";
 
 export const ROUTE_COMPONENTS: Array<RouteObject> = [
   {
@@ -86,6 +88,12 @@ export const ROUTE_COMPONENTS: Array<RouteObject> = [
       {
         path:CHILD_ROUTES.showcase.notification,
         element: <NotificationPage/>
+      },{
+        path:CHILD_ROUTES.showcase.morphed,
+        element: <MorphedButton/>
+      },{
+        path:CHILD_ROUTES.showcase.otp,
+        element:<OTPPage/>
       }
     ],
   },
