@@ -11,6 +11,7 @@ export const CHILD_ROUTES = {
     navbarpage:"navbar",
     paginationpage:"pagination",
     breadcrumpspage:"breadcrumps",
+    sidebarpage:"sidebar",
 
     skeleton: "skeleton",
     chips: "chips",
@@ -41,6 +42,7 @@ export const ROUTES = {
   NavbarPage:`/showcase/${CHILD_ROUTES.showcase.navbarpage}`,
   PaginationPage:`/showcase/${CHILD_ROUTES.showcase.paginationpage}`,
   BreadcrumbsPage:`/showcase/${CHILD_ROUTES.showcase.breadcrumpspage}`,
+  SidebarPagePage:`/showcase/${CHILD_ROUTES.showcase.sidebarpage}`,
 
   skeletonShowcase: `/showcase/${CHILD_ROUTES.showcase.skeleton}`,
   chipsShowcase: `/showcase/${CHILD_ROUTES.showcase.chips}`,

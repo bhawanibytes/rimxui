@@ -13,7 +13,7 @@ import { ShowcaseLayout } from "@/components/showcase/ShowcaseLayout";
 import { TypographyPreview } from "@/components/showcase/TypographyPage";
 import { CHILD_ROUTES, ROUTES } from "./routes";
 import BreadcrumbsPage from "@/components/showcase/BreadcrumpPage";
-
+import SidebarPage from "@/components/showcase/SidebarPage";
 import SkeletonPage from "@/components/showcase/SkeletonPage";
 import ChipsPage from "@/components/showcase/ChipsPage";
 import AccordionPage from "@/components/showcase/AccordionPage";
@@ -26,6 +26,7 @@ import TextAreaPage from "@/components/showcase/TextAreaPage";
 // import TogglePage from "@/components/showcase/TogglePage";
 import RadioButtonPage from "@/components/showcase/RadioButtonPage";
 import CheckboxPage from "@/components/showcase/CheckboxPage";
+
 
 export const ROUTE_COMPONENTS: Array<RouteObject> = [
   {
@@ -47,6 +48,10 @@ export const ROUTE_COMPONENTS: Array<RouteObject> = [
       {
         path: CHILD_ROUTES.showcase.navbarpage,
         element: <NavbarPage />,
+      },
+      {
+        path: CHILD_ROUTES.showcase.sidebarpage,
+        element: <SidebarPage />,
       },
       {
         path: CHILD_ROUTES.showcase.paginationpage,
