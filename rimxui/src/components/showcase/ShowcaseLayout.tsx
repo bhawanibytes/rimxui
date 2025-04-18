@@ -1,7 +1,7 @@
 // Do not make this import absolute, it cause circular import and break the application
-import { ROUTES } from "../../routes/routes";
 import React, { useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
+import { ROUTES } from "../../routes/routes";
 
 const navigation = [
   { name: "Getting Started", path: ROUTES.showcase },
@@ -18,7 +18,7 @@ const navigation = [
   { name: "Pagination", path: ROUTES.PaginationPage },
   { name: "Breadcrumps", path: ROUTES.BreadcrumbsPage },
   { name: "Sidebar", path: ROUTES.SidebarPagePage },
-  
+
   { name: "Skeleton", path: ROUTES.skeletonShowcase },
   { name: "Chips", path: ROUTES.chipsShowcase },
   { name: "Accordion", path: ROUTES.accordionShowcase },
@@ -106,7 +106,7 @@ export const ShowcaseLayout: React.FC = () => {
                   </svg>
                 )}
               </button>
-            </div> 
+            </div>
             <nav className="p-4 max-h-[90vh] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:rounded-full  [&::-webkit-scrollbar-thumb]:bg-gray-300  dark:[&::-webkit-scrollbar-track]:bg-neutral-700  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
               {navigation.map((item) => (
                 <Link
