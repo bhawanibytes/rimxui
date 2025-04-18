@@ -26,7 +26,8 @@ import TextAreaPage from "@/components/showcase/TextAreaPage";
 // import TogglePage from "@/components/showcase/TogglePage";
 import RadioButtonPage from "@/components/showcase/RadioButtonPage";
 import CheckboxPage from "@/components/showcase/CheckboxPage";
-
+import MorphedButton from "@/components/showcase/MorphedButton";
+import OTPPage from "@/components/showcase/OtpPage";
 
 export const ROUTE_COMPONENTS: Array<RouteObject> = [
   {
@@ -137,6 +138,14 @@ export const ROUTE_COMPONENTS: Array<RouteObject> = [
       {
         path: CHILD_ROUTES.showcase.checkbox,
         element: <CheckboxPage />,
+      },
+      {
+        path: CHILD_ROUTES.showcase.morphed,
+        element: <MorphedButton />,
+      },
+      {
+        path: CHILD_ROUTES.showcase.otp,
+        element: <OTPPage />,
       },
     ],
   },
