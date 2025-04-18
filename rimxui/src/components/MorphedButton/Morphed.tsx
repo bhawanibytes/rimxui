@@ -36,7 +36,6 @@ const MorphingButton: React.FC<MorphingButtonProps> = ({
   morphedIcon: MorphedIcon,
   initialContent,
   morphedContent,
-  duration,
   onClick,
   onMorphStart,
   onMorphEnd,
