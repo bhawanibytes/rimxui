@@ -1,6 +1,7 @@
 import { ElementType, forwardRef, HTMLAttributes } from "react";
 
 import {
+  LISTITEM_BASE_STYLES,
   LISTITEM_DIVIDER_STYLES,
   LISTITEM_GUTTERS_STYLES,
   LISTITEM_HOVER_STYLES,
@@ -22,7 +23,7 @@ const LISTITEM_COMPONENT_MAP: Record<ListItemType, ElementType> = {
   ),
   plain: forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
     ({ children, ...props }, ref) => (
-      <div ref={ref} {...props}>
+      <div ref={ref} role="listitem" {...props}>
         {children}
       </div>
     ),
@@ -45,14 +46,18 @@ export const ListItem = forwardRef<ListItemRefType, ListItemProps>(
     ref,
   ) => {
     let hoverStyles = LISTITEM_HOVER_STYLES_DEFAULT;
+    let baseStyles = "";
+
     const listContext = useListContext();
 
-    // TODO: Remove error from context or handle this after finalizing behavior
     if (listContext && listContext.variant) {
       const variantKey =
         listContext.variant as keyof typeof LISTITEM_HOVER_STYLES;
+
       hoverStyles =
         LISTITEM_HOVER_STYLES[variantKey] || LISTITEM_HOVER_STYLES_DEFAULT;
+
+      baseStyles = LISTITEM_BASE_STYLES[variantKey] || "";
     }
 
     const paddingStyles = disablePadding
@@ -63,8 +68,12 @@ export const ListItem = forwardRef<ListItemRefType, ListItemProps>(
       ? LISTITEM_GUTTERS_STYLES.disabled
       : LISTITEM_GUTTERS_STYLES.enabled;
 
+    const isDarkVariant = listContext?.isDarkVariant;
+
     const dividerStyles = divider
-      ? LISTITEM_DIVIDER_STYLES.enabled
+      ? isDarkVariant
+        ? LISTITEM_DIVIDER_STYLES.dark
+        : LISTITEM_DIVIDER_STYLES.enabled
       : LISTITEM_DIVIDER_STYLES.disabled;
 
     const selectedStyles = selected
@@ -73,6 +82,7 @@ export const ListItem = forwardRef<ListItemRefType, ListItemProps>(
 
     const listItemClasses = mc(
       "flex w-full items-center",
+      baseStyles,
       paddingStyles,
       guttersStyles,
       dividerStyles,

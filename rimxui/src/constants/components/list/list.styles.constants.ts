@@ -6,9 +6,9 @@ export const LIST_VARIANTS_STYLES: Record<ListVariants, string> = {
   secondary: "text-accent-700 dark:text-accent-300",
   outline:
     "text-neutral-900 dark:text-neutral-100 border border-neutral-200 dark:border-neutral-700 rounded-lg",
-  dark: "bg-neutral-800 text-neutral-100 rounded-lg shadow-md",
-  darkPrimary: "bg-primary-900 text-primary-100 rounded-lg shadow-md",
-  darkSecondary: "bg-accent-900 text-accent-100 rounded-lg shadow-md",
+  dark: "bg-neutral-800 text-white rounded-lg shadow-md",
+  darkPrimary: "bg-primary-800 text-white rounded-lg shadow-md",
+  darkSecondary: "bg-accent-800 text-white rounded-lg shadow-md",
 };
 
 export const LIST_SIZES_STYLES: Record<ListSizes, string> = {
@@ -26,4 +26,5 @@ export const LIST_SPACING_STYLES: Record<ListSpacings, string> = {
 export const LIST_BORDERED_STYLES = {
   enabled: "divide-y divide-neutral-200 dark:divide-neutral-700",
   disabled: "",
+  dark: "divide-y divide-neutral-700",
 };

@@ -1,4 +1,4 @@
-import { ElementType, forwardRef } from "react";
+import { ElementType, forwardRef, CSSProperties } from "react";
 
 import {
   DEFAULT_HEADING_WEIGHTS,
@@ -6,12 +6,14 @@ import {
   HEADING_SIZE_SCALES,
   TEXT_SIZES_STYLES,
   TYPOGRAPHY_VARIANTS_STYLES,
+  TYPOGRAPHY_COLOR_STYLES,
 } from "@constants";
 import {
   TypographyHeadingLevels,
   TypographyProps,
   TypographyRefType,
   TypographyType,
+  TypographyColorNames,
 } from "@types";
 import { mc } from "@utils";
 
@@ -25,21 +27,36 @@ const getHeadingElement = (level: TypographyHeadingLevels): ElementType => {
   return `h${level}` as ElementType;
 };
 
+const isPredefinedColor = (color: string): color is TypographyColorNames =>
+  Object.keys(TYPOGRAPHY_COLOR_STYLES).includes(color as TypographyColorNames);
+
 export const Typography = forwardRef<TypographyRefType, TypographyProps>(
   (
     {
       children,
       type = "text",
       variant = "default",
+      color,
       size = "md",
       weight,
       className,
       as,
+      style,
       ...restProps
     },
     ref,
   ) => {
-    const typographyVariantStyles = TYPOGRAPHY_VARIANTS_STYLES[variant];
+    let textColorStyles = TYPOGRAPHY_VARIANTS_STYLES[variant];
+    let customStyles: CSSProperties = style || {};
+
+    if (color) {
+      if (isPredefinedColor(color)) {
+        textColorStyles = TYPOGRAPHY_COLOR_STYLES[color];
+      } else {
+        customStyles = { ...customStyles, color };
+        textColorStyles = "";
+      }
+    }
 
     let sizeStyles = "";
     let weightStyles = "";
@@ -67,14 +84,19 @@ export const Typography = forwardRef<TypographyRefType, TypographyProps>(
     }
 
     const typographyComponentStyles = mc(
-      typographyVariantStyles,
+      textColorStyles,
       sizeStyles,
       weightStyles,
       className,
     );
 
     return (
-      <Component ref={ref} className={typographyComponentStyles} {...restProps}>
+      <Component
+        ref={ref}
+        className={typographyComponentStyles}
+        style={customStyles}
+        {...restProps}
+      >
         {children}
       </Component>
     );
