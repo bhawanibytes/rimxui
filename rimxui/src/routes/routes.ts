@@ -27,6 +27,7 @@ export const CHILD_ROUTES = {
     radioButton: "radio-button",
     morphed: "morphed",
     otp: "otp",
+    select: "select"
   },
 } as const;
 
@@ -59,6 +60,7 @@ export const ROUTES = {
   toggleShowcase: `/showcase/${CHILD_ROUTES.showcase.toggle}`,
   radioButtonShowcase: `/showcase/${CHILD_ROUTES.showcase.radioButton}`,
   checkboxShowcase: `/showcase/${CHILD_ROUTES.showcase.checkbox}`,
+  selectShowcase: `/showcase/${CHILD_ROUTES.showcase.select}`,
   morphedShowcase: `/showcase/${CHILD_ROUTES.showcase.morphed}`,
   otpShowcase: `/showcase/${CHILD_ROUTES.showcase.otp}`,
 } as const;

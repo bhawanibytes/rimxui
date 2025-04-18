@@ -25,11 +25,13 @@ import NotificationPage from "@/components/showcase/NotificationPage";
 import LabelPage from "@/components/showcase/LabelPage";
 import InputPage from "@/components/showcase/InputPage";
 import TextAreaPage from "@/components/showcase/TextAreaPage";
-// import TogglePage from "@/components/showcase/TogglePage";
+import TogglePage from "@/components/showcase/TogglePage";
 import RadioButtonPage from "@/components/showcase/RadioButtonPage";
 import CheckboxPage from "@/components/showcase/CheckboxPage";
+import SelectPage from "@/components/showcase/SelectPage";
 import MorphedButton from "@/components/showcase/MorphedButton";
 import OTPPage from "@/components/showcase/OtpPage";
+
 
 export const ROUTE_COMPONENTS: Array<RouteObject> = [
   {
@@ -137,10 +139,10 @@ export const ROUTE_COMPONENTS: Array<RouteObject> = [
         path: CHILD_ROUTES.showcase.textarea,
         element: <TextAreaPage />,
       },
-      // {
-      //   path:CHILD_ROUTES.showcase.toggle,
-      //   element: <TogglePage/>
-      // },
+      {
+        path: CHILD_ROUTES.showcase.toggle,
+        element: <TogglePage />,
+      },
       {
         path: CHILD_ROUTES.showcase.radioButton,
         element: <RadioButtonPage />,
@@ -148,6 +150,10 @@ export const ROUTE_COMPONENTS: Array<RouteObject> = [
       {
         path: CHILD_ROUTES.showcase.checkbox,
         element: <CheckboxPage />,
+      },
+      {
+        path: CHILD_ROUTES.showcase.select,
+        element: <SelectPage />,
       },
       {
         path: CHILD_ROUTES.showcase.morphed,
