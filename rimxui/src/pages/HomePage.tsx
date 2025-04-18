@@ -80,7 +80,7 @@ const HomePage = () => {
                 Docs
               </Link>
               <Link
-                to={"/showcase"}
+                to={"/docs"}
                 className="hover:text-blue-500 dark:text-gray-300 text-gray-600"
               >
                 Components
@@ -588,7 +588,7 @@ const HomePage = () => {
             </h3>
             <ul className="text-sm space-y-1">
               <li>
-                <Link to="/showcase" className="hover:underline">
+                <Link to="/docs" className="hover:underline">
                   Components
                 </Link>
               </li>

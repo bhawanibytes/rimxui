@@ -13,7 +13,7 @@ export  function CliTabs({ commands } : { commands: { [key: string]: string } })
   };
 
   return (
-    <div className="w-full max-w-3xl rounded-xl bg-white text-black dark:bg-[#111111] dark:text-white shadow-md overflow-hidden border border-gray-200 dark:border-[#2a2a2a]">
+    <div className="w-full max-w-3xl rounded-xl bg-white text-black dark:bg-neutral-900 dark:text-white shadow-md overflow-hidden border border-gray-200 dark:border-[#2a2a2a]">
       {/* Tabs */}
       <div className="flex space-x-4 px-4 pt-4">
         {tabList.map((tab) => (
