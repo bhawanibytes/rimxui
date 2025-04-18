@@ -27,6 +27,7 @@ export const CHILD_ROUTES = {
     radioButton: "radio-button",
     morphed: "morphed",
     otp: "otp",
+    select: "select"
   },
 } as const;
 
