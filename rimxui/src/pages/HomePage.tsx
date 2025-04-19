@@ -1,10 +1,7 @@
-import { Github,  Menu, X } from "lucide-react";
-import { useState } from "react";
 import Chip from "../components/Chips/chips";
 import { Link } from "react-router-dom";
 import Button from "../components/ui/Button";
 import { motion } from "framer-motion";
-import DarkModeToggle from "@/components/DarkMode/dark";
 import { Card, CardContent, CardFooter } from "@/components/Cards/Card";
 import { BreadcrumbsOutlined } from "@/components/Breadcrump/BreadcrumpsGhost";
 import { ListItem, List } from "@/components/list";
@@ -19,16 +16,13 @@ import HomepageHeadings from "./components/HomepageHeadings";
 import TestimonialCard from "./components/TestimonialCard";
 import AnimatedButtons from "./components/AnimatedButtons";
 import Footer from "./components/Footer";
-
+import Header from "./components/Header";
 const HomePage = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleMenu = () => setIsOpen(!isOpen);
   const folders = [
     { id: 1, name: "Inbox", icon: "📥", count: 24 },
     { id: 2, name: "Drafts", icon: "📝", count: 5 },
     { id: 3, name: "Sent", icon: "📤", count: 18 },
   ];
-
   const testimonials = [
     {
       id: 1,
@@ -55,76 +49,10 @@ const HomePage = () => {
       role: "MERN stack developer",
     },
   ];
-
   return (
     <>
-      {/* This is the Navbar */} 
-      <header className="z-50">
-        <p className="w-full dark:text-black text-center bg-blue-200 py-1">
-          This site is currently in Beta version 🚀
-        </p>
-       
-        <nav className="  text-white w-full ">
-          <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between md:justify-around">
-            <Link
-              to={"/"}
-              className="text-xl bg-gradient-to-b from-zinc-300 to-zinc-900 bg-clip-text text-transparent"
-            >
-              R<span className="text-red-500">i</span>MX UI{" "}
-              <Chip>version 1.0.0 🔥</Chip>
-            </Link>
-            <Link
-              to={"/"}
-              className="text-xl bg-gradient-to-b from-zinc-300 to-zinc-900 bg-clip-text text-transparent"
-            >
-              R<span className="text-red-500">i</span>MX UI{" "}
-              <Chip>version 1.0.0 🔥</Chip>
-            </Link>
-
-            <div className="hidden md:flex items-center gap-6">
-              <Link
-                to={"/docs"}
-                className="hover:text-blue-500 dark:text-gray-300 text-gray-600"
-              >
-                Docs
-              </Link>
-              <Link
-                to={"/docs"}
-                className="hover:text-blue-500 dark:text-gray-300 text-gray-600"
-              >
-                Components
-              </Link>
-              <DarkModeToggle variant="switch" />
-              <Chip color="gray">
-                <Link to={""}>
-                  <Github className="w-4 h-4" />
-                </Link>
-              </Chip>
-            </div>
-
-            <div className="md:hidden">
-              <button onClick={toggleMenu} className="text-gray-700">
-                {isOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-            </div>
-          </div>
-
-          {isOpen && (
-            <div className="md:hidden px-4 pb-4 space-y-2 text-gray-700">
-              <Link to={"/docs"} className="block hover:text-blue-500">
-                Docs
-              </Link>
-              <Link to={"/showcase"} className="block hover:text-blue-500">
-                Components
-              </Link>
-
-              <button className="w-full mt-2 bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
-                <Link to={"/showcase"}> Get Started</Link>
-              </button>
-            </div>
-          )}
-        </nav>
-      </header>
+      {/* This is the Navbar */}
+      <Header />
       {/* This is the hero section */}
       <main className=" max-w-7xl mx-auto p-8 h-screen ">
         {/* animation balls */}
@@ -137,40 +65,37 @@ const HomePage = () => {
             transition={{ easings: "easeInOut", duration: 0.4, delay: 0.5 }}
             className="font-bold text-7xl bg-gradient-to-b from-zinc-300 to-zinc-900 bg-clip-text text-transparent dark:text-zinc-300 pt-12"
           >
-          <motion.p
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ easings: "easeInOut", duration: 0.4, delay: 0.5 }}
-            className="font-bold text-7xl bg-gradient-to-b from-zinc-300 to-zinc-900 bg-clip-text text-transparent dark:text-zinc-300 pt-12"
-          >
-            Design Fast. Develop Faster. With{" "}
-           
-              R<span className="text-red-500">i</span>MX UI
-            <span className="bg-gradient-to-b from-zinc-300 to-zinc-900 bg-clip-text text-transparent">
-              R<span className="text-red-500">i</span>MX UI
-            </span>
-            .
-          </motion.p>
+            <motion.p
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ easings: "easeInOut", duration: 0.4, delay: 0.5 }}
+              className="font-bold text-7xl bg-gradient-to-b from-zinc-300 to-zinc-900 bg-clip-text text-transparent dark:text-zinc-300 pt-12"
+            >
+              Design Fast. Develop Faster. With R
+              <span className="text-red-500">i</span>MX UI
+              <span className="bg-gradient-to-b from-zinc-300 to-zinc-900 bg-clip-text text-transparent">
+                R<span className="text-red-500">i</span>MX UI
+              </span>
+              .
+            </motion.p>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ easings: "easeInOut", delay: 0.6, duration: 0.8 }}
-            className="mt-8 text-zinc-600 dark:text-zinc-400 w-full px-32 text-center "
-          >
-          </motion.p>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ easings: "easeInOut", delay: 0.6, duration: 0.8 }}
+              className="mt-8 text-zinc-600 dark:text-zinc-400 w-full px-32 text-center "
+            ></motion.p>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ easings: "easeInOut", delay: 0.6, duration: 0.8 }}
-            className="mt-8 text-zinc-600 dark:text-zinc-400 w-full px-32 text-center "
-          >
-            RiMX UI is a sleek, developer-first React component library designed
-            for speed, flexibility, and stunning design—helping you build
-            modern, responsive interfaces with ease and elegance.
-          </motion.p>
-
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ easings: "easeInOut", delay: 0.6, duration: 0.8 }}
+              className="mt-8 text-zinc-600 dark:text-zinc-400 w-full px-32 text-center "
+            >
+              RiMX UI is a sleek, developer-first React component library
+              designed for speed, flexibility, and stunning design—helping you
+              build modern, responsive interfaces with ease and elegance.
+            </motion.p>
           </motion.p>
 
           <Link to={"/showcase"}>
@@ -319,36 +244,35 @@ const HomePage = () => {
         />
 
         <motion.div className="flex items-center gap-2">
-        <motion.div className="flex items-center gap-2">
-          <div className="flex items-start pl-40 py-12 w-1/2  gap-2">
-            <span className="border rounded-full px-3 py-1 border-zinc-400">
-              1
-            </span>{" "}
-            <div className="">
-              Easily override default styles using utility classes or custom
-              props to match your brand’s look without breaking component
-              structure or behavior.
+          <motion.div className="flex items-center gap-2">
+            <div className="flex items-start pl-40 py-12 w-1/2  gap-2">
+              <span className="border rounded-full px-3 py-1 border-zinc-400">
+                1
+              </span>{" "}
+              <div className="">
+                Easily override default styles using utility classes or custom
+                props to match your brand’s look without breaking component
+                structure or behavior.
+              </div>
             </div>
-          </div>
-          <div className="w-1/2 pr-40 py-12">
-            <SyntaxHighlighter
-              language="tsx"
-              style={oneDark}
-              showLineNumbers={true}
-              wrapLines={true}
-              className="w-full"
-            >
-              {`<Button
+            <div className="w-1/2 pr-40 py-12">
+              <SyntaxHighlighter
+                language="tsx"
+                style={oneDark}
+                showLineNumbers={true}
+                wrapLines={true}
+                className="w-full"
+              >
+                {`<Button
   label="Get Started ->"
   variant="default"
   className="mt-16"
 />`}
-            </SyntaxHighlighter>
-          </div>
-        </motion.div>
+              </SyntaxHighlighter>
+            </div>
+          </motion.div>
         </motion.div>
 
-       
         <motion.div className="flex items-center gap-2">
           <div className="flex items-start pl-40 py-12 w-1/2  gap-2">
             <span className="border rounded-full px-3 py-1 border-zinc-400">
@@ -397,6 +321,7 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+      
       {/* Footer section */}
       <Footer />
     </>
