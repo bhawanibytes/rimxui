@@ -1,5 +1,6 @@
 import { CliTabs } from "../CliTabs/CliTab";
 import DarkModeToggle from "../DarkMode/dark";
+import PreviewWrapper from "../PreviewWrapper";
 
 function DarkMode() {
   return (
@@ -15,17 +16,49 @@ function DarkMode() {
           }}
         />
       </section>
-      <div className="min-h-screen flex flex-col gap-4 items-center justify-center bg-white dark:bg-neutral-900 text-black dark:text-white">
-        <h1 className="text-2xl font-bold">Dark Mode Toggle Test</h1>
-        <DarkModeToggle variant="icon" />
-        <DarkModeToggle variant="switch" />
-        <DarkModeToggle variant="text" />
-        <DarkModeToggle
-          variant="icon"
-          lightIcon="🔆" // Custom light mode icon
-          darkIcon="🌑" // Custom dark mode icon
-        />
-      </div>
+      <PreviewWrapper
+        label="Dark Mode Toggle - Icon Variant"
+        variant="centered"
+        preview={
+          <div className="min-h-auto flex  items-center justify-center bg-white dark:bg-neutral-900 text-black dark:text-white">
+            <DarkModeToggle variant="icon" />
+          </div>
+        }
+        code={`
+    <div className="min-h-auto flex items-center justify-center bg-white dark:bg-neutral-900 text-black dark:text-white">
+      <DarkModeToggle variant="icon" />
+
+    </div>
+  `}
+      />
+      <PreviewWrapper
+        label="Dark Mode Toggle - Switch Variant"
+        variant="centered"
+        preview={<DarkModeToggle variant="switch" />}
+        code={`
+    <DarkModeToggle variant="switch" />
+  `}
+      />
+      <PreviewWrapper
+        label="Dark Mode Toggle - Text Variant"
+        variant="centered"
+        preview={<DarkModeToggle variant="text" />}
+        code={`
+    <DarkModeToggle variant="text" />
+  `}
+      />
+      <PreviewWrapper
+        label="Dark Mode Toggle - Icon Variant with Custom Icons"
+        variant="centered"
+        preview={<DarkModeToggle variant="icon" lightIcon="🔆" darkIcon="🌑" />}
+        code={`
+    <DarkModeToggle
+      variant="icon"
+      lightIcon="🔆" // Custom light mode icon
+      darkIcon="🌑" // Custom dark mode icon
+    />
+  `}
+      />
     </>
   );
 }
