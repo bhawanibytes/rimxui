@@ -64,7 +64,7 @@ export const ShowcaseLayout: React.FC = () => {
                   />
                 </svg>
                 <Link
-                  to="/showcase"
+                  to="/"
                   className="text-xl font-semibold text-neutral-900 dark:text-white"
                 >
                   R<span className="text-red-500">i</span>MX UI
