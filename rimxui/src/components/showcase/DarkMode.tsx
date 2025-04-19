@@ -50,13 +50,7 @@ function DarkMode() {
       <PreviewWrapper
         label="Dark Mode Toggle - Icon Variant with Custom Icons"
         variant="centered"
-        preview={
-          <DarkModeToggle
-            variant="icon"
-            lightIcon="🔆" 
-            darkIcon="🌑"
-          />
-        }
+        preview={<DarkModeToggle variant="icon" lightIcon="🔆" darkIcon="🌑" />}
         code={`
     <DarkModeToggle
       variant="icon"
@@ -70,14 +64,3 @@ function DarkMode() {
 }
 
 export default DarkMode;
-
-{
-  /* <DarkModeToggle variant="icon" />
-      <DarkModeToggle variant="switch" />
-      <DarkModeToggle variant="text" />
-      <DarkModeToggle
-        variant="icon"
-        lightIcon="🔆" // Custom light mode icon
-        darkIcon="🌑" // Custom dark mode icon
-      /> */
-}
