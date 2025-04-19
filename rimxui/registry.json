@@ -133,7 +133,8 @@
           "type": "registry:component",
           "target": "src/components/ui/BreadcrumpsOutlined.tsx"
         }
-      ]
+      ],
+      "author": "The RimxUi Team"
     },
     {
       "name": "pagination",
@@ -145,7 +146,8 @@
           "type": "registry:component",
           "target": "src/components/ui/Pagination.tsx"
         }
-      ]
+      ],
+      "author": "The RimxUi Team"
     },
     {
       "name": "label",
@@ -157,7 +159,8 @@
           "type": "registry:component",
           "target": "src/components/ui/Label.tsx"
         }
-      ]
+      ],
+      "author": "The RimxUi Team"
     },
     {
       "name": "input",
@@ -169,7 +172,8 @@
           "type": "registry:component",
           "target": "src/components/ui/Input.tsx"
         }
-      ]
+      ],
+      "author": "The RimxUi Team"
     },
     {
       "name": "textarea",
@@ -181,7 +185,8 @@
           "type": "registry:component",
           "target": "src/components/ui/TextArea.tsx"
         }
-      ]
+      ],
+      "author": "The RimxUi Team"
     },
     {
       "name": "checkbox",
@@ -193,7 +198,34 @@
           "type": "registry:component",
           "target": "src/components/ui/Checkbox.tsx"
         }
-      ]
+      ],
+      "author": "The RimxUi Team"
+    },
+    {
+      "name": "toggle",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "src/components/Toggle/Toggle.tsx",
+          "type": "registry:component",
+          "target": "src/components/ui/Toggle.tsx"
+        }
+      ],
+      "author": "The RimxUi Team"
+    },
+    {
+      "name": "select",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "src/components/Select/Select.tsx",
+          "type": "registry:component",
+          "target": "src/components/ui/Select.tsx"
+        }
+      ],
+      "author": "The RimxUi Team"
     }
   ]
 }

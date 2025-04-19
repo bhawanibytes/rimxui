@@ -34,7 +34,7 @@ const LIST_COMPONENT_MAP: Record<ListType, ElementType> = {
   ),
   plain: forwardRef<HTMLDivElement, PlainListProps>(
     ({ children, ...props }, ref) => (
-      <div ref={ref} {...props}>
+      <div ref={ref} role="list" {...props}>
         {children}
       </div>
     ),
@@ -51,6 +51,7 @@ export const List = forwardRef<ListRefType, ListProps>(
       spacing = "medium",
       variant = "default",
       className,
+      "aria-label": ariaLabel,
       ...restProps
     },
     ref,
@@ -58,15 +59,21 @@ export const List = forwardRef<ListRefType, ListProps>(
     const listVariantStyles = LIST_VARIANTS_STYLES[variant];
     const listSizeStyles = LIST_SIZES_STYLES[size];
     const listSpacingStyles = LIST_SPACING_STYLES[spacing];
-    const borderedStyles = bordered
-      ? LIST_BORDERED_STYLES.enabled
-      : LIST_BORDERED_STYLES.disabled;
+
+    const isDarkVariant = variant.startsWith("dark");
+
+    const borderedStyles = !bordered
+      ? LIST_BORDERED_STYLES.disabled
+      : isDarkVariant
+        ? LIST_BORDERED_STYLES.dark
+        : LIST_BORDERED_STYLES.enabled;
 
     const listComponentStyles = mc(
       listVariantStyles,
       listSizeStyles,
       listSpacingStyles,
       borderedStyles,
+      isDarkVariant ? "text-white" : "",
       className,
     );
 
@@ -77,11 +84,21 @@ export const List = forwardRef<ListRefType, ListProps>(
       size,
       spacing,
       bordered,
+      isDarkVariant,
+    };
+
+    const accessibilityProps = {
+      "aria-label": ariaLabel || `${variant} list`,
     };
 
     return (
       <ListContext.Provider value={contextValue}>
-        <ListComponent ref={ref} className={listComponentStyles} {...restProps}>
+        <ListComponent
+          ref={ref}
+          className={listComponentStyles}
+          {...accessibilityProps}
+          {...restProps}
+        >
           {children}
         </ListComponent>
       </ListContext.Provider>

@@ -1,3 +1,4 @@
+import { CliTabs } from "../CliTabs/CliTab";
 import PreviewWrapper from "../PreviewWrapper";
 
 const COLOR_ACCENTS = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
@@ -5,6 +6,17 @@ const COLOR_ACCENTS = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 const ColorPreview = () => {
   return (
     <div className="space-y-8">
+      <section id="#installation">
+        <h1 className="text-h4 mb-6">Installation</h1>
+        <CliTabs
+          commands={{
+            pnpm: "pnpm dlx shadcn@latest add http://rimxui.vercel.app/registry/colors.json",
+            npm: "npx shadcn@latest add http://rimxui.vercel.app/registry/colors.json",
+            bun: "bunx shadcn@latest add http://rimxui.vercel.app/registry/colors.json",
+            yarn: "yarn dlx shadcn@latest add http://rimxui.vercel.app/registry/colors.json",
+          }}
+        />
+      </section>
       {/* Primary Colors */}
       <div className="space-y-3">
         <h3 className="text-lg font-semibold">Primary Colors</h3>

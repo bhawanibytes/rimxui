@@ -6,6 +6,11 @@ import {
 } from "@/types";
 import PreviewWrapper from "../PreviewWrapper";
 import { Typography } from "../typography/Typography";
+import {
+  ShowcaseAPIReference,
+  ShowcaseGuidelines,
+  ShowcaseHeader,
+} from "./common";
 
 export const TypographyPreview = () => {
   const TYPOGRAPHY_VARIANTS: Array<TypographyVariants> = [
@@ -43,14 +48,12 @@ export const TypographyPreview = () => {
 
   const renderIntroduction = () => (
     <div className="space-y-6">
-      <div>
-        <h2 className="text-2xl font-bold mb-4">Introduction</h2>
-        <p className="text-neutral-600 dark:text-neutral-400 mb-6">
-          Our Typography system provides a flexible and consistent way to style
+      <ShowcaseHeader
+        title="Typography"
+        description="Our Typography system provides a flexible and consistent way to style
           text across your application. It supports four main types of text
-          elements: headings, regular text, links, and inline text.
-        </p>
-      </div>
+          elements: headings, regular text, links, and inline text."
+      />
 
       <PreviewWrapper
         label="Basic Usage"
@@ -1438,310 +1441,118 @@ export const TypographyPreview = () => {
     </div>
   );
 
-  const renderGuidelines = () => (
-    <div className="space-y-8">
-      <div>
-        <h2 className="text-2xl font-bold mb-4">Typography Guidelines</h2>
-        <p className="text-neutral-600 dark:text-neutral-400 mb-6">
-          Following these guidelines will help maintain consistency and
-          readability across your application.
-        </p>
-      </div>
+  const renderGuidelines = () => {
+    const bestPractices = [
+      {
+        title: "Maintain Hierarchy",
+        description:
+          "Use typography to create a clear visual hierarchy by varying size, weight, and style.",
+      },
+      {
+        title: "Be Consistent",
+        description:
+          "Use the same variants for similar elements throughout your application.",
+      },
+      {
+        title: "Prioritize Readability",
+        description:
+          "Choose sizes and colors that are easy to read on different devices and in different lighting conditions.",
+      },
+    ];
 
-      <div className="space-y-6">
-        <div>
-          <h3 className="text-lg font-medium mb-4">Best Practices</h3>
-          <div className="space-y-4">
-            <div className="flex items-start">
-              <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-900/30">
-                ✓
-              </div>
-              <div className="ml-4">
-                <Typography
-                  type="heading"
-                  level={4}
-                  variant="dark"
-                  size="md"
-                  weight="semibold"
-                >
-                  Maintain Hierarchy
-                </Typography>
-                <Typography
-                  type="text"
-                  variant="secondary"
-                  size="md"
-                  className="mt-1"
-                >
-                  Use typography to create a clear visual hierarchy by varying
-                  size, weight, and style.
-                </Typography>
-              </div>
-            </div>
-            <div className="flex items-start">
-              <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-900/30">
-                ✓
-              </div>
-              <div className="ml-4">
-                <Typography
-                  type="heading"
-                  level={4}
-                  variant="dark"
-                  size="md"
-                  weight="semibold"
-                >
-                  Be Consistent
-                </Typography>
-                <Typography
-                  type="text"
-                  variant="secondary"
-                  size="md"
-                  className="mt-1"
-                >
-                  Use the same variants for similar elements throughout your
-                  application.
-                </Typography>
-              </div>
-            </div>
-            <div className="flex items-start">
-              <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-900/30">
-                ✓
-              </div>
-              <div className="ml-4">
-                <Typography
-                  type="heading"
-                  level={4}
-                  variant="dark"
-                  size="md"
-                  weight="semibold"
-                >
-                  Prioritize Readability
-                </Typography>
-                <Typography
-                  type="text"
-                  variant="secondary"
-                  size="md"
-                  className="mt-1"
-                >
-                  Choose sizes and colors that are easy to read on different
-                  devices and in different lighting conditions.
-                </Typography>
-              </div>
-            </div>
-          </div>
-        </div>
+    const thingsToAvoid = [
+      {
+        title: "Too Many Styles",
+        description:
+          "Avoid using too many different sizes, weights, or variants on a single page.",
+      },
+      {
+        title: "Poor Contrast",
+        description:
+          "Ensure there's enough contrast between text and background colors for readability.",
+      },
+      {
+        title: "Inconsistent Sizing",
+        description:
+          "Don't use arbitrary or inconsistent sizing. Stick to the defined size scale.",
+      },
+    ];
 
-        <div>
-          <h3 className="text-lg font-medium mb-4">Things to Avoid</h3>
-          <div className="space-y-4">
-            <div className="flex items-start">
-              <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-red-100 text-red-600 dark:bg-red-900/30">
-                ✗
-              </div>
-              <div className="ml-4">
-                <Typography
-                  type="heading"
-                  level={4}
-                  variant="dark"
-                  size="md"
-                  weight="semibold"
-                >
-                  Too Many Styles
-                </Typography>
-                <Typography
-                  type="text"
-                  variant="secondary"
-                  size="md"
-                  className="mt-1"
-                >
-                  Avoid using too many different sizes, weights, or variants on
-                  a single page.
-                </Typography>
-              </div>
-            </div>
-            <div className="flex items-start">
-              <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-red-100 text-red-600 dark:bg-red-900/30">
-                ✗
-              </div>
-              <div className="ml-4">
-                <Typography
-                  type="heading"
-                  level={4}
-                  variant="dark"
-                  size="md"
-                  weight="semibold"
-                >
-                  Poor Contrast
-                </Typography>
-                <Typography
-                  type="text"
-                  variant="secondary"
-                  size="md"
-                  className="mt-1"
-                >
-                  Ensure there's enough contrast between text and background
-                  colors for readability.
-                </Typography>
-              </div>
-            </div>
-            <div className="flex items-start">
-              <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-red-100 text-red-600 dark:bg-red-900/30">
-                ✗
-              </div>
-              <div className="ml-4">
-                <Typography
-                  type="heading"
-                  level={4}
-                  variant="dark"
-                  size="md"
-                  weight="semibold"
-                >
-                  Inconsistent Sizing
-                </Typography>
-                <Typography
-                  type="text"
-                  variant="secondary"
-                  size="md"
-                  className="mt-1"
-                >
-                  Don't use arbitrary or inconsistent sizing. Stick to the
-                  defined size scale.
-                </Typography>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+    return (
+      <ShowcaseGuidelines
+        title="Typography Guidelines"
+        description="Following these guidelines will help maintain consistency and readability across your application."
+        bestPractices={bestPractices}
+        thingsToAvoid={thingsToAvoid}
+      />
+    );
+  };
 
-  const renderAPIDocs = () => (
-    <div className="space-y-8">
-      <div>
-        <h2 className="text-2xl font-bold mb-4">API Documentation</h2>
-        <p className="text-neutral-600 dark:text-neutral-400 mb-6">
-          The Typography component accepts the following props to customize its
-          appearance and behavior.
-        </p>
-      </div>
+  const renderAPIDocs = () => {
+    const typographyProps = [
+      {
+        name: "type",
+        type: '"heading" | "text" | "link" | "inline"',
+        defaultValue: '"text"',
+        description: "Specifies the type of typography element to render.",
+      },
+      {
+        name: "variant",
+        type: '"default" | "primary" | "secondary" | "outline" | "dark" | "darkPrimary" | "darkSecondary"',
+        defaultValue: '"default"',
+        description: "Determines the color scheme to use for the text.",
+      },
+      {
+        name: "size",
+        type: '"xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl"',
+        defaultValue: '"md"',
+        description: "Controls the font size of the text.",
+      },
+      {
+        name: "weight",
+        type: '"thin" | "extralight" | "light" | "normal" | "medium" | "semibold" | "bold" | "extrabold" | "black"',
+        defaultValue: '"normal"',
+        description: "Sets the font weight of the text.",
+      },
+      {
+        name: "level",
+        type: "1 | 2 | 3 | 4 | 5 | 6",
+        defaultValue: '1 (for type="heading")',
+        description: 'Sets the heading level (h1-h6) when type is "heading".',
+      },
+      {
+        name: "href",
+        type: "string",
+        defaultValue: "undefined",
+        description: 'URL for the link when type is "link".',
+      },
+      {
+        name: "className",
+        type: "string",
+        defaultValue: "undefined",
+        description: "Additional CSS classes to apply to the component.",
+      },
+      {
+        name: "children",
+        type: "ReactNode",
+        defaultValue: "required",
+        description:
+          "The content to be displayed within the typography component.",
+      },
+    ];
 
-      <div className="overflow-x-auto">
-        <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-800">
-          <thead>
-            <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Prop
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Type
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Default
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Description
-              </th>
-            </tr>
-          </thead>
-          <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-800">
-            <tr>
-              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                type
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm">
-                "heading" | "text" | "link" | "inline"
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm">"text"</td>
-              <td className="px-6 py-4 text-sm">
-                Specifies the type of typography element to render.
-              </td>
-            </tr>
-            <tr>
-              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                variant
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm">
-                "default" | "primary" | "secondary" | "outline" | "dark" |
-                "darkPrimary" | "darkSecondary"
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm">"default"</td>
-              <td className="px-6 py-4 text-sm">
-                Determines the color scheme to use for the text.
-              </td>
-            </tr>
-            <tr>
-              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                size
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm">
-                "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl"
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm">"md"</td>
-              <td className="px-6 py-4 text-sm">
-                Controls the font size of the text.
-              </td>
-            </tr>
-            <tr>
-              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                weight
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm">
-                "thin" | "extralight" | "light" | "normal" | "medium" |
-                "semibold" | "bold" | "extrabold" | "black"
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm">"normal"</td>
-              <td className="px-6 py-4 text-sm">
-                Sets the font weight of the text.
-              </td>
-            </tr>
-            <tr>
-              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                level
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm">
-                1 | 2 | 3 | 4 | 5 | 6
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm">
-                1 (for type="heading")
-              </td>
-              <td className="px-6 py-4 text-sm">
-                Sets the heading level (h1-h6) when type is "heading".
-              </td>
-            </tr>
-            <tr>
-              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                href
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm">string</td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm">undefined</td>
-              <td className="px-6 py-4 text-sm">
-                URL for the link when type is "link".
-              </td>
-            </tr>
-            <tr>
-              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                className
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm">string</td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm">undefined</td>
-              <td className="px-6 py-4 text-sm">
-                Additional CSS classes to apply to the component.
-              </td>
-            </tr>
-            <tr>
-              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                children
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm">ReactNode</td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm">required</td>
-              <td className="px-6 py-4 text-sm">
-                The content to be displayed within the typography component.
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  );
+    return (
+      <ShowcaseAPIReference
+        title="API Documentation"
+        propTables={[
+          {
+            title: "Typography Props",
+            props: typographyProps,
+          },
+        ]}
+      />
+    );
+  };
 
   return (
     <div className="space-y-16 py-8">

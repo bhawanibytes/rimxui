@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Chip from "../Chips/chips";
+import { CliTabs } from "../CliTabs/CliTab";
 // import { X } from "lucide-react";
 
 export default function FullChipExample() {
@@ -14,7 +15,18 @@ export default function FullChipExample() {
   };
 
   return (
-    <div className="p-6 bg-white dark:bg-zinc-900 min-h-screen text-gray-800 dark:text-white space-y-6">
+    <div className="p-6 bg-white dark:bg-neutral-900 min-h-screen text-gray-800 dark:text-white space-y-6">
+      <section id="#installation">
+        <h1 className="text-h4 mb-6">Installation</h1>
+        <CliTabs
+          commands={{
+            pnpm: "pnpm dlx shadcn@latest add http://rimxui.vercel.app/registry/chips.json",
+            npm: "npx shadcn@latest add http://rimxui.vercel.app/registry/chips.json",
+            bun: "bunx shadcn@latest add http://rimxui.vercel.app/registry/chips.json",
+            yarn: "yarn dlx shadcn@latest add http://rimxui.vercel.app/registry/chips.json",
+          }}
+        />
+      </section>
       <h2 className="text-xl font-semibold">Selected Tags</h2>
 
       {/* Selected tags displayed as dismissable chips */}

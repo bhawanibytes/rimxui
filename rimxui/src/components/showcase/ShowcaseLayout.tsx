@@ -8,29 +8,34 @@ const navigation = [
   { name: "Introduction", path: "#" },
   { name: "Installation", path: "#" },
   { name: "Components", path: "#" },
-  { name: "Colors", path: ROUTES.colorsShowcase },
-  { name: "Typography", path: ROUTES.typographyShowcase },
-  { name: "Buttons", path: ROUTES.buttonsShowcase },
-  { name: "Cards", path: ROUTES.cardsShowcase },
-  { name: "Lists", path: ROUTES.listsShowcase },
-  { name: "Shadows", path: ROUTES.shadowsShowcase },
+  { name: "Accordion", path: ROUTES.accordionDocs },
+  { name: "Breadcrumps", path: ROUTES.BreadcrumbsPage },
+  { name: "Buttons", path: ROUTES.buttonsDocs },
+  { name: "Morphed Buttons", path: ROUTES.morphedDocs },
+  { name: "Colors", path: ROUTES.colorsDocs },
+  { name: "Chips", path: ROUTES.chipsDocs },
+  { name: "Countdown", path: ROUTES.counterDocs },
+  { name: "Cards", path: ROUTES.cardsDocs },
+  { name: "Cli Tab", path: ROUTES.cliDocs },
+  { name: "ChatNotification", path: ROUTES.notificationDocs },
+  { name: "Checkbox", path: ROUTES.checkboxDocs },
+  { name: "Darkmode", path: ROUTES.darkModeDocs },
+  { name: "Input", path: ROUTES.inputDocs },
+  { name: "Otp Input", path: ROUTES.otpDocs },
+  { name: "Label", path: ROUTES.labelDocs },
+  { name: "Typography", path: ROUTES.typographyDocs },
+  { name: "Lists", path: ROUTES.listsDocs },
+  { name: "Modals", path: ROUTES.modalsDocs },
   { name: "Navbar", path: ROUTES.NavbarPage },
   { name: "Pagination", path: ROUTES.PaginationPage },
-  { name: "Breadcrumps", path: ROUTES.BreadcrumbsPage },
+  { name: "Radio Group", path: ROUTES.radioButtonDocs },
+  { name: "Shadows", path: ROUTES.shadowsDocs },
   { name: "Sidebar", path: ROUTES.SidebarPagePage },
-
-  { name: "Skeleton", path: ROUTES.skeletonShowcase },
-  { name: "Chips", path: ROUTES.chipsShowcase },
-  { name: "Accordion", path: ROUTES.accordionShowcase },
-  { name: "Countdown", path: ROUTES.counterShowcase },
-  { name: "Darkmode", path: ROUTES.darkModeShowcase },
-  { name: "ChatNotification", path: ROUTES.notificationShowcase },
-  { name: "Label", path: ROUTES.labelShowcase },
-  { name: "Input", path: ROUTES.inputShowcase },
-  { name: "Checkbox", path: ROUTES.checkboxShowcase },
-  { name: "Toggle", path: ROUTES.toggleShowcase },
-  { name: "textarea", path: ROUTES.textareaShowcase },
-  { name: "Radio Group", path: ROUTES.radioButtonShowcase },
+  { name: "Skeleton", path: ROUTES.skeletonDocs },
+  { name: "Select", path: ROUTES.selectDocs },
+  { name: "Toasts", path: ROUTES.toastsDocs },
+  { name: "Toggle", path: ROUTES.toggleDocs },
+  { name: "TextArea", path: ROUTES.textareaDocs },
 ];
 
 export const ShowcaseLayout: React.FC = () => {
@@ -107,7 +112,7 @@ export const ShowcaseLayout: React.FC = () => {
                 )}
               </button>
             </div>
-            <nav className="p-4 max-h-[90vh] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:rounded-full  [&::-webkit-scrollbar-thumb]:bg-gray-300  dark:[&::-webkit-scrollbar-track]:bg-neutral-700  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
+            <nav className="p-4 max-h-[90vh] overflow-y-auto [&::-webkit-scrollbar]:w-0 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:rounded-full  [&::-webkit-scrollbar-thumb]:bg-gray-300  dark:[&::-webkit-scrollbar-track]:bg-neutral-700  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
               {navigation.map((item) => (
                 <Link
                   key={item.path}
