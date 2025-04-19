@@ -45,6 +45,28 @@ export default function AccordionPage() {
           code={`           
             import {Accordion} from "@/components/ui/accordion";
 export function AccordionPage() {
+const faqItems = [
+  {
+    title: "What is your return policy?",
+    content:
+      "We offer a 30-day return policy for all unused items in their original packaging.",
+  },
+  {
+    title: "How long does shipping take?",
+    content:
+      "Shipping typically takes 3-5 business days depending on your location.",
+  },
+  {
+    title: "Do you offer international shipping?",
+    content:
+      "Yes, we offer international shipping to select countries with additional charges.",
+  },
+  {
+    title: "How can I track my order?",
+    content:
+      "Once your order is shipped, we will provide a tracking number via email.",
+  },
+];
 return (
 <Accordion
 items={faqItems}
