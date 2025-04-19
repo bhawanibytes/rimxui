@@ -2,6 +2,8 @@ import PreviewWrapper from "../PreviewWrapper";
 import { BreadcrumbsBasic } from "../Breadcrump/BreadcrumpsBasic";
 import { BreadcrumbsGhost } from "../Breadcrump/BreadcrumpsOutlined";
 import { BreadcrumbsOutlined } from "../Breadcrump/BreadcrumpsGhost";
+import { CliTabs } from "../CliTabs/CliTab";
+
 const breadcrumbItems = [
   { label: "Home", href: "/" },
   { label: "Docs", href: "/docs" },
@@ -11,6 +13,17 @@ const breadcrumbItems = [
 function BreadcrumbsPage() {
   return (
     <div className="space-y-10 p-6">
+      <section id="#installation">
+        <h1 className="text-h4 mb-6">Installation</h1>
+        <CliTabs
+          commands={{
+            pnpm: "pnpm dlx shadcn@latest add http://rimxui.vercel.app/registry/breadcrump.json",
+            npm: "npx shadcn@latest add http://rimxui.vercel.app/registry/breadcrump.json",
+            bun: "bunx shadcn@latest add http://rimxui.vercel.app/registry/breadcrump.json",
+            yarn: "yarn dlx shadcn@latest add http://rimxui.vercel.app/registry/breadcrump.json",
+          }}
+        />
+      </section>
       <PreviewWrapper
         label="Basic Breadcrumbs"
         preview={<BreadcrumbsBasic items={breadcrumbItems} />}

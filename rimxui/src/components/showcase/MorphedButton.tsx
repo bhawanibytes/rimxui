@@ -1,18 +1,29 @@
 import {
-    Heart,
-    HeartOff,
-    Bell,
-    BellOff,
-    UserPlus,
-    UserCheck,
-   
-  } from "lucide-react";
-  import MorphingButton from "../MorphedButton/Morphed"; // adjust the path as per your structure
-  
-  export default function ExampleButtons() {
-    return (
+  Heart,
+  HeartOff,
+  Bell,
+  BellOff,
+  UserPlus,
+  UserCheck,
+} from "lucide-react";
+import MorphingButton from "../MorphedButton/Morphed"; // adjust the path as per your structure
+import { CliTabs } from "../CliTabs/CliTab";
+
+export default function ExampleButtons() {
+  return (
+    <>
+      <section id="#installation">
+        <h1 className="text-h4 mb-6">Installation</h1>
+        <CliTabs
+          commands={{
+            pnpm: "pnpm dlx shadcn@latest add http://rimxui.vercel.app/registry/morphedbutton.json",
+            npm: "npx shadcn@latest add http://rimxui.vercel.app/registry/morphedbutton.json",
+            bun: "bunx shadcn@latest add http://rimxui.vercel.app/registry/morphedbutton.json",
+            yarn: "yarn dlx shadcn@latest add http://rimxui.vercel.app/registry/morphedbutton.json",
+          }}
+        />
+      </section>
       <div className="flex flex-col sm:flex-row flex-wrap gap-6 p-8 items-center justify-center dark:bg-neutral-90 min-h-screen">
-  
         {/* 1. Lucide Icon Button (Follow/Following) */}
         <MorphingButton
           initialLabel="Follow"
@@ -25,7 +36,7 @@ import {
           height="h-10 sm:h-12"
           iconSize={20}
         />
-  
+
         {/* 2. Auto-Revert Subscribe/Unsubscribe Button */}
         <MorphingButton
           initialLabel="Subscribe"
@@ -39,7 +50,7 @@ import {
           iconSize={18}
           duration={3000} // Auto revert after 3 seconds
         />
-  
+
         {/* 3. Like Button with no tap effect */}
         <MorphingButton
           initialLabel="Like"
@@ -52,7 +63,7 @@ import {
           height="h-10"
           disableTapEffect={true}
         />
-  
+
         {/* 4. Emoji instead of icons */}
         <MorphingButton
           initialLabel="Like"
@@ -64,7 +75,7 @@ import {
           width="w-32"
           height="h-10"
         />
-  
+
         {/* 5. Custom JSX (like image or SVG) */}
         <MorphingButton
           initialLabel=" Thumbs Up"
@@ -88,7 +99,7 @@ import {
           width="w-40"
           height="h-12"
         />
-  
+
         {/* 6. Force morph without click */}
         <MorphingButton
           initialLabel="Pending"
@@ -101,8 +112,7 @@ import {
           initialBgColor="bg-orange-400"
           morphedBgColor="bg-green-600"
         />
-  
       </div>
-    );
-  }
-  
+    </>
+  );
+}

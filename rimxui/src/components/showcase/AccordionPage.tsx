@@ -1,5 +1,6 @@
 import Accordion from "../Acoordion/accordion";
 import PreviewWrapper from "../PreviewWrapper";
+import { CliTabs } from "../CliTabs/CliTab";
 
 const faqItems = [
   {
@@ -28,6 +29,17 @@ export default function AccordionPage() {
   return (
     <div className="min-h-screen px-4 py-8 bg-white dark:bg-neutral-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
       <div className="max-w-2xl mx-auto">
+        <section id="#installation">
+          <h1 className="text-h4 mb-6">Installation</h1>
+          <CliTabs
+            commands={{
+              pnpm: "pnpm dlx shadcn@latest add http://rimxui.vercel.app/registry/accordion.json",
+              npm: "npx shadcn@latest add http://rimxui.vercel.app/registry/accordion.json",
+              bun: "bunx shadcn@latest add http://rimxui.vercel.app/registry/accordion.json",
+              yarn: "yarn dlx shadcn@latest add http://rimxui.vercel.app/registry/accordion.json",
+            }}
+          />
+        </section>
         <PreviewWrapper
           label="FAQ"
           variant="centered"
