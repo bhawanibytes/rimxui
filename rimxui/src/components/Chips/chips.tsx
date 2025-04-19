@@ -17,26 +17,40 @@ interface ChipProps {
 
 const chipColors: Record<ChipColor, Record<ChipVariant, string>> = {
   primary: {
-    filled: "bg-primary text-white dark:bg-primary-dark dark:text-white",
-    outlined: "border border-primary text-primary dark:border-primary-dark dark:text-primary",
-    soft: "bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary"
+    filled:
+      "bg-blue-600 text-white dark:bg-blue-500 dark:text-white",
+    outlined:
+      "border border-blue-600 text-blue-600 dark:border-blue-300 dark:text-blue-300",
+    soft:
+      "bg-blue-100 text-blue-800 dark:bg-blue-700 dark:text-blue-200"
   },
   secondary: {
-    filled: "bg-secondary text-white dark:bg-secondary-dark dark:text-white",
-    outlined: "border border-secondary text-secondary dark:border-secondary-dark dark:text-secondary",
-    soft: "bg-secondary/10 text-secondary dark:bg-secondary/20 dark:text-secondary"
+    filled:
+      "bg-purple-600 text-white dark:bg-purple-500 dark:text-white",
+    outlined:
+      "border border-purple-600 text-purple-600 dark:border-purple-300 dark:text-purple-300",
+    soft:
+      "bg-purple-100 text-purple-800 dark:bg-purple-700 dark:text-purple-200"
   },
   danger: {
-    filled: "bg-red-600 text-white dark:bg-red-700 dark:text-white",
-    outlined: "border border-red-600 text-red-600 dark:border-red-700 dark:text-red-600",
-    soft: "bg-red-100 text-red-600 dark:bg-red-200 dark:text-red-600"
+    filled:
+      "bg-red-600 text-white dark:bg-red-500 dark:text-white",
+    outlined:
+      "border border-red-600 text-red-600 dark:border-red-300 dark:text-red-300",
+    soft:
+      "bg-red-100 text-red-800 dark:bg-red-700 dark:text-red-200"
   },
   gray: {
-    filled: "bg-gray-600 text-white dark:bg-gray-700 dark:text-white",
-    outlined: "border border-gray-600 text-gray-600 dark:border-gray-700 dark:text-gray-600",
-    soft: "bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-gray-200"
+    filled:
+      "bg-neutral-600 text-white dark:bg-neutral-400 dark:text-neutral-900",
+    outlined:
+      "border border-neutral-600 text-neutral-700 dark:border-neutral-400 dark:text-neutral-300",
+    soft:
+      "bg-neutral-200 text-neutral-800 dark:bg-neutral-700 dark:text-neutral-200"
   }
 };
+
+
 
 const Chip = ({
   children,
