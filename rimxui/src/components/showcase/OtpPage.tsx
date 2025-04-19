@@ -1,4 +1,6 @@
 import OtpInput from "../Otp/otp";
+import PreviewWrapper from "../PreviewWrapper";
+import { CliTabs } from "../CliTabs/CliTab";
 
 export default function OTPPage() {
   const handleOTPComplete = (otp: string) => {
@@ -7,24 +9,71 @@ export default function OTPPage() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-50 dark:bg-neutral-900">
-      <div className="p-6 rounded-lg shadow-lg bg-white dark:bg-neutral-900">
-        <h2 className="text-xl font-semibold mb-4">Enter OTP</h2>
-        <OtpInput
-          length={6}
-          variant="circle"
-          onOTPComplete={handleOTPComplete}
+    <>
+      <section id="#installation">
+        <h1 className="text-h4 mb-6">Installation</h1>
+        <CliTabs
+          commands={{
+            pnpm: "pnpm dlx shadcn@latest add http://rimxui.vercel.app/registry/darkmode.json",
+            npm: "npx shadcn@latest add http://rimxui.vercel.app/registry/darkmode.json",
+            bun: "bunx shadcn@latest add http://rimxui.vercel.app/registry/darkmode.json",
+            yarn: "yarn dlx shadcn@latest add http://rimxui.vercel.app/registry/darkmode.json",
+          }}
         />
-        <OtpInput
-          length={6}
-          variant="large"
-          onOTPComplete={handleOTPComplete}
+      </section>
+      <div className="space-y-10 pb-16">
+        <PreviewWrapper
+          label="OTP Variant - Circle"
+          variant="centered"
+          preview={
+            <OtpInput
+              length={6}
+              variant="circle"
+              onOTPComplete={handleOTPComplete}
+            />
+          }
+          code={`<OtpInput length={6} variant="circle" onOTPComplete={handleOTPComplete} />`}
         />
-        <OtpInput length={6} onOTPComplete={handleOTPComplete} variant="glass" />
-        <OtpInput length={6} onOTPComplete={handleOTPComplete} variant="animated" />
 
+        <PreviewWrapper
+          label="OTP Variant - Large"
+          variant="centered"
+          preview={
+            <OtpInput
+              length={6}
+              variant="large"
+              onOTPComplete={handleOTPComplete}
+            />
+          }
+          code={`<OtpInput length={6} variant="large" onOTPComplete={handleOTPComplete} />`}
+        />
 
+        <PreviewWrapper
+          label="OTP Variant - Glass"
+          variant="centered"
+          preview={
+            <OtpInput
+              length={6}
+              variant="glass"
+              onOTPComplete={handleOTPComplete}
+            />
+          }
+          code={`<OtpInput length={6} variant="glass" onOTPComplete={handleOTPComplete} />`}
+        />
+
+        <PreviewWrapper
+          label="OTP Variant - Animated"
+          variant="centered"
+          preview={
+            <OtpInput
+              length={6}
+              variant="animated"
+              onOTPComplete={handleOTPComplete}
+            />
+          }
+          code={`<OtpInput length={6} variant="animated" onOTPComplete={handleOTPComplete} />`}
+        />
       </div>
-    </div>
+    </>
   );
 }
