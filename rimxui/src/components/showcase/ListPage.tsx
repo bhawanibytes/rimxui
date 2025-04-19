@@ -7,6 +7,7 @@ import {
   ShowcaseGuidelines,
   ShowcaseHeader,
 } from "./common";
+import { CliTabs } from "../CliTabs/CliTab";
 
 const ListPage = () => {
   const LIST_VARIANTS: Array<ListVariants> = [
@@ -690,6 +691,17 @@ const ListPage = () => {
 
   return (
     <div className="space-y-16 py-8">
+      <section id="#installation">
+        <h1 className="text-h4 mb-6">Installation</h1>
+        <CliTabs
+          commands={{
+            pnpm: "pnpm dlx shadcn@latest add http://rimxui.vercel.app/registry/inputform.json",
+            npm: "npx shadcn@latest add http://rimxui.vercel.app/registry/inputform.json",
+            bun: "bunx shadcn@latest add http://rimxui.vercel.app/registry/inputform.json",
+            yarn: "yarn dlx shadcn@latest add http://rimxui.vercel.app/registry/inputform.json",
+          }}
+        />
+      </section>
       {renderIntroduction()}
       {renderVariants()}
       {renderSizes()}
