@@ -8,10 +8,10 @@ const CliTabPage = () => {
         <h1 className="text-h4 mb-6">Installation</h1>
         <CliTabs
           commands={{
-            pnpm: "pnpm dlx shadcn@latest add http://rimxui.vercel.app/registry/clitab.json",
-            npm: "npx shadcn@latest add http://rimxui.vercel.app/registry/clitab.json",
-            bun: "bunx shadcn@latest add http://rimxui.vercel.app/registry/clitab.json",
-            yarn: "yarn dlx shadcn@latest add http://rimxui.vercel.app/registry/clitab.json",
+            pnpm: "pnpm dlx shadcn@latest add http://rimxui.vercel.app/registry/clitabs.json",
+            npm: "npx shadcn@latest add http://rimxui.vercel.app/registry/clitabs.json",
+            bun: "bunx shadcn@latest add http://rimxui.vercel.app/registry/clitabs.json",
+            yarn: "yarn dlx shadcn@latest add http://rimxui.vercel.app/registry/clitabs.json",
           }}
         />
       </section>
