@@ -3,7 +3,7 @@ import { Check, Copy } from "lucide-react";
 
 export  function CliTabs({ commands } : { commands: { [key: string]: string } }) {
   const tabList = Object.keys(commands);
-  const [activeTab, setActiveTab] = useState(tabList[0]);
+  const [activeTab, setActiveTab] = useState(tabList[1]);
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
