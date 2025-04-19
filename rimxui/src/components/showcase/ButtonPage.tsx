@@ -40,12 +40,19 @@ const ButtonPage = () => {
             code={`
 import { Button } from "@/components/ui/button"
 
-<Button label="Default" />
-<Button variant="secondary" label="Secondary" />
-<Button variant="outline" label="Outline" />
-<Button variant="destructive" label="Destructive" />
-<Button variant="withIcon" icon="settings" label="Settings" />
-<Button variant="icon" icon="settings" />`}
+function buttons () {
+return (
+  <div className="flex flex-wrap items-center gap-4">
+    <Button label="Default" />
+    <Button variant="secondary" label="Secondary" />
+    <Button variant="outline" label="Outline" />
+    <Button variant="destructive" label="Destructive" />
+    <Button variant="withIcon" icon="settings" label="Settings" />
+    <Button variant="icon" icon="settings" />
+  </div>
+  )
+}
+`}
           />
 
           <PreviewWrapper
@@ -61,9 +68,15 @@ import { Button } from "@/components/ui/button"
             code={`
 import { Button } from "@/components/ui/button"
 
-<Button size="sm" label="Small" />
-<Button size="md" label="Default" />
-<Button size="lg" label="Large" />`}
+function buttons () {
+return (
+  <div className="flex flex-wrap items-center gap-4">
+    <Button size="sm" label="Small" />
+    <Button size="md" label="Default" />
+    <Button size="lg" label="Large" />
+  </div>
+  )
+`}
           />
 
           <PreviewWrapper
@@ -86,10 +99,24 @@ import { Button } from "@/components/ui/button"
             }
             code={`
 import { Button } from "@/components/ui/button"
-
-<Button variant="withIcon" icon="mail" label="Login with Email" />
-<Button variant="withIcon" icon="github" label="Login with Github" />
-<Button variant="withIcon" icon="settings" label="Settings" variant="outline" />`}
+function buttons () {
+return (
+  <div className="flex flex-wrap items-center gap-4">
+    <Button
+    variant="withIcon"
+    icon="mail"
+    label="Login with Email"
+    />
+    <Button
+    variant="withIcon"
+    icon="github"
+    label="Login with Github"
+    />
+    <Button variant="withIcon" icon="settings" label="Settings" />
+  </div>
+    )
+  }
+`}
           />
 
           <PreviewWrapper
@@ -105,10 +132,17 @@ import { Button } from "@/components/ui/button"
             code={`
 import { Button } from "@/components/ui/button"
 
-<Button variant="icon" icon="settings" />
-<Button variant="icon" icon="bell" />
-<Button variant="icon" icon="trash" variant="destructive" />`}
-          />
+function buttons () {
+return (
+  <div className="flex flex-wrap items-center gap-4">
+    <Button variant="icon" icon="settings" />
+    <Button variant="icon" icon="bell" />
+    <Button variant="destructive" />
+  </div>
+  )
+}
+`}
+/>
 
           <PreviewWrapper
             label="Loading State"
@@ -122,10 +156,15 @@ import { Button } from "@/components/ui/button"
             }
             code={`
 import { Button } from "@/components/ui/button"
-
-<Button disabled label="Disabled" />
-<Button variant="withIcon" icon="loader" disabled label="Please wait" />
-<Button variant="outline" disabled label="Outline disabled" />`}
+function buttons () {
+return (
+  <div className="flex flex-wrap items-center gap-4">
+    <Button label="Disabled" />
+    <Button variant="withIcon" icon="loader" label="Please wait" />
+    <Button variant="outline" label="Outline disabled" />
+  </div>
+  )
+`}
           />
         </div>
 
