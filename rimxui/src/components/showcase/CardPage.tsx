@@ -5,6 +5,7 @@ import {
   CardFooter,
   CardTitle,
 } from "../Cards/Card";
+import { CliTabs } from "../CliTabs/CliTab";
 import PreviewWrapper from "../PreviewWrapper";
 
 export const CardPage = () => {
@@ -22,6 +23,17 @@ export const CardPage = () => {
           format with various styles and customizations.
         </p>
       </div>
+      <section id="#installation">
+        <h1 className="text-h4 mb-6">Installation</h1>
+        <CliTabs
+          commands={{
+            pnpm: "pnpm dlx shadcn@latest add http://rimxui.vercel.app/registry/cards.json",
+            npm: "npx shadcn@latest add http://rimxui.vercel.app/registry/cards.json",
+            bun: "bunx shadcn@latest add http://rimxui.vercel.app/registry/cards.json",
+            yarn: "yarn dlx shadcn@latest add http://rimxui.vercel.app/registry/cards.json",
+          }}
+        />
+      </section>
 
       <PreviewWrapper
         label="Basic Card"
