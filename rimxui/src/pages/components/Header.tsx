@@ -1,80 +1,134 @@
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
 import Chip from "@/components/Chips/chips";
-import DarkModeToggle from "@/components/DarkMode/dark";
-import { Github, Menu, X } from "lucide-react";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleMenu = () => setIsOpen(!isOpen);
+import DarkModeToggle from "@/components/DarkMode/dark";
+
+const Header: React.FC = () => {
+  // const { theme, toggleTheme } = useTheme();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: "Features", href: "#features" },
+    { name: "Components", href: "/docs" },
+    { name: "Documentation", href: "/docs" },
+    { name: "Examples", href: "#examples" },
+  ];
 
   return (
-    <header className="z-50">
-      <p className="w-full dark:text-black text-center bg-blue-200 py-1">
-        This site is currently in Beta version 🚀
-      </p>
+    <motion.header
+      className={` fixed top-0 w-full z-50 px-4 md:px-8 py-4 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white/80 dark:bg-transparent backdrop-blur-md shadow-sm"
+          : "bg-transparent"
+      }`}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="max-w-7xl mx-auto flex justify-between items-center ">
+        <motion.div
+          className="flex items-center space-x-2"
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+        >
+          <span className="bg-gradient-to-b from-zinc-900 to-zinc-500 dark:from-zinc-200 dark:to-zinc-900 bg-clip-text text-transparent font-bold">
+            R<span className="text-red-500 drop-shadow-md">i</span>MX UI
+          </span>
+          <Chip color="gray">version 1.0.0 🔥</Chip>
+        </motion.div>
 
-      <nav className="  text-white w-full ">
-        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between md:justify-around">
-          <Link
-            to={"/"}
-            className="text-xl bg-gradient-to-b from-zinc-300 to-zinc-900 bg-clip-text text-transparent"
-          >
-            R<span className="text-red-500">i</span>MX UI{" "}
-            <Chip>version 1.0.0 🔥</Chip>
-          </Link>
-          <Link
-            to={"/"}
-            className="text-xl bg-gradient-to-b from-zinc-300 to-zinc-900 bg-clip-text text-transparent"
-          >
-            R<span className="text-red-500">i</span>MX UI{" "}
-            <Chip>version 1.0.0 🔥</Chip>
-          </Link>
-
-          <div className="hidden md:flex items-center gap-6">
-            <Link
-              to={"/docs"}
-              className="hover:text-blue-500 dark:text-gray-300 text-gray-600"
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-8">
+          {navLinks.map((link) => (
+            <motion.div
+              key={link.name}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              Docs
-            </Link>
-            <Link
-              to={"/docs"}
-              className="hover:text-blue-500 dark:text-gray-300 text-gray-600"
-            >
-              Components
-            </Link>
-            <DarkModeToggle variant="switch" />
-            <Chip color="gray">
-              <Link to={""}>
-                <Github className="w-4 h-4" />
+              <Link
+                to={link.href}
+                className="font-medium text-gray-700 dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+              >
+                {link.name}
               </Link>
-            </Chip>
-          </div>
+            </motion.div>
+          ))}
+          <motion.button
+            // onClick={toggleTheme}
+            className="p-2 rounded-full bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors"
+            whileHover={{ rotate: 15, scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label="Toggle theme"
+          >
+            <DarkModeToggle darkIcon="☀️" lightIcon="🌑" />
+          </motion.button>
+        </nav>
 
-          <div className="md:hidden">
-            <button onClick={toggleMenu} className="text-gray-700">
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+        {/* Mobile Menu Button */}
+        <div className="md:hidden flex items-center space-x-4">
+          <motion.button
+            // onClick={toggleTheme}
+            className="p-1 rounded-full bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label="Toggle theme"
+          >
+            <DarkModeToggle darkIcon="☀️" lightIcon="🌑" />
+          </motion.button>
+          <motion.button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            whileTap={{ scale: 0.9 }}
+            className="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors"
+            aria-label="Open menu"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </motion.button>
         </div>
+      </div>
 
-        {isOpen && (
-          <div className="md:hidden px-4 pb-4 space-y-2 text-gray-700">
-            <Link to={"/docs"} className="block hover:text-blue-500">
-              Docs
-            </Link>
-            <Link to={"/showcase"} className="block hover:text-blue-500">
-              Components
-            </Link>
-
-            <button className="w-full mt-2 bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
-              <Link to={"/showcase"}> Get Started</Link>
-            </button>
-          </div>
-        )}
-      </nav>
-    </header>
+      {/* Mobile Menu */}
+      <motion.div
+        className={`md:hidden ${isMobileMenuOpen ? "block" : "hidden"}`}
+        initial={{ opacity: 0, height: 0 }}
+        animate={
+          isMobileMenuOpen
+            ? { opacity: 1, height: "auto" }
+            : { opacity: 0, height: 0 }
+        }
+        transition={{ duration: 0.3 }}
+      >
+        <div className="mt-4 py-2 bg-white dark:bg-slate-900 rounded-lg shadow-lg">
+          {navLinks.map((link) => (
+            <motion.div key={link.name} whileTap={{ scale: 0.98 }}>
+              <Link
+                to={link.href}
+                className="block px-4 py-3 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.name}
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    </motion.header>
   );
 };
 

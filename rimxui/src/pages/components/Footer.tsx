@@ -1,10 +1,11 @@
-import Chip from "@/components/Chips/chips";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import React from "react";
+import { Github, Twitter, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
+import Chip from "@/components/Chips/chips";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
-    <footer className="relative z-10 backdrop-blur-xl bg-white/10 dark:bg-zinc-900/30 border-t border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300 py-10 mt-20 rounded-t-2xl shadow-2xl">
+    <footer className="relative z-10 backdrop-blur-xl bg-white/10 dark:bg-black border-t border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300 py-10   shadow-2xl">
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
         {/* Branding */}
         <div>
@@ -27,12 +28,12 @@ const Footer = () => {
           </h3>
           <ul className="text-sm space-y-1">
             <li>
-              <Link to="/showcase" className="hover:underline">
+              <Link to="/docs" className="hover:underline">
                 Components
               </Link>
             </li>
             <li>
-              <Link to="#docs" className="hover:underline">
+              <Link to="/docs" className="hover:underline">
                 Documentation
               </Link>
             </li>
