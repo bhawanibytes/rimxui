@@ -1,46 +1,20 @@
-import { useEffect, useState } from "react";
+import React from "react";
+import { useTheme } from "./ThemeProvider"
 
 interface DarkModeToggleProps {
-  variant?: "icon" | "switch" | "text"; // Define the variant types
+  variant?: "icon" | "switch" | "text";
   lightIcon?: string;
   darkIcon?: string;
   className?: string;
-  remember?: boolean;
-  onToggle?: (isDark: boolean) => void;
 }
 
 const DarkModeToggle: React.FC<DarkModeToggleProps> = ({
-  variant = "icon", // Default to "icon"
+  variant = "icon",
   lightIcon = "🌞",
   darkIcon = "🌙",
   className = "",
-  remember = true,
-  onToggle,
 }) => {
-  const [isDark, setIsDark] = useState<boolean>(() => {
-    if (typeof window !== "undefined") {
-      return (
-        (remember && localStorage.theme === "dark") ||
-        (!("theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      );
-    }
-    return false;
-  });
-
-  useEffect(() => {
-    const root = document.documentElement;
-    if (isDark) {
-      root.classList.add("dark");
-      if (remember) localStorage.setItem("theme", "dark");
-    } else {
-      root.classList.remove("dark");
-      if (remember) localStorage.setItem("theme", "light");
-    }
-    onToggle?.(isDark);
-  }, [isDark, remember, onToggle]);
-
-  const toggle = () => setIsDark((prev) => !prev);
+  const { isDark, toggleTheme } = useTheme();
 
   const renderContent = () => {
     if (variant === "switch") {
@@ -73,7 +47,7 @@ const DarkModeToggle: React.FC<DarkModeToggleProps> = ({
 
   return (
     <button
-      onClick={toggle}
+      onClick={toggleTheme}
       className={`group flex items-center justify-center p-2 rounded-full transition duration-300 hover:bg-neutral-200 dark:hover:bg-neutral-700 active:scale-95 ${className}`}
       aria-label="Toggle Dark Mode"
     >
